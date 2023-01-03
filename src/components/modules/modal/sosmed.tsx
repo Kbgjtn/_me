@@ -1,5 +1,3 @@
-import React from "react";
-
 const Sosmed = (props: PropsSosmedArgs) => {
 	console.log(props);
 	return props.isHover ? (
