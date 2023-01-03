@@ -26,7 +26,7 @@ function Man() {
 			<rect width="320" height="320" fill="url(#pattern2)" />
 			<mask
 				id="mask1_111_191"
-				style={"mask-type:alpha"
+				style={{ maskType: "alpha" }}
 				maskUnits="userSpaceOnUse"
 				x="0"
 				y="0"
