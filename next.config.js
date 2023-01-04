@@ -14,6 +14,10 @@ const securityHeaders = [
 		value: "on",
 	},
    {
+      key: "Access-Control-Allow-Origin",
+      value: "https://www.coocobolo.com",
+   },
+   {
       key: 'Permissions-Policy',
       value: 'camera=(), microphone=(), geolocation=(), browsing-topics=()'
    },
