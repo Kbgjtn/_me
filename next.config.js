@@ -14,6 +14,10 @@ const securityHeaders = [
 		value: "on",
 	},
    {
+      key: 'Permissions-Policy',
+      value: 'camera=(), microphone=(), geolocation=(), browsing-topics=()'
+   },
+   {
       key: "Server",
       value: "coocobolo",
    },
