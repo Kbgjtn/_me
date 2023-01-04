@@ -10,13 +10,14 @@ export default function Home() {
 				<meta name="description" content="Hi, here i'm daffa" />
 				<meta
 					name="viewport"
-					content="width=device-width, initial-scale=1"
+					content="width=device-width, initial-scale=1.0"
 				/>
+				<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 				<link rel="icon" href="/tortuga.ico" />
 			</Head>
 			<main className="w-screen h-screen">
 				<Me />
-				<Book />
+				{/* <Book /> */}
 			</main>
 		</>
 	);

@@ -3,9 +3,9 @@ import projectsBackground from "../../../assets/images/projects-bg-me.png";
 
 const Book = () => {
 	return (
-		<div className="w-full h-full bg-black flex flex-auto">
+		<div className="w-full h-full flex bg-black">
 			<Image
-				className="w-full h-auto bg-no-repeat"
+				className="fixed w-full h-auto bg-no-repeat bg-cover"
 				src={projectsBackground}
 				alt=""
 				draggable={"false"}

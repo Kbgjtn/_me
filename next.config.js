@@ -45,10 +45,10 @@ const securityHeaders = [
 		key: "Referrer-Policy",
 		value: "no-referrer",
 	},
-	{
-		key: "Content-Security-Policy",
-		value: ContentSecurityPolicy.replace(/\s{2,}/g, " ").trim(),
-	},
+	// {
+	// 	key: "Content-Security-Policy",
+	// 	value: ContentSecurityPolicy.replace(/\s{2,}/g, " ").trim(),
+	// },
 ];
 
 const nextConfig = {
