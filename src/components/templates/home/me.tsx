@@ -35,10 +35,7 @@ const Me = () => {
 				onContextMenu={(e) => e.preventDefault()}
 			/>
 			<NavBar />
-			<div
-				className="inline-flex absolute justify-center items-center flex-col w-full h-full m-0-auto"
-				// className="flex absolute self-center items-center justify-center flex-col w-full h-full max-h-full"
-			>
+			<div className="inline-flex absolute justify-center items-center flex-col w-full h-full m-0-auto">
 				<div className="flex w-full max-h-auto h-auto self-center relative flex-col justify-center items-center">
 					<div>
 						<Image
@@ -60,14 +57,14 @@ const Me = () => {
 						/>
 					</div>
 					<div
-						className="inline-flex items-center justify-center overflow-hidden p-1 w-48 h-auto sm:w-64 md:w-auto lg:w-auto xl:w-auto scale-110 2xl:w-auto scale-120"
+						className="inline-flex items-center justify-center overflow-hidden p-0 w-48 h-auto sm:w-64 md:w-auto lg:w-auto xl:w-auto scale-110 2xl:w-auto scale-120"
 						onContextMenu={(e) => e.preventDefault()}>
 						<Mac />
 					</div>
 
 					{isHoverMe ? (
 						<motion.div
-							className="flex absolute items-center justify-center top-0 left-2/3 overflow-hidden"
+							className="flex absolute z-10 items-center justify-center bottom-40 -translate-y-48  sm:-translate-y-64 md:-translate-y-72 xl:-translate-y-72 lg:-translate-y-72 2xl:-translate-y-72"
 							initial="hidden"
 							animate="visible"
 							exit="exit">
@@ -75,19 +72,20 @@ const Me = () => {
 								className="flex gap-0 fixed"
 								variants={transitionShodowCardInfo}>
 								<div
-									className="p-8 absolute rounded-t-lg rounded-r-3xl rounded-l-full rounded-b-lg top-0 right-12"
+									className="p-6 absolute rounded-t-lg rounded-r-3xl rounded-l-full rounded-b-lg top-0 right-12 sm:p-4"
+									// className="p-8 absolute rounded-t-lg rounded-r-3xl rounded-l-full rounded-b-lg top-0 right-12"
 									style={{
 										background: "rgba(225, 225, 225, .8)",
 										filter: "blur(48.5)",
 									}}></div>
 								<div
-									className="p-8 absolute rounded-t-lg rounded-r-3xl rounded-l-full rounded-b-lg top-0 right-2"
+									className="p-6 absolute rounded-t-lg rounded-r-3xl rounded-l-full rounded-b-lg top-0 right-2 sm:p-4"
 									style={{
 										background: "#252525",
 										filter: "blur(48.5)",
 									}}></div>
 								<div
-									className="p-8 absolute rounded-t-lg rounded-r-3xl rounded-l-full rounded-b-lg bottom-1 right-12"
+									className="p-6 absolute rounded-t-lg rounded-r-3xl rounded-l-full rounded-b-lg bottom-1 right-12 sm:p-4"
 									style={{
 										background: "rgba(234, 21, 225, .8)",
 										filter: "blur(40.5)",
@@ -95,13 +93,14 @@ const Me = () => {
 							</motion.div>
 							<motion.div
 								variants={transitionCardInfo}
-								className="inline-flex self-center w-80 h-44 justify-center items-center px-6"
+								className="inline-flex self-center w-64 h-auto justify-center items-center p-6 sm:w-72 md:w-80 lg:w-80 xl:w-80 2xl:w-80"
+								// className="inline-flex self-center w-80 h-44 justify-center items-center px-6"
 								style={{
 									borderRadius: "50px",
 									background: "rgba(0, 0, 0, 0.5)",
-									backdropFilter: "blur(40px)",
+									backdropFilter: "blur(30px)",
 								}}>
-								<p className=" font-normal text-lg text-center">
+								<p className=" font-normal text-xs text-center sm:text-lg md:text-lg lg:text-lg xl:text-lg 2xl:text-lg">
 									{`hii, i'm Naufal Daffa Ryquelme nice to know you, budz!!:))`}
 								</p>
 							</motion.div>
@@ -128,9 +127,9 @@ const Me = () => {
 export default Me;
 
 const transitionCardInfo = {
-	hidden: { x: 800, opacity: 0 },
+	hidden: { y: 50, opacity: 0 },
 	visible: {
-		x: 0,
+		y: 0,
 		opacity: 1,
 		transition: {
 			type: "spring",
@@ -138,11 +137,11 @@ const transitionCardInfo = {
 			damping: 40,
 		},
 	},
-	exit: { x: 200, opacity: 0 },
+	exit: { y: 50, opacity: 0 },
 };
 
 const transitionShodowCardInfo = {
-	hidden: { y: -30, opacity: 0 },
+	hidden: { y: -10, opacity: 0 },
 	visible: {
 		y: 0,
 		opacity: 1,
@@ -153,5 +152,5 @@ const transitionShodowCardInfo = {
 			damping: 40,
 		},
 	},
-	exit: { y: 100, opacity: 0 },
+	exit: { y: 10, opacity: 0 },
 };
