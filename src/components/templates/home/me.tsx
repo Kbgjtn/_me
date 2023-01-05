@@ -1,6 +1,13 @@
-import { motion } from "framer-motion";
+import {
+	motion,
+	MotionConfigProps,
+	MotionProps,
+	MotionStyle,
+	MotionTransform,
+	MotionValue,
+} from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import mainBackground from "../../../assets/images/home-bg-me.png";
 import Mac from "../../../assets/images/Mac";
 import meAsMan from "../../../assets/images/Western-Man-me.png";
@@ -17,11 +24,7 @@ const Me = () => {
 	};
 
 	return (
-		<motion.div
-			className="w-full h-full flex flex-shrink-1 flex-col overflow-hidden"
-			initial="hidden"
-			animate="visible"
-			exit="exit">
+		<motion.div className="w-full h-full flex flex-shrink-1 flex-col overflow-hidden">
 			<Image
 				className="inline-flex object-cover z-0 min-h-full min-w-full h-screen w-screen"
 				src={mainBackground}
@@ -33,9 +36,7 @@ const Me = () => {
 			/>
 			<NavBar />
 			<div className="inline-flex absolute justify-center items-center flex-col w-full h-full m-0-auto">
-				<motion.div
-					className="flex w-full max-h-auto h-auto self-center relative flex-col justify-center items-center"
-					variants={transitionCardInfo}>
+				<div className="flex w-full max-h-auto h-auto self-center relative flex-col justify-center items-center">
 					<div>
 						<Image
 							className="inline-flex noselect w-48 h-auto sm:w-64 md:w-64 lg:w-72 xl:w-80 2xl:w-auto"
@@ -101,47 +102,25 @@ const Me = () => {
 							</motion.div>
 						</motion.div>
 					) : null}
-				</motion.div>
-				<motion.div
-					className="inline-flex flex-col w-full h-auto relative self-end justify-self-end m-0-auto justify-start items-center overflow-hidden"
-					variants={transtionListItem}>
+				</div>
+				<motion.div className="inline-flex flex-col w-full h-auto relative self-end justify-self-end m-0-auto justify-start items-center overflow-hidden">
 					<h1 className="inline-flex font-extrabold m-0-auto text-7xl sm:text-8xl md:text-10xl lg:text-12xl xl:text-14xl 2xl:text-16xl">
 						Daffa.r
 					</h1>
-					<motion.div
+					<div
 						className="inline-flex noselect self-center w-full h-0 rounded-full text-center bg-black justify-self-center"
 						draggable={false}
-						initial={{ x: 15, opacity: 0 }}
-						animate={{ x: 0, opacity: 1 }}
-						transition={{ delay: 1, stiffness: 250, damping: 10 }}
 						style={{
 							boxShadow:
 								"0px -80px 70px 20px rgb(28, 28, 28, 0.7)",
 							// tablet min-w-768px 0px -26px 70px 28px #1c1c1c
-						}}></motion.div>
+						}}></div>
 				</motion.div>
 			</div>
 		</motion.div>
 	);
 };
 export default Me;
-
-const transtionListItem = {
-	hidden: {
-		y: "30px",
-		opacity: 0,
-	},
-	visible: {
-		y: 0,
-		opacity: 1,
-		transition: {
-			delay: 0.5,
-			stiffness: 250,
-			damping: 10,
-		},
-	},
-	exit: { y: 20, opacity: 0 },
-};
 
 const transitionCardInfo = {
 	hidden: { y: 50, opacity: 0 },
