@@ -68,20 +68,20 @@ const Me = () => {
 								className="flex gap-0 fixed"
 								variants={transitionShodowCardInfo}>
 								<div
-									className="p-6 absolute rounded-t-lg rounded-r-3xl rounded-l-full rounded-b-lg top-0 right-12 sm:p-4"
+									className="p-6 absolute rounded-t-lg rounded-r-3xl rounded-l-full rounded-b-lg top-0 right-12 "
 									// className="p-8 absolute rounded-t-lg rounded-r-3xl rounded-l-full rounded-b-lg top-0 right-12"
 									style={{
 										background: "rgba(225, 225, 225, .8)",
 										filter: "blur(48.5)",
 									}}></div>
 								<div
-									className="p-6 absolute rounded-t-lg rounded-r-3xl rounded-l-full rounded-b-lg top-0 right-2 sm:p-4"
+									className="p-6 absolute rounded-t-lg rounded-r-3xl rounded-l-full rounded-b-lg top-0 right-2 "
 									style={{
 										background: "#252525",
 										filter: "blur(48.5)",
 									}}></div>
 								<div
-									className="p-6 absolute rounded-t-lg rounded-r-3xl rounded-l-full rounded-b-lg bottom-1 right-12 sm:p-4"
+									className="p-6 absolute rounded-t-lg rounded-r-3xl rounded-l-full rounded-b-lg bottom-1 right-12 "
 									style={{
 										background: "rgba(234, 21, 225, .8)",
 										filter: "blur(40.5)",
@@ -89,14 +89,14 @@ const Me = () => {
 							</motion.div>
 							<motion.div
 								variants={transitionCardInfo}
-								className="inline-flex self-center w-64 h-auto justify-center items-center p-4 sm:w-72 md:w-80 lg:w-80 xl:w-80 2xl:w-80"
+								className="inline-flex self-center w-72 h-auto justify-center items-center p-4 sm:w-72 md:w-80 lg:w-80 xl:w-80 2xl:w-80"
 								// className="inline-flex self-center w-80 h-44 justify-center items-center px-6"
 								style={{
 									borderRadius: "50px",
 									background: "rgba(0, 0, 0, 0.5)",
 									backdropFilter: "blur(30px)",
 								}}>
-								<p className=" font-normal text-xs text-center sm:text-lg md:text-lg lg:text-lg xl:text-lg 2xl:text-lg">
+								<p className=" font-normal text-lg text-center sm:text-lg md:text-lg lg:text-lg xl:text-lg 2xl:text-lg">
 									{`hii, i'm Naufal Daffa Ryquelme nice to know you, budz!!:))`}
 								</p>
 							</motion.div>
