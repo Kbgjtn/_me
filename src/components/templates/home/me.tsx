@@ -141,7 +141,7 @@ const transitionCardInfo = {
 };
 
 const transitionShodowCardInfo = {
-	hidden: { y: -10, opacity: 0 },
+	hidden: { y: 0, opacity: 0 },
 	visible: {
 		y: 0,
 		opacity: 1,
@@ -152,5 +152,5 @@ const transitionShodowCardInfo = {
 			damping: 40,
 		},
 	},
-	exit: { y: 10, opacity: 0 },
+	exit: { x: 10, opacity: 0 },
 };
