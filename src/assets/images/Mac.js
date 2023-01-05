@@ -254,8 +254,8 @@ export default function Mac() {
 					width="230.799"
 					height="145.611"
 					filterUnits="userSpaceOnUse"
-					color-interpolation-filters="sRGB">
-					<feFlood flood-opacity="0" result="BackgroundImageFix" />
+					colorInterpolationFilters="sRGB">
+					<feFlood floodOpacity="0" result="BackgroundImageFix" />
 					<feBlend
 						mode="normal"
 						in="SourceGraphic"
@@ -316,11 +316,11 @@ export default function Mac() {
 					x2="116"
 					y2="142"
 					gradientUnits="userSpaceOnUse">
-					<stop stop-color="#97989C" stop-opacity="0" />
-					<stop offset="0.0625" stop-color="#8E8F93" />
-					<stop offset="0.125" stop-color="#86878B" />
-					<stop offset="0.255208" stop-color="#747578" />
-					<stop offset="1" stop-color="#0E0E10" />
+					<stop stopColor="#97989C" stopOpacity="0" />
+					<stop offset="0.0625" stopColor="#8E8F93" />
+					<stop offset="0.125" stopColor="#86878B" />
+					<stop offset="0.255208" stopColor="#747578" />
+					<stop offset="1" stopColor="#0E0E10" />
 				</linearGradient>
 				<linearGradient
 					id="paint1_linear_109_66"
@@ -329,8 +329,8 @@ export default function Mac() {
 					x2="116.169"
 					y2="86.7308"
 					gradientUnits="userSpaceOnUse">
-					<stop stop-color="#2B2C2E" stop-opacity="0.71" />
-					<stop offset="1" stop-color="#222325" />
+					<stop stopColor="#2B2C2E" stopOpacity="0.71" />
+					<stop offset="1" stopColor="#222325" />
 				</linearGradient>
 				<linearGradient
 					id="paint2_linear_109_66"
@@ -339,8 +339,8 @@ export default function Mac() {
 					x2="129.975"
 					y2="72.6467"
 					gradientUnits="userSpaceOnUse">
-					<stop stop-color="#D6D7DB" />
-					<stop offset="1" stop-color="#6C6D71" />
+					<stop stopColor="#D6D7DB" />
+					<stop offset="1" stopColor="#6C6D71" />
 				</linearGradient>
 				<linearGradient
 					id="paint3_linear_109_66"
@@ -349,8 +349,8 @@ export default function Mac() {
 					x2="7.1537"
 					y2="31.1476"
 					gradientUnits="userSpaceOnUse">
-					<stop stop-color="#E9EAEC" />
-					<stop offset="1" stop-color="#707175" />
+					<stop stopColor="#E9EAEC" />
+					<stop offset="1" stopColor="#707175" />
 				</linearGradient>
 				<clipPath id="clip0_109_66">
 					<rect

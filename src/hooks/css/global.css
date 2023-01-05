@@ -12,6 +12,10 @@
 	color: #161716;
 }
 
+.bg-new-black-2 {
+	color: rgba(0, 0, 0, 0.54);
+}
+
 html {
 	box-sizing: border-box;
 	scroll-behavior: smooth;

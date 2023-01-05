@@ -1,12 +1,28 @@
+import {
+	motion,
+	MotionConfigProps,
+	MotionProps,
+	MotionStyle,
+	MotionTransform,
+	MotionValue,
+} from "framer-motion";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import mainBackground from "../../../assets/images/home-bg-me.png";
 import Mac from "../../../assets/images/Mac";
-import MyMac from "../../../assets/images/MacBook.svg";
-import Man from "../../../assets/images/Man";
 import meAsMan from "../../../assets/images/Western-Man-me.png";
 import NavBar from "../../modules/navbar/navbar";
 
 const Me = () => {
+	const [isHoverMe, setIsHoverMe] = useState(false);
+
+	const handleMouseEnterHoverMe = () => {
+		setIsHoverMe(true);
+	};
+	const handleMouseLeaveHoverMe = () => {
+		setIsHoverMe(false);
+	};
+
 	return (
 		<div className="w-full h-full flex flex-shrink-1 flex-col overflow-hidden">
 			<Image
@@ -24,26 +40,75 @@ const Me = () => {
 				// className="flex absolute self-center items-center justify-center flex-col w-full h-full max-h-full"
 			>
 				<div className="flex w-full max-h-auto h-auto self-center relative flex-col justify-center items-center">
-					<Image
-						className="inline-flex noselect w-48 h-auto sm:w-64 md:w-64 lg:w-72 xl:w-80 2xl:w-auto"
-						src={meAsMan}
-						alt="me as men"
-						draggable={false}
-						referrerPolicy={"strict-origin-when-cross-origin"}
-						quality={100}
-						onContextMenu={(e) => e.preventDefault()}
-					/>
-
+					<div>
+						<Image
+							className="inline-flex noselect w-48 h-auto sm:w-64 md:w-64 lg:w-72 xl:w-80 2xl:w-auto"
+							src={meAsMan}
+							alt="me as men"
+							draggable={false}
+							referrerPolicy={"strict-origin-when-cross-origin"}
+							quality={100}
+							onMouseEnter={(e) => {
+								e.preventDefault();
+								handleMouseEnterHoverMe();
+							}}
+							onMouseLeave={(e) => {
+								e.preventDefault();
+								handleMouseLeaveHoverMe();
+							}}
+							onContextMenu={(e) => e.preventDefault()}
+						/>
+					</div>
 					<div
-						className="inline-flex items-center justify-center overflow-hidden w-48 h-auto sm:w-64 md:w-auto lg:w-auto xl:w-auto scale-110 2xl:w-auto scale-120"
+						className="inline-flex items-center justify-center overflow-hidden p-1 w-48 h-auto sm:w-64 md:w-auto lg:w-auto xl:w-auto scale-110 2xl:w-auto scale-120"
 						onContextMenu={(e) => e.preventDefault()}>
 						<Mac />
 					</div>
+
+					{isHoverMe ? (
+						<motion.div
+							className="flex absolute items-center justify-center top-0 left-2/3 overflow-hidden"
+							initial="hidden"
+							animate="visible"
+							exit="exit">
+							<motion.div
+								className="flex gap-0 fixed"
+								variants={transitionShodowCardInfo}>
+								<div
+									className="p-8 absolute rounded-t-lg rounded-r-3xl rounded-l-full rounded-b-lg top-0 right-12"
+									style={{
+										background: "rgba(225, 225, 225, .8)",
+										filter: "blur(48.5)",
+									}}></div>
+								<div
+									className="p-8 absolute rounded-t-lg rounded-r-3xl rounded-l-full rounded-b-lg top-0 right-2"
+									style={{
+										background: "#252525",
+										filter: "blur(48.5)",
+									}}></div>
+								<div
+									className="p-8 absolute rounded-t-lg rounded-r-3xl rounded-l-full rounded-b-lg bottom-1 right-12"
+									style={{
+										background: "rgba(234, 21, 225, .8)",
+										filter: "blur(40.5)",
+									}}></div>
+							</motion.div>
+							<motion.div
+								variants={transitionCardInfo}
+								className="inline-flex self-center w-80 h-44 justify-center items-center px-6"
+								style={{
+									borderRadius: "50px",
+									background: "rgba(0, 0, 0, 0.5)",
+									backdropFilter: "blur(40px)",
+								}}>
+								<p className=" font-normal text-lg text-center">
+									{`hii, i'm Naufal Daffa Ryquelme nice to know you, budz!!:))`}
+								</p>
+							</motion.div>
+						</motion.div>
+					) : null}
 				</div>
-				<div
-					className="inline-flex flex-col w-full h-auto relative self-end justify-self-end m-0-auto justify-start items-center overflow-hidden"
-					// className="inline-flex self-center items-center justify-center flex-col py-12"
-				>
+				<div className="inline-flex flex-col w-full h-auto relative self-end justify-self-end m-0-auto justify-start items-center overflow-hidden">
 					<h1 className="inline-flex font-extrabold m-0-auto text-7xl sm:text-8xl md:text-10xl lg:text-12xl xl:text-14xl 2xl:text-16xl">
 						Daffa.r
 					</h1>
@@ -61,3 +126,32 @@ const Me = () => {
 	);
 };
 export default Me;
+
+const transitionCardInfo = {
+	hidden: { x: 800, opacity: 0 },
+	visible: {
+		x: 0,
+		opacity: 1,
+		transition: {
+			type: "spring",
+			stiffness: 260,
+			damping: 40,
+		},
+	},
+	exit: { x: 200, opacity: 0 },
+};
+
+const transitionShodowCardInfo = {
+	hidden: { y: -30, opacity: 0 },
+	visible: {
+		y: 0,
+		opacity: 1,
+		transition: {
+			delay: 0.5,
+			type: "spring",
+			stiffness: 260,
+			damping: 40,
+		},
+	},
+	exit: { y: 100, opacity: 0 },
+};
