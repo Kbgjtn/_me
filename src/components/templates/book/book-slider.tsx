@@ -133,13 +133,9 @@ const BookSlider = () => {
 	const innerCard = useRef<HTMLDivElement | null>(null);
 
 	useEffect(() => {
-		console.log(bookDetailCard);
-	}, [bookDetailCard]);
-	useEffect(() => {
 		if (!innerCard.current) return;
 		const { scrollWidth, offsetWidth } = innerCard.current;
-		// console.log(scrollWidth, offsetWidth);
-		// console.log(innerCard);
+
 		setWidth(scrollWidth - offsetWidth);
 	}, [innerCard]);
 
