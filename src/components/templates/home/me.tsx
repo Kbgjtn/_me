@@ -1,11 +1,4 @@
-import {
-	motion,
-	MotionConfigProps,
-	MotionProps,
-	MotionStyle,
-	MotionTransform,
-	MotionValue,
-} from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import mainBackground from "../../../assets/images/home-bg-me.png";
@@ -68,20 +61,20 @@ const Me = () => {
 								className="flex gap-0 fixed"
 								variants={transitionShodowCardInfo}>
 								<div
-									className="p-6 absolute rounded-t-lg rounded-r-3xl rounded-l-full rounded-b-lg top-0 right-12 "
+									className="p-6 absolute rounded-t-lg rounded-r-3xl rounded-l-full rounded-b-lg top-0 right-12"
 									// className="p-8 absolute rounded-t-lg rounded-r-3xl rounded-l-full rounded-b-lg top-0 right-12"
 									style={{
 										background: "rgba(225, 225, 225, .8)",
 										filter: "blur(48.5)",
 									}}></div>
 								<div
-									className="p-6 absolute rounded-t-lg rounded-r-3xl rounded-l-full rounded-b-lg top-0 right-2 "
+									className="p-6 absolute rounded-t-lg rounded-r-3xl rounded-l-full rounded-b-lg top-0 right-2"
 									style={{
 										background: "#252525",
 										filter: "blur(48.5)",
 									}}></div>
 								<div
-									className="p-6 absolute rounded-t-lg rounded-r-3xl rounded-l-full rounded-b-lg bottom-1 right-12 "
+									className="p-6 absolute rounded-t-lg rounded-r-3xl rounded-l-full rounded-b-lg bottom-1 right-12"
 									style={{
 										background: "rgba(234, 21, 225, .8)",
 										filter: "blur(40.5)",

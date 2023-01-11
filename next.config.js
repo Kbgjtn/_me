@@ -13,18 +13,18 @@ const securityHeaders = [
 		key: "X-DNS-Prefetch-Control",
 		value: "on",
 	},
-   {
-      key: "Access-Control-Allow-Origin",
-      value: "https://www.coocobolo.com",
-   },
-   {
-      key: 'Permissions-Policy',
-      value: 'camera=(), microphone=(), geolocation=(), browsing-topics=()'
-   },
-   {
-      key: "Server",
-      value: "coocobolo",
-   },
+	{
+		key: "Access-Control-Allow-Origin",
+		value: "https://www.coocobolo.com",
+	},
+	{
+		key: "Permissions-Policy",
+		value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
+	},
+	{
+		key: "Server",
+		value: "coocobolo",
+	},
 	{
 		key: "Strict-Transport-Security",
 		value: "max-age=63072000; includeSubDomains; preload",
