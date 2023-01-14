@@ -6,7 +6,8 @@ const Book = () => {
 	return (
 		<div className="w-full h-full flex justify-center items-center bg-black">
 			<Image
-				className="inline-flex object-cover noselect z-0 min-w-full min-h-full flex-col overflow-hiddenf"
+				className="inline-flex object-cover noselect z-0 min-w-full min-h-full flex-col overflow-hiddenfnpm install @vercel/analytics
+				"
 				src={projectsBackground}
 				alt=""
 				draggable={"false"}
