@@ -17,11 +17,20 @@ const Book = () => {
 				onContextMenu={(e) => e.preventDefault()}
 			/>
 
-			<div className="flex justify-self-center self-center absolute w-full h-full m-auto items-center justify-center flex-col">
-				<div className="inline-flex self-center justify-center items-center">
-					<h3 className="text-6xl font-semibold text-center sm:text-7xl md:text-8xl lg:text-8xl xl:text-9xl 2xl:text-10xl">
+			<div
+				className="flex justify-self-center self-center absolute w-full h-full m-auto items-center justify-center flex-col"
+				aria-describedby="tp-container">
+				<div className="inline-flex relative self-center justify-center items-center">
+					<h3 className="tp-trigger text-6xl font-semibold text-center sm:text-7xl md:text-8xl lg:text-8xl xl:text-9xl 2xl:text-10xl">
 						Reading List
 					</h3>
+					<div
+						id="tp-container"
+						className="font-cascode font-medium text-xs"
+						role="tooltip">
+						Here is a list of all the books that I have read, and
+						hopefully it can add new references for all my friends
+					</div>
 				</div>
 				<BookSlider />
 			</div>
