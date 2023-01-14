@@ -67,6 +67,7 @@ const BookSlider = () => {
 
 	useEffect(() => {
 		if (!innerCard.current) return;
+
 		const { scrollWidth, offsetWidth } = innerCard.current;
 
 		setWidth(scrollWidth - offsetWidth);

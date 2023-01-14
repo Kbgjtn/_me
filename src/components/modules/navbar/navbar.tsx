@@ -18,7 +18,7 @@ const NavBar = () => {
 			exit="exit">
 			<motion.dl
 				className="
-					inline-flex text-white font-cascode font-normal text-xl gap-20
+					inline-flex font-semibold text-white font-cascode text-xl gap-20
 					xl:text-2xl"
 				variants={item}>
 				<motion.dt variants={item}>
