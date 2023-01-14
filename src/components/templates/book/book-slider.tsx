@@ -123,7 +123,7 @@ const BookSlider = () => {
 										bookDetailCard.isHover &&
 										bookDetailCard.index === i
 											? "brightness(20%) contrast(100%) saturate(30%) grayscale(100%) sepia(10%) hue-rotate(0deg) blur(0px)"
-											: "",
+											: " ",
 									transition: "800ms",
 								}}
 								src={img}

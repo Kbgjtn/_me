@@ -1,4 +1,6 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import Book from "../components/templates/book/book";
 import Me from "../components/templates/home/me";
 import Project from "../components/templates/project/project";
