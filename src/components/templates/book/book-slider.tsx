@@ -84,7 +84,9 @@ const BookSlider = () => {
 					right: 0,
 					left: -width,
 				}}
-				style={{}}>
+				style={{
+					filter: "brightness(100%) contrast(100%) saturate(100%) grayscale(50%) sepia(0%) hue-rotate(0deg) blur(0px)",
+				}}>
 				{bookImages.map((img: any, i: number) => {
 					return (
 						<motion.div

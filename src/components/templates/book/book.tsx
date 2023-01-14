@@ -6,7 +6,7 @@ const Book = () => {
 	return (
 		<div className="w-full h-full flex justify-center items-center bg-black">
 			<Image
-				className="inline-flex object-cover noselect z-0 min-w-full min-h-full flex-col overflow-hidden"
+				className="inline-flex object-cover noselect z-0 min-w-full min-h-full flex-col overflow-hiddenf"
 				src={projectsBackground}
 				alt=""
 				draggable={"false"}
@@ -19,7 +19,7 @@ const Book = () => {
 
 			<div className="flex justify-self-center self-center absolute w-full h-full m-auto items-center justify-center flex-col">
 				<div className="inline-flex self-center justify-center items-center">
-					<h3 className="text-5xl font-bold text-center sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl 2xl:text-8xl">
+					<h3 className="text-6xl font-semibold text-center sm:text-7xl md:text-8xl lg:text-8xl xl:text-9xl 2xl:text-10xl">
 						Reading List
 					</h3>
 				</div>

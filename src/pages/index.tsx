@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Book from "../components/templates/book/book";
 import Me from "../components/templates/home/me";
+import Project from "../components/templates/project/project";
 
 export default function Home() {
 	return (
@@ -25,6 +26,7 @@ export default function Home() {
 			<main className="w-screen h-screen">
 				<Me />
 				<Book />
+				{/* <Project /> */}
 			</main>
 		</>
 	);
