@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import mainBackground from "../../../assets/images/home-bg-me.png";
 import Mac from "../../../assets/images/Mac";
 import meAsMan from "../../../assets/images/Western-Man-me.png";
@@ -57,7 +57,8 @@ const Me = () => {
           </div>
 
           {isHoverMe ? (
-            <motion.div className="flex absolute z-10 items-center justify-center bottom-40 -translate-y-48  sm:-translate-y-64 md:-translate-y-72 xl:-translate-y-72 lg:-translate-y-72 2xl:-translate-y-72">
+            <motion.div className="flex absolute z-10 items-center justify-center bottom-40 -translate-y-48  sm:-translate-y-64 md:-translate-y-72 lg:-translate-y-64 xl:-translate-y-64 2xl:-translate-y-64 2xl:mb-4">
+              {/*
               <motion.div
                 className="flex gap-0 fixed"
                 variants={transitionShodowCardInfo}
@@ -84,16 +85,17 @@ const Me = () => {
                   }}
                 ></div>
               </motion.div>
+              */}
               <motion.div
                 variants={transitionCardInfo}
-                className="inline-flex self-center w-72 h-auto justify-center items-center p-4 sm:w-72 md:w-80 lg:w-80 xl:w-80 2xl:w-80"
+                className="flex p-2 self-center w-56 h-auto justify-center items-center sm:w-72 md:w-96 lg:w-auto lg:p-3 xl:w-auto xl:p-4 2xl:w-auto 2xl:p-5"
                 style={{
-                  borderRadius: "50px",
-                  background: "rgba(0, 0, 0, 0.5)",
+                  borderRadius: "8px",
+                  background: "#424242",
                   backdropFilter: "blur(30px)",
                 }}
               >
-                <p className="font-semibold text-lg text-center sm:text-lg md:text-lg lg:text-lg xl:text-lg 2xl:text-lg">
+                <p className="font-semibold relative inline-flex text-lg text-center sm:text-lg md:text-lg lg:text-lg xl:text-lg 2xl:text-lg">
                   {`hii, i'm Naufal Daffa Ryquelme nice to know you, budz!!:))`}
                 </p>
               </motion.div>

@@ -25,12 +25,13 @@ const Book = () => {
         aria-describedby="tp-container"
       >
         <div className="inline-flex relative self-center justify-center items-center">
-          <h3 className="tp-trigger text-6xl font-semibold text-center sm:text-7xl md:text-8xl lg:text-8xl xl:text-9xl 2xl:text-10xl">
+          <h3 className="tp-trigger text-6xl font-semibold text-center translate-y-12 sm:text-6.5xl sm:p-5 md:text-8xl lg:text-9xl xl:text-9xl 2xl:text-10xl">
             Reading List
           </h3>
           <div
             id="tp-container"
-            className="font-cascode font-medium text-xs"
+            className="font-cascode text-xs"
+            style={{ backgroundColor: "#424242" }}
             role="tooltip"
           >
             Here is a list of all the books that I have read, and hopefully it

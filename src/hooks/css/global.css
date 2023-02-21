@@ -63,7 +63,7 @@ body {
   background-color: #1c1c1c;
   border-radius: 5px;
   padding: 10px;
-  max-width: 280px;
+  max-width: 380px;
 }
 
 [role="tooltip"]:after {
@@ -84,3 +84,8 @@ body {
 .tp-trigger:focus + [role="tooltip"] {
   display: block;
 }
+
+/* #image-book { */
+/*   height: 320px; */
+/*   width: 220px; */
+/* } */
