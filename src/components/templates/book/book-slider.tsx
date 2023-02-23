@@ -131,7 +131,7 @@ const BookSlider = () => {
               />
               <div className="inline-flex absolute z-20 m-12 text-center font-bold text-lg overflow-hidden w-auto h-auto">
                 <h1
-                  className="text-center font-medium text-sm overflow-hidden text-ellipsis whitespace-nowrap"
+                  className="text-center font-medium text-sm overflow-hidden text-ellipsis"
                   style={{
                     opacity:
                       bookDetailCard.isHover && bookDetailCard.index === i

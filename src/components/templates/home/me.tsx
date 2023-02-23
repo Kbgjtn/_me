@@ -12,6 +12,7 @@ const Me = () => {
   const handleMouseEnterHoverMe = () => {
     setIsHoverMe(true);
   };
+
   const handleMouseLeaveHoverMe = () => {
     setIsHoverMe(false);
   };
