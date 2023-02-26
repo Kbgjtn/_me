@@ -87,6 +87,7 @@ const Me = () => {
                 ></div>
               </motion.div>
               */}
+
               <motion.div
                 variants={transitionCardInfo}
                 className="flex p-2 self-center w-56 h-auto justify-center items-center sm:w-72 md:w-96 lg:w-auto lg:p-3 xl:w-auto xl:p-4 2xl:w-auto 2xl:p-5"
@@ -97,7 +98,7 @@ const Me = () => {
                 }}
               >
                 <p className="font-semibold relative inline-flex text-lg text-center sm:text-lg md:text-lg lg:text-lg xl:text-lg 2xl:text-lg">
-                  {`hii, i'm Naufal Daffa Ryquelme nice to know you, budz!!:))`}
+                  {`hii, i'm Naufal Daffa Ryquelme, budz!!:))`}
                 </p>
               </motion.div>
             </motion.div>
@@ -105,7 +106,7 @@ const Me = () => {
         </div>
         <motion.div className="inline-flex flex-col w-full h-auto relative self-end justify-self-end m-0-auto justify-start items-center overflow-hidden">
           <h1 className="inline-flex font-extrabold m-0-auto text-7xl sm:text-8xl md:text-10xl lg:text-12xl xl:text-14xl 2xl:text-14xl">
-            Daffa.r
+            Daffa.R
           </h1>
           <div
             className="inline-flex noselect self-center w-full h-0 rounded-full text-center bg-black justify-self-center"
