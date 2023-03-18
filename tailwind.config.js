@@ -17,6 +17,7 @@ module.exports = {
       cascode: ["Cascadia Code", "sans-serif"],
     },
     fontSize: {
+      mn: ".55rem",
       xs: ".75rem",
       sm: ".875rem",
       tiny: ".875rem",
@@ -39,6 +40,21 @@ module.exports = {
     extend: {
       screens: {
         "3xl": "1600px",
+      },
+      colors: {
+        charcoal: {
+          DEFAULT: "#1c1c1c",
+          50: "#D0BCFF",
+          100: "#48464C",
+          200: "#575360",
+          300: "#655F73",
+          400: "#756D88",
+          500: "#847A9B",
+          600: "#9387AF",
+          700: "#A395C3",
+          800: "#B1A1D7",
+          900: "#8B8B8B",
+        },
       },
     },
   },
