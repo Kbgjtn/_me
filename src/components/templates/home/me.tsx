@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Head from "next/head";
 import Image from "next/image";
 import React, { useState } from "react";
 // import mainBackground from "../../../assets/images/home-bg-me.png";
@@ -19,6 +20,14 @@ const Me = () => {
 
 	return (
 		<React.Fragment>
+			<Head>
+				<title>Daffa Requelme</title>
+				<link
+					rel="canonical"
+					href="https://example.com/blog/original-post"
+					key="canonical"
+				/>
+			</Head>
 			<NavBar />
 			<motion.div className="w-full h-full flex flex-col bg-charcoal">
 				{/*<Image
