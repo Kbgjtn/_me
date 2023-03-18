@@ -92,7 +92,7 @@ const BookSlider = () => {
         {bookImages.map((img: any, i: number) => {
           return (
             <motion.div
-              className="inline-flex relative min-w-max items-center justify-center min-h-max p-2 sm:p-2 noselect"
+              className="inline-flex relative min-w-max items-center justify-center h-auto p-2 sm:p-2 noselect"
               whileTap={{ cursor: "grabbing" }}
               key={i}
               onMouseEnter={(e) => {
@@ -122,16 +122,16 @@ const BookSlider = () => {
                   backgroundColor: "black",
                   filter:
                     bookDetailCard.isHover && bookDetailCard.index === i
-                      ? "brightness(20%) contrast(100%) saturate(30%) grayscale(100%) sepia(10%) hue-rotate(0deg) blur(0px)"
+                      ? "brightness(25%) contrast(100%) saturate(50%) grayscale(100%) sepia(50%) hue-rotate(0deg) blur(1.4px)"
                       : "",
-                  transition: "800ms",
+                  transition: "500ms",
                 }}
                 src={img}
                 alt=""
               />
               <div className="inline-flex absolute z-20 m-12 text-center font-bold text-lg overflow-hidden w-auto h-auto">
                 <h1
-                  className="text-center font-medium text-sm overflow-hidden text-ellipsis"
+                  className="text-center font-normal text-mn overflow-hidden text-ellipsis sm:text-mn md:text-sm lg:text-sm xl:text-sm 2xl:text-sm"
                   style={{
                     opacity:
                       bookDetailCard.isHover && bookDetailCard.index === i
@@ -149,12 +149,5 @@ const BookSlider = () => {
     </motion.div>
   );
 };
-
-{
-  /* <h4 className="text-2xl font-semibold">
-        How to Win Friends & Influence People
-    </h4>
-    <span className="text-2xl font-medium">by Dale Carnegie</span> */
-}
 
 export default BookSlider;
