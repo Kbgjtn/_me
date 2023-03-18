@@ -6,5 +6,26 @@ import book5 from "./chh8-square-orig-3066840115.jpeg";
 import book1 from "./cvr9780857207289_9780857207289_hr-2183538714.jpeg";
 import book6 from "./th-4163943742.jpeg";
 import book4 from "./the-psychology-of-money-3-3094031241.jpeg";
+import book9 from "./retorica_41N6oMn1W9LSX328BO1204203200.jpg";
+import book10 from "./notgivingaf.jpg";
+import book11 from "./HCO_SAPI2018MTH06.jpeg";
+import book12 from "./madilog1641184892_978-623-6166-83-3.jpg";
+import book13 from "./rusaksajabukuini.jpg";
+import book14 from "./egoid9780735253544.jpeg";
 
-export default [book1, book2, book3, book4, book5, book6, book7, book8];
+export default [
+  book1,
+  book2,
+  book3,
+  book4,
+  book5,
+  book6,
+  book7,
+  book8,
+  book9,
+  book10,
+  book11,
+  book12,
+  book13,
+  book14,
+];
