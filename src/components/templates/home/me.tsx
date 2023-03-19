@@ -30,15 +30,17 @@ const Me = () => {
 			</Head>
 			<NavBar />
 			<motion.div className="w-full h-full flex flex-col bg-charcoal">
-				{/*<Image
-          className="inline-flex object-cover z-0 min-h-full min-w-full h-screen w-screen"
-          src={mainBackground}
-          alt=""
-          draggable={"false"}
-          referrerPolicy={"strict-origin-when-cross-origin"}
-          quality={100}
-          onContextMenu={(e) => e.preventDefault()}
-        /> */}
+				{/*
+					<Image
+						className="inline-flex object-cover z-0 min-h-full min-w-full h-screen w-screen"
+						src={mainBackground}
+						alt=""
+						draggable={"false"}
+						referrerPolicy={"strict-origin-when-cross-origin"}
+						quality={100}
+						onContextMenu={(e) => e.preventDefault()}
+					/>
+				*/}
 				<div
 					className="inline-flex absolute justify-center items-center flex-col w-full h-full m-0-auto"
 					onMouseEnter={(e) => {
@@ -78,17 +80,45 @@ const Me = () => {
 										boxShadow: `0px 8px 18px #000000`,
 										border: "4px solid #1A1A1A",
 									}}>
-									<p className="font-medium p-4 relative text-center text-mn sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-sm">
-										{`hii, i'm a student at Binus University (Comp. Science), nice to meet you, budz!!:))`}
-									</p>
+									<motion.p
+										className="font-medium p-4 relative text-center text-mn sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-sm"
+										variants={sentence}
+										initial="hidden"
+										animate="visible">
+										{`hii, i'm a student at Binus University (Comp. Science), nice to meet you, budz!!:))`
+											.split("")
+											.map((char, index) => {
+												return (
+													<motion.span
+														className=""
+														key={char + "-" + index}
+														variants={letter}>
+														{char}
+													</motion.span>
+												);
+											})}
+									</motion.p>
 								</motion.div>
 							</motion.div>
 						) : null}
 					</div>
 					<motion.div className="inline-flex flex-col w-full h-auto relative self-end justify-self-end m-0-auto justify-start items-center overflow-hidden">
-						<h1 className="inline-flex font-extrabold m-0-auto text-7xl sm:text-8xl md:text-8xl lg:text-8xl xl:text-9xl 2xl:text-10xl">
-							Daffa.R
-						</h1>
+						<motion.h1
+							className="inline-flex font-extrabold m-0-auto text-7xl sm:text-8xl md:text-8xl lg:text-8xl xl:text-9xl 2xl:text-10xl"
+							variants={sentence}
+							initial="hidden"
+							animate="visible">
+							{`Daffa.R`.split("").map((char, index) => {
+								return (
+									<motion.span
+										className=""
+										key={char + "-" + index}
+										variants={letter}>
+										{char}
+									</motion.span>
+								);
+							})}
+						</motion.h1>
 						<div
 							className="inline-flex noselect self-center w-full h-0 rounded-full text-center bg-black justify-self-center"
 							draggable={false}
@@ -102,7 +132,30 @@ const Me = () => {
 		</React.Fragment>
 	);
 };
+
 export default Me;
+
+const sentence = {
+	hidden: { opacity: 1 },
+	visible: {
+		opacity: 1,
+		transition: {
+			delay: 0.1,
+			staggerChildren: 0.05,
+		},
+	},
+};
+
+const letter = {
+	hidden: {
+		opacity: 0,
+		y: 50,
+	},
+	visible: {
+		opacity: 1,
+		y: 0,
+	},
+};
 
 const transitionCardInfo = {
 	hidden: { y: 50, opacity: 0 },
