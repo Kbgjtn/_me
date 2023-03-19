@@ -17,10 +17,9 @@ const NavBar = () => {
 
 	return (
 		<motion.nav
-			className="w-full h-auto bg-charcoal flex flex-col relative items-center justify-center top-0 z-1 py-4 px-11 "
+			className="w-full h-auto bg-charcoal flex flex-col relative items-center justify-center top-0 z-1 py-4 px-11"
 			initial="hidden"
-			animate="visible"
-			exit="exit">
+			animate="show">
 			<motion.dl
 				className="flex relative justify-center items-center font-medium text-white font-cascode text-xl gap-[2rem] xl:text-2xl"
 				variants={item}>
@@ -79,27 +78,28 @@ const NavBar = () => {
 
 export default NavBar;
 
-const item = {
-	hidden: { y: -20, opacity: 0 },
-	visible: {
-		y: 0,
+const container = {
+	hidden: { opacity: 1 },
+	show: {
 		opacity: 1,
 		transition: {
-			type: "spring",
-			stiffness: 260,
-			damping: 15,
+			delayChildren: 0.5,
+			staggerDirection: -1,
 		},
 	},
-	exit: { y: 20, opacity: 0 },
 };
 
+const item = {
+	hidden: { opacity: 0 },
+	show: { opacity: 1 },
+};
 const sentence = {
 	hidden: { opacity: 1 },
 	visible: {
 		opacity: 1,
 		transition: {
 			delay: 0.1,
-			staggerChildren: 0.05,
+			staggerChildren: 0.08,
 		},
 	},
 };
