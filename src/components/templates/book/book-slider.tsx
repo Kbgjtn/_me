@@ -78,7 +78,7 @@ const BookSlider = () => {
 			<motion.div
 				ref={innerCard}
 				variants={variants}
-				className="flex items-center justify-start w-full h-full cursor-grab"
+				className="flex items-center justify-start w-full h-full cursor-grab md:px-8 lg:px-8 xl:px-8 2xl:px-8"
 				drag={"x"}
 				dragConstraints={{
 					right: 0,
