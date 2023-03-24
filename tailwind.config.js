@@ -41,6 +41,14 @@ module.exports = {
       screens: {
         "3xl": "1600px",
       },
+      extend: {
+        gridTemplateColumns: {
+          fluid: "repeat(auto-fill, minmax(300px, 1fr))",
+        },
+        gridTemplateRows: {
+          fluid: "minmax(100px, auto)",
+        },
+      },
       colors: {
         charcoal: {
           DEFAULT: "#1c1c1c",
