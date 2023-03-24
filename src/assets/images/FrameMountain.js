@@ -3,9 +3,9 @@ const FrameMountain = () => {
 
 <svg width="1809" height="544" viewBox="0 0 1809 544" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%", BackgroundImageFix: "none" ,background: "transparant"}}>
 // <rect width="1809" height="544" fill="#D3D3D3"/>
-<g id="animation page" clip-path="url(#clip0_0_1)">
+<g id="animation page" clipPath="url(#clip0_0_1)">
 // <rect width="1920" height="1080" transform="translate(-56 -272)" fill="#1a1a1a"/>
-<g id="Frame" clip-path="url(#clip1_0_1)">
+<g id="Frame" clipPath="url(#clip1_0_1)">
 <g id="Group">
 <path id="Vector" d="M463.066 362.387L438.682 370.723L441.842 370.723L466.074 362.395L463.066 362.387Z" fill="black"/>
 <path id="Vector_2" d="M438.682 370.903L441.9 370.892L466.132 362.568L466.074 362.218L463.038 362.21L438.625 370.557L438.682 370.907L438.682 370.903ZM441.809 370.542L439.769 370.542L463.095 362.568L464.998 362.568L441.809 370.542Z" fill="white"/>
@@ -6753,21 +6753,21 @@ const FrameMountain = () => {
 </g>
 </g>
 <defs>
-<filter id="filter0_d_0_1" x="-6.10352e-05" y="0" width="1809" height="544" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<filter id="filter0_d_0_1" x="-6.10352e-05" y="0" width="1809" height="544" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+<feFlood floodOpacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dy="4"/>
 <feGaussianBlur stdDeviation="7.5"/>
 <feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.455045 0 0 0 0 0.457966 0 0 0 0 0.47165 0 0 0 1 0"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.455045 0 0 P 0 0.457966 0 0 0 0 0.47165 0 0 0 1 0"/>
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_1"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_1" result="shape"/>
 </filter>
 <clipPath id="clip0_0_1">
-// <rect width="1920" height="1080" fill="white" transform="translate(-56 -272)"/>
+/* <rect width="1920" height="1080" fill="white" transform="translate(-56 -272)"/> */
 </clipPath>
 <clipPath id="clip1_0_1">
-// <rect width="1779" height="514" fill="white" transform="matrix(-1 -8.74228e-08 -8.74228e-08 1 1794 11.0002)"/>
+/* <rect width="1779" height="514" fill="white" transform="matrix(-1 -8.74228e-08 -8.74228e-08 1 1794 11.0002)"/> */
 </clipPath>
 </defs>
 </svg>
