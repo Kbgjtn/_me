@@ -28,9 +28,7 @@ const GoTop: FC<Partial<GoTopProps>> = ({ showGoTop, scrollUp }) => {
     <>
       {showTopBtn ? (
         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          id="top"
-          className="fixed -bottom-16 -right-[16rem] z-20 cursor-pointer"
+          className="fixed -bottom-24 -right-[16rem] z-20 cursor-pointer"
           onClick={goToTop}
         >
           <path
