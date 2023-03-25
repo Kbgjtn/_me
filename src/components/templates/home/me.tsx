@@ -1,15 +1,15 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import Head from "next/head";
 import Image from "next/image";
-import React, { useState } from "react";
-// import mainBackground from "../../../assets/images/home-bg-me.png";
+import React, { useRef, useState } from "react";
 import Mac from "../../../assets/images/Mac";
 import meAsMan from "../../../assets/images/Western-Man-me.png";
 import NavBar from "../../modules/navbar/navbar";
 
 const Me = () => {
 	const [isHoverMe, setIsHoverMe] = useState(false);
-
+	const ref = useRef(null);
+	const isInView = useInView(ref, { once: true });
 	const handleMouseEnterHoverMe = () => {
 		setIsHoverMe(true);
 	};
@@ -29,7 +29,9 @@ const Me = () => {
 				/>
 			</Head>
 			<NavBar />
-			<motion.div className="w-full h-full flex flex-col bg-charcoal">
+			<motion.div
+				className="w-full h-full flex flex-col bg-charcoal"
+				ref={ref}>
 				{/*
 					<Image
 						className="inline-flex object-cover z-0 min-h-full min-w-full h-screen w-screen"
@@ -113,7 +115,14 @@ const Me = () => {
 									<motion.span
 										className=""
 										key={char + "-" + index}
-										variants={letter}>
+										style={{
+											transform: isInView
+												? "none"
+												: "translateX(-200px)",
+											opacity: isInView ? 1 : 0,
+											transition:
+												"all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s",
+										}}>
 										{char}
 									</motion.span>
 								);
