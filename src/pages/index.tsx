@@ -1,9 +1,10 @@
 import Head from "next/head";
-import Book from "../components/templates/book/book";
-import Footer from "../components/templates/footer/footer";
-import Me from "../components/templates/home/me";
-import Project from "../components/templates/project/project";
-import GoTop from "../components/modules/goTop/goTop";
+import Book from "@/components/templates/book/book";
+import Footer from "@/components/templates/footer/footer";
+import Me from "@/components/templates/home/me";
+import Project from "@/components/templates/project/project";
+import GoTop from "@/components/modules/goTop/goTop";
+import ScrollProgressY from "@/components/modules/scrollProgress/scrollProgress";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       </Head>
       <main className="w-screen h-screen scroll-smooth">
         <GoTop />
+        <ScrollProgressY />
         <Me />
         <Project />
         <Book />
