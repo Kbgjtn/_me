@@ -131,7 +131,7 @@ const BookSlider = () => {
                   filter:
                     bookDetailCard.isHover && bookDetailCard.index === i
                       ? "brightness(25%) contrast(100%) saturate(50%) grayscale(100%) sepia(50%) hue-rotate(0deg) blur(1.4px)"
-                      : "brightness(100%) contrast(100%) saturate(0%) grayscale(0%) sepia(0%) hue-rotate(0deg) blur(0px)",
+                      : "brightness(100%) contrast(100%) saturate(100%) grayscale(0%) sepia(50%) hue-rotate(0deg) blur(0px)",
                 }}
                 src={img}
                 alt=""

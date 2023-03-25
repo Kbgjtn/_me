@@ -1,5 +1,4 @@
 import { FC, useEffect, useState } from "react";
-
 interface GoTopProps {
   showGoTop: string;
   scrollUp: () => void;

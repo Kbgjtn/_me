@@ -18,7 +18,7 @@ const Masonry: FC<Props> = ({ projects }) => {
       </div>
 
       <motion.div
-        className="bg-charcoal px-4 min-h-screen max-w-full columns-2 md:columns-3 lg:columns-3 lg:px-8 xl:columns-3 xl:px-10 2xl:columns-3 2xl:px-[12rem]"
+        className="p-4 bg-charcoal max-w-full columns-2 md:columns-3 lg:columns-3 lg:px-8 xl:columns-3 xl:px-10 2xl:columns-3 2xl:px-[12rem]"
         variants={container}
         animate="visible"
         initial="hidden"
@@ -26,13 +26,13 @@ const Masonry: FC<Props> = ({ projects }) => {
         {projects.map(([name, link, _photo, _bgColor, height], index) => {
           return (
             <motion.div
-              className={`mb-4 max-w-full rounded-xl text-center font-medium p-6 transition-all border-4 border-[#070400]`}
+              className={`mb-4 max-w-full rounded-xl text-center font-medium transition-shadow border-4 border-[#070400]`}
               variants={item}
               key={`${name}-${index}`}
               style={{
                 height: `${height}px`,
-                background: `linear-gradient(${height}deg, #fff333, #110309)`,
-                boxShadow: `0px 8px 16px #0d0d0d`,
+                background: `linear-gradient(${height}deg, #030303, #110309)`,
+                boxShadow: `0px 2px 6px #0d0d0d`,
               }}
             >
               <a className="" href={`${link}`} target="_blank">
@@ -47,21 +47,22 @@ const Masonry: FC<Props> = ({ projects }) => {
 };
 
 export const container = {
-  hidden: { opacity: 1, scale: 0 },
+  hidden: { opacity: 0, scale: 0 },
   visible: {
     opacity: 1,
     scale: 1,
     transition: {
-      delayChildren: 0.2,
+      delayChildren: 0.3,
       staggerChildren: 0.2,
     },
   },
 };
 
 export const item = {
-  hidden: { y: 25, opacity: 0 },
+  hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
+    boxShadow: `0px 5px 12px #0d0d0d`,
     opacity: 1,
   },
 };
