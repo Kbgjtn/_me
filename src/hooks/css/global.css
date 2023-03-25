@@ -4,101 +4,92 @@
 @tailwind components;
 @tailwind utilities;
 
-.masonry-container {
-	position: relative;
-}
-
-.masonry-card {
-	position: absolute;
-	width: 320px;
-	margin-bottom: 2rem;
-}
-
 * {
-	overscroll-behavior-y: contain;
+  overscroll-behavior-y: contain;
+  color: #f3f3f3;
 }
 
 .font-cascode {
-	font-family: "Cascadia Code", sans-serif;
+  font-family: "Cascadia Code", sans-serif;
 }
 
 .bg-new-black-1 {
-	background-color: #161716;
+  background-color: #161716;
 }
 
 .bg-new-black-2 {
-	color: rgba(0, 0, 0, 0.54);
+  color: rgba(0, 0, 0, 0.54);
 }
 
 html {
-	box-sizing: border-box;
-	scroll-behavior: smooth;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 ::selection {
-	color: #555555;
-	opacity: 0.6;
-	fill-opacity: 0.8;
-	background: transparent;
+  color: #555555;
+  opacity: 0.6;
+  fill-opacity: 0.8;
+  background: transparent;
 }
 
 body {
-	font-family: "Cascadia Code", sans-serif;
-	color: white;
-	background-color: black;
-	-webkit-font-smoothing: antialiased;
-	-mox-osx-font-smoothing: grayscale;
-	font-smooth: always;
+  font-family: "Cascadia Code", sans-serif;
+  color: white;
+  background-color: black;
+  -webkit-font-smoothing: antialiased;
+  -mox-osx-font-smoothing: grayscale;
+  font-smooth: always;
 }
 
 .noselect {
-	-webkit-touch-callout: none; /* iOS Safari */
-	-webkit-user-select: none; /* Safari */
-	-khtml-user-select: none; /* Konqueror HTML */
-	-moz-user-select: none; /* Old versions of Firefox */
-	-ms-user-select: none; /* Internet Explorer/Edge */
-	user-select: none; /* Non-prefixed version, currently
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
 									supported by Chrome, Edge, Opera and Firefox */
 }
 
 ::-webkit-scrollbar {
-	width: 4px;
-	height: 4px;
-	background-color: #1c1c1c;
+  width: 4px;
+  height: 4px;
+  background-color: #1c1c1c;
 }
 
 [role="tooltip"] {
-	/* hide tooltips by default */
-	display: none;
-	position: absolute;
-	top: -3em;
-	left: 1em;
-	padding: 0.5em 1em;
-	background: #1c1c1c;
-	background-color: #1c1c1c;
-	border-radius: 5px;
-	padding: 10px;
-	max-width: 380px;
-	box-shadow: 0px 8px 18px #000000;
+  /* hide tooltips by default */
+  display: none;
+  position: absolute;
+  top: -3em;
+  left: 1em;
+  padding: 0.5em 1em;
+  background: #1c1c1c;
+  background-color: #1c1c1c;
+  border-radius: 5px;
+  padding: 10px;
+  max-width: 380px;
+  box-shadow: 0px 8px 18px #000000;
 }
 
 [role="tooltip"]:after {
-	/* Add a downward arrow to style the tooltip */
-	position: absolute;
-	left: 20px;
-	bottom: -15px;
-	content: "";
-	width: 0;
-	height: 0;
-	border-right: 10px solid transparent;
-	border-left: 10px solid transparent;
-	border-top: 15px solid #1a1a1a;
-	border-bottom: none;
+  /* Add a downward arrow to style the tooltip */
+  position: absolute;
+  left: 20px;
+  bottom: -15px;
+  content: "";
+  width: 0;
+  height: 0;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+  border-top: 15px solid #1a1a1a;
+  border-bottom: none;
 }
 
 .tp-trigger:hover + [role="tooltip"],
 .tp-trigger:focus + [role="tooltip"] {
-	display: block;
+  display: block;
 }
 
 /* #image-book { */
