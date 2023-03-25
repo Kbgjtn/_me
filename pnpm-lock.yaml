@@ -19,6 +19,7 @@ specifiers:
   react-dom: 18.2.0
   tailwindcss: ^3.2.7
   typescript: 5.0.2
+  zod: ^3.21.4
 
 dependencies:
   '@next/font': 13.2.4
@@ -41,6 +42,7 @@ devDependencies:
   autoprefixer: 10.4.14_postcss@8.4.21
   postcss: 8.4.21
   tailwindcss: 3.2.7_postcss@8.4.21
+  zod: 3.21.4
 
 packages:
 
@@ -4328,3 +4330,7 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: false
+
+  /zod/3.21.4:
+    resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
+    dev: true

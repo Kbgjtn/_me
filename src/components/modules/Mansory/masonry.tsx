@@ -1,10 +1,11 @@
-import { useLayoutEffect } from "react";
+import { FC } from "react";
+import { motion } from "framer-motion";
 
-const Masonry = () => {
-  function getRandomValue() {
-    return Math.floor(Math.random() * (600 - 200 + 1)) + 200;
-  }
+interface Props {
+  projects: any[];
+}
 
+const Masonry: FC<Props> = ({ projects }) => {
   return (
     <>
       <div
@@ -16,92 +17,53 @@ const Masonry = () => {
         </h3>
       </div>
 
-      <div className="bg-charcoal px-4 min-h-screen max-w-full columns-2 md:columns-3 lg:columns-3 lg:px-8 xl:columns-3 xl:px-10 2xl:columns-3 2xl:px-[12rem]">
-        {[
-          [
-            "project-1",
-            "https://github.com/Kbgjtn",
-            "photo-src",
-            `linear-gradient(${getRandomValue()}deg, #666158, #1c1c1c)`,
-            getRandomValue(),
-          ],
-          [
-            "project-2",
-            "https://github.com/Kbgjtn",
-            "photo-src1",
-            `linear-gradient(${getRandomValue()}deg, #000000, #202b1b)`,
-            getRandomValue(),
-          ],
-          [
-            "project-3",
-            "https://github.com/Kbgjtn",
-            "photo-src2",
-            `linear-gradient(${getRandomValue()}deg, #1e1e1e, #5c675e)`,
-            getRandomValue(),
-          ],
-          [
-            "project-4",
-            "https://github.com/Kbgjtn",
-            "photo-src3",
-            `linear-gradient(${getRandomValue()}deg, #141414, #1c1c0c)`,
-            getRandomValue(),
-          ],
-          [
-            "project-1",
-            "https://github.com/Kbgjtn",
-            "photo-src",
-            `linear-gradient(${getRandomValue()}deg, #29291f, #0d0d08)`,
-            getRandomValue(),
-          ],
-          [
-            "project-2",
-            "https://github.com/Kbgjtn",
-            "photo-src1",
-            `linear-gradient(${getRandomValue()}deg, #000001, #110309)`,
-            getRandomValue(),
-          ],
-          [
-            "project-3",
-            "https://github.com/Kbgjtn",
-            "photo-src2",
-            `linear-gradient(${getRandomValue()}deg, #000000, #121317)`,
-            getRandomValue(),
-          ],
-
-          [
-            "project-8",
-            "https://github.com/Kbgjtn",
-            "photo-src4",
-            `linear-gradient(${getRandomValue()}deg, #070c10, #010a1b)`,
-            getRandomValue(),
-          ],
-          [
-            "project-5",
-            "https://github.com/Kbgjtn",
-            "photo-src4",
-            `linear-gradient(${getRandomValue()}deg, #070c10, #021f1b)`,
-            getRandomValue(),
-          ],
-        ].map(([name, link, photo, bgColor, height], index) => {
+      <motion.div
+        className="bg-charcoal px-4 min-h-screen max-w-full columns-2 md:columns-3 lg:columns-3 lg:px-8 xl:columns-3 xl:px-10 2xl:columns-3 2xl:px-[12rem]"
+        variants={container}
+        animate="visible"
+        initial="hidden"
+      >
+        {projects.map(([name, link, _photo, _bgColor, height], index) => {
           return (
-            <div
-              className={`mb-4 max-w-full rounded-md text-center font-medium p-6 transition-all border-4 border-[#070400]`}
+            <motion.div
+              className={`mb-4 max-w-full rounded-xl text-center font-medium p-6 transition-all border-4 border-[#070400]`}
+              variants={item}
               key={`${name}-${index}`}
               style={{
                 height: `${height}px`,
-                background: `linear-gradient(${getRandomValue()}deg, #000001, #110309)`,
+                background: `linear-gradient(${height}deg, #fff333, #110309)`,
                 boxShadow: `0px 8px 16px #0d0d0d`,
               }}
             >
               <a className="" href={`${link}`} target="_blank">
                 {name}
               </a>
-            </div>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
     </>
   );
+};
+
+export const container = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.2,
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+export const item = {
+  hidden: { y: 25, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
 };
 
 export default Masonry;
