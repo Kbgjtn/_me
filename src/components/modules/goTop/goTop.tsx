@@ -5,7 +5,7 @@ interface GoTopProps {
 }
 
 const GoTop: FC<Partial<GoTopProps>> = ({ showGoTop, scrollUp }) => {
-  const [showTopBtn, setShowTopBtn] = useState(false);
+  const [showTopBtn, setShowTopBtn] = useState(null);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -27,7 +27,7 @@ const GoTop: FC<Partial<GoTopProps>> = ({ showGoTop, scrollUp }) => {
       window.scrollTo({
         top:
           (document.body.scrollHeight ||
-            document.documentElement.scrollHeight) + 100,
+            document.documentElement.scrollHeight) + 200,
         behavior: "smooth",
       });
     }
