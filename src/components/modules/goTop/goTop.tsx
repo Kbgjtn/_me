@@ -15,7 +15,7 @@ const GoTop: FC<Partial<GoTopProps>> = ({ showGoTop, scrollUp }) => {
         setShowTopBtn(false);
       }
     });
-  }, []);
+  }, [showTopBtn]);
 
   const goToTop = () => {
     if (showTopBtn) {
@@ -38,8 +38,8 @@ const GoTop: FC<Partial<GoTopProps>> = ({ showGoTop, scrollUp }) => {
         className={
           showTopBtn
             ? /* ? `fixed -bottom-24 -right-[15.5rem] z-20 cursor-pointer` */
-              `fixed top-[50%] translate-x[-50%] translate-y-[330%] left-[50%] z-20 cursor-pointer`
-            : `fixed top-[50%] translate-x[-50%] translate-y-[280%] left-[50%] z-20 cursor-pointer`
+              `fixed top-[50%] translate-x[-50%] translate-y-[300%] opacity-70 left-[50%] z-20 cursor-pointer`
+            : `fixed top-[50%] translate-x[-50%] translate-y-[280%] opacity-70 left-[50%] z-20 cursor-pointer`
         }
         onClick={goToTop}
       >
