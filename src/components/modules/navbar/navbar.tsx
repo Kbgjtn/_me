@@ -38,7 +38,7 @@ const NavBar = () => {
         {[
           [
             "me",
-            "http://localhost:3000",
+            "https://www.coocobolo.com",
             <MeLogo title={hoverLogoName} key="1" />,
           ],
           [
