@@ -5,7 +5,6 @@
 @tailwind utilities;
 
 * {
-  overscroll-behavior-y: contain;
   color: #f3f3f3;
 }
 
@@ -24,6 +23,10 @@
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
+  overflow: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  background: #1c1c1c;
 }
 
 ::selection {
@@ -53,9 +56,10 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
-  background-color: #1c1c1c;
+  width: 0px;
+  background: transparent;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 [role="tooltip"] {
