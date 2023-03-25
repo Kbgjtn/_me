@@ -90,6 +90,7 @@ const Masonry = () => {
               style={{
                 height: `${height}px`,
                 background: `linear-gradient(${getRandomValue()}deg, #000001, #110309)`,
+                boxShadow: `0px 8px 16px #0d0d0d`,
               }}
             >
               <a className="" href={`${link}`} target="_blank">
