@@ -2,9 +2,9 @@ const FrameMountain = () => {
     return (
 
 <svg width="1809" height="544" viewBox="0 0 1809 544" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%", BackgroundImageFix: "none" ,background: "transparant"}}>
-// <rect width="1809" height="544" fill="#D3D3D3"/>
+<rect width="1809" height="544" fill="#D3D3D3"/>
 <g id="animation page" clipPath="url(#clip0_0_1)">
-// <rect width="1920" height="1080" transform="translate(-56 -272)" fill="#1a1a1a"/>
+<rect width="1920" height="1080" transform="translate(-56 -272)" fill="#1a1a1a"/>
 <g id="Frame" clipPath="url(#clip1_0_1)">
 <g id="Group">
 <path id="Vector" d="M463.066 362.387L438.682 370.723L441.842 370.723L466.074 362.395L463.066 362.387Z" fill="black"/>
@@ -6764,10 +6764,10 @@ const FrameMountain = () => {
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_1" result="shape"/>
 </filter>
 <clipPath id="clip0_0_1">
-/* <rect width="1920" height="1080" fill="white" transform="translate(-56 -272)"/> */
+<rect width="1920" height="1080" fill="white" transform="translate(-56 -272)"/>
 </clipPath>
 <clipPath id="clip1_0_1">
-/* <rect width="1779" height="514" fill="white" transform="matrix(-1 -8.74228e-08 -8.74228e-08 1 1794 11.0002)"/> */
+<rect width="1779" height="514" fill="white" transform="matrix(-1 -8.74228e-08 -8.74228e-08 1 1794 11.0002)"/>
 </clipPath>
 </defs>
 </svg>
