@@ -5,6 +5,7 @@ import Me from "@/components/templates/home/me";
 import Project from "@/components/templates/project/project";
 import GoTop from "@/components/modules/goTop/goTop";
 import ScrollProgressY from "@/components/modules/scrollProgress/scrollProgress";
+import MeThreeCanvas from "@/components/content/tree";
 
 export default function Home() {
   return (
