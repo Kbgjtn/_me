@@ -15,10 +15,6 @@ const Me = () => {
     setIsHoverMe(true);
   };
 
-  useEffect(() => {
-    console.log(isHoverMe);
-  }, [isHoverMe]);
-
   const handleMouseLeaveHoverMe = () => {
     setIsHoverMe(false);
   };

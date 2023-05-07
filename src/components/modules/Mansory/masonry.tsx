@@ -63,7 +63,7 @@ const Masonry: FC<Props> = ({ title, projects }) => {
         {projects.map(([name, link, _photo, _bgColor, height], index) => {
           return (
             <motion.div
-              className={`mb-4 max-w-full rounded-xl text-center font-medium transition-shadow border-4 border-[#070400]`}
+              className={`relative mb-4 max-w-full rounded-xl text-center font-medium transition-shadow border-4 border-[#070400]`}
               variants={item}
               key={`${name}-${index}`}
               style={{
