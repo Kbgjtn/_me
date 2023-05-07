@@ -6,55 +6,6 @@ import { seedBook } from "./seedBook";
 
 const xOffset = 100;
 
-const sliderVariants = {
-  enter: (direction: number) => ({
-    x: direction > 0 ? xOffset : -xOffset,
-    opacity: 0,
-  }),
-  active: {
-    x: 0,
-    opacity: 1,
-    transition: { delay: 0.2 },
-  },
-  exit: (direction: number) => ({
-    x: direction > 0 ? -xOffset : xOffset,
-    opacity: 0,
-  }),
-};
-
-const variants = {
-  enter: (direction: number) => {
-    return {
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0,
-    };
-  },
-  center: {
-    zIndex: 1,
-    x: 0,
-    opacity: 1,
-  },
-  exit: (direction: number) => {
-    return {
-      zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0,
-    };
-  },
-};
-
-interface IBookSliderArgs {
-  currentPage: number;
-  setPage: number;
-  direction: number;
-}
-
-interface IBookDetailCard {
-  isHover: boolean;
-  isDrag: boolean;
-  index: number;
-}
-
 const BookSlider = () => {
   const [width, setWidth] = useState(0);
   const [bookDetailCard, setBookDetailCard] = useState<IBookDetailCard>({
@@ -156,5 +107,54 @@ const BookSlider = () => {
     </motion.div>
   );
 };
+
+const sliderVariants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? xOffset : -xOffset,
+    opacity: 0,
+  }),
+  active: {
+    x: 0,
+    opacity: 1,
+    transition: { delay: 0.2 },
+  },
+  exit: (direction: number) => ({
+    x: direction > 0 ? -xOffset : xOffset,
+    opacity: 0,
+  }),
+};
+
+const variants = {
+  enter: (direction: number) => {
+    return {
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0,
+    };
+  },
+  center: {
+    zIndex: 1,
+    x: 0,
+    opacity: 1,
+  },
+  exit: (direction: number) => {
+    return {
+      zIndex: 0,
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0,
+    };
+  },
+};
+
+interface IBookSliderArgs {
+  currentPage: number;
+  setPage: number;
+  direction: number;
+}
+
+interface IBookDetailCard {
+  isHover: boolean;
+  isDrag: boolean;
+  index: number;
+}
 
 export default BookSlider;
