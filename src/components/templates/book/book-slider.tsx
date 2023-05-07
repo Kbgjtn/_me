@@ -25,17 +25,19 @@ const BookSlider = () => {
   }, [innerCard]);
 
   return (
-    <motion.div className="flex h-full w-full overflow-hidden">
+    <motion.div className="relative h-[70%] w-screen overflow-hidden">
+      {/* scroll-child */}
       <motion.div
         ref={innerCard}
         variants={variants}
-        className="flex items-center justify-start w-full h-full cursor-grab md:px-8 lg:px-8 xl:px-8 2xl:px-8"
+        className="flex items-center justify-start w-screen h-full cursor-grab md:px-8 lg:px-8 xl:px-8 2xl:px-8"
         drag={"x"}
         dragConstraints={{
           right: 0,
           left: -width,
         }}
         style={{
+          animation: "primary 3s linear infinite",
           filter:
             "brightness(100%) contrast(100%) saturate(100%) grayscale(50%) sepia(0%) hue-rotate(0deg) blur(0px)",
         }}
