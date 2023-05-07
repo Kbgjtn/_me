@@ -13,7 +13,7 @@
 }
 
 .bg-new-black-1 {
-  background-color: #161716;
+  background-color: #111111;
 }
 
 .bg-new-black-2 {
@@ -25,9 +25,13 @@ html {
   scroll-behavior: smooth;
   overflow: scroll;
   scrollbar-width: none;
+  background: #111111;
   -ms-overflow-style: none;
-  background: #1c1c1c;
 }
+
+/* :focus-visible {
+  @apply ring-accent-400 relative rounded-xl outline-none ring-2;
+} */
 
 ::selection {
   color: #555555;
@@ -39,7 +43,6 @@ html {
 body {
   font-family: "Cascadia Code", sans-serif;
   color: white;
-  background-color: black;
   -webkit-font-smoothing: antialiased;
   -mox-osx-font-smoothing: grayscale;
   font-smooth: always;

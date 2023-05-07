@@ -27,7 +27,7 @@ const NavBar = () => {
 
   return (
     <motion.nav
-      className="w-full h-auto bg-charcoal flex flex-col relative items-center justify-center top-0 z-1 py-12 px-11"
+      className="w-full h-auto bg-charcoal  flex flex-col relative items-center justify-center top-0 z-1 py-12 px-11"
       initial="hidden"
       animate="show"
     >
@@ -85,7 +85,7 @@ const NavBar = () => {
       </motion.dl>
       {hoverLogoName ? (
         <motion.div
-          className="text-center font-normal text-xs absolute top-28 mx-auto opacity-30"
+          className="text-center font-semibold text-md absolute top-28 mx-auto opacity-30"
           variants={sentence}
           initial="hidden"
           animate="visible"

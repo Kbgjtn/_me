@@ -1,4 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+dist
 
 # dependencies
 /node_modules
@@ -14,6 +15,7 @@
 
 # production
 /build
+.swc/
 
 # misc
 .DS_Store
@@ -26,11 +28,22 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # local env files
-.env*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# turbo
+turbo
 
 # vercel
+robots.txt
+sitemap.xml
 .vercel
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# prevent accidentally committing and pushing draft files/directories
+*((DRAFT))*
