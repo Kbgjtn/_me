@@ -10,9 +10,7 @@ function NotFound() {
         <meta name="robots" content="noindex" />
       </Head>
 
-      <div className="w-screen h-screen bg-[#1a1a1a]">
-        <MeThreeCanvas path="/notfound.glb" />
-      </div>
+      <div className="w-screen h-screen bg-[#1a1a1a]"></div>
     </>
   );
 }
