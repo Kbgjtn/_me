@@ -13,7 +13,7 @@ const Masonry: FC<Props> = ({ title, projects }) => {
   return (
     <>
       <div
-        className="flex relative flex-col gap-10 my-24 self-center mt-[12rem] justify-center items-center transition-all"
+        className="flex relative bg-charcoal flex-col gap-10 my-24 self-center mt-[12rem] justify-center items-center transition-all"
         id="project-list"
       >
         <h3
@@ -29,9 +29,6 @@ const Masonry: FC<Props> = ({ title, projects }) => {
         {isInView ? (
           <motion.p
             className="text-center text-xs py-2 px-8 sm:text-sm md:text-xl lg:text-xl xl:text-xl 2xl:text-xl"
-            style={{
-              backgroundColor: "#1c1c1c",
-            }}
             variants={sentence}
             initial={"hidden"}
             animate="visible"

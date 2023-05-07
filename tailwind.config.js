@@ -51,7 +51,7 @@ module.exports = {
       },
       colors: {
         charcoal: {
-          DEFAULT: "#1c1c1c",
+          DEFAULT: "#111111",
           50: "#D0BCFF",
           100: "#48464C",
           200: "#575360",

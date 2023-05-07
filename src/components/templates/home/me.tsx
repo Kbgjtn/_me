@@ -46,7 +46,7 @@ const Me = () => {
                 className="flex m-auto self-center bg-charcoal rounded-[1.5rem] w-52 h-auto justify-center items-center sm:w-80 md:w-96 lg:w-[22rem] xl:w-[26rem] 2xl:w-[30rem]"
                 style={{
                   boxShadow: `0px 8px 18px #000000`,
-                  border: "4px solid #1A1A1A",
+                  border: "4px solid #1c1c1c",
                 }}
               >
                 <motion.p

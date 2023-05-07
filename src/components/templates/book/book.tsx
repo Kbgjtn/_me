@@ -36,7 +36,6 @@ const Book = () => {
             {isInView ? (
               <motion.p
                 className="text-center text-xs py-2 px-8 sm:text-sm md:text-xl lg:text-xl xl:text-xl 2xl:text-xl"
-                style={{ backgroundColor: "#1c1c1c" }}
                 variants={sentence}
                 initial="hidden"
                 animate="visible"

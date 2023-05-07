@@ -4,6 +4,7 @@ import Footer from "@/components/templates/footer/footer";
 import Me from "@/components/templates/home/me";
 import Project from "@/components/templates/project/project";
 import ScrollProgressY from "@/components/modules/scrollProgress/scrollProgress";
+import { getPosts } from "@/lib/post";
 
 export default function Home() {
   return (
@@ -31,4 +32,9 @@ export default function Home() {
       </main>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const posts = getPosts();
+  return { props: {} };
 }
