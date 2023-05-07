@@ -25,7 +25,6 @@ export default function Home() {
         <link rel="icon" href="/tortuga.ico" />
       </Head>
       <main className="w-screen h-screen scroll-smooth">
-        <GoTop />
         <ScrollProgressY />
         <Me />
         <Project />

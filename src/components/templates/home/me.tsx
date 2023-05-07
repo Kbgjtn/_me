@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import Head from "next/head";
 import Image from "next/image";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Mac from "../../../assets/images/Mac";
 import meAsMan from "../../../assets/images/Western-Man-me.png";
 import NavBar from "../../modules/navbar/navbar";
@@ -14,6 +14,10 @@ const Me = () => {
   const handleMouseEnterHoverMe = () => {
     setIsHoverMe(true);
   };
+
+  useEffect(() => {
+    console.log(isHoverMe);
+  }, [isHoverMe]);
 
   const handleMouseLeaveHoverMe = () => {
     setIsHoverMe(false);
@@ -44,7 +48,7 @@ const Me = () => {
         */}
 
         <div
-          className="inline-flex absolute justify-center flex-col items-center sm:flex-row md:flex-row w-full h-full m-0-auto"
+          className="flex w-full max-h-auto h-screen self-center relative flex-col justify-center items-center"
           onMouseEnter={(e) => {
             e.preventDefault();
             handleMouseEnterHoverMe();
@@ -55,8 +59,7 @@ const Me = () => {
           }}
         >
           <MeThreeCanvas />
-          <div className="flex w-full max-h-auto h-auto self-center relative flex-col justify-center items-center">
-            {/*
+          {/*
             <div>
               <Image
                 className="inline-flex noselect w-[200px] h-auto sm:w-[250px] md:w-[260px] lg:w-[300px] xl:w-[300px] 2xl:w-[300px]"
@@ -75,43 +78,43 @@ const Me = () => {
               <Mac />
             </div>
             */}
-            {isHoverMe ? (
-              <motion.div className="flex absolute z-10 items-center justify-center left-[17rem] top-[28rem]">
-                <motion.div
-                  variants={transitionCardInfo}
-                  className="flex m-auto self-center bg-charcoal rounded-[1.5rem] w-52 h-auto justify-center items-center sm:w-80 md:w-96 lg:w-[22rem] xl:w-[26rem] 2xl:w-[30rem]"
-                  style={{
-                    boxShadow: `0px 8px 18px #000000`,
-                    border: "4px solid #1A1A1A",
-                  }}
+          {isHoverMe ? (
+            <motion.div className="flex absolute items-center justify-center top-[80px]">
+              <motion.div
+                variants={transitionCardInfo}
+                className="flex m-auto self-center bg-charcoal rounded-[1.5rem] w-52 h-auto justify-center items-center sm:w-80 md:w-96 lg:w-[22rem] xl:w-[26rem] 2xl:w-[30rem]"
+                style={{
+                  boxShadow: `0px 8px 18px #000000`,
+                  border: "4px solid #1A1A1A",
+                }}
+              >
+                <motion.p
+                  className="font-medium p-4 relative text-center text-mn sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-sm"
+                  variants={sentence}
+                  initial="hidden"
+                  animate="visible"
                 >
-                  <motion.p
-                    className="font-medium p-4 relative text-center text-mn sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-sm"
-                    variants={sentence}
-                    initial="hidden"
-                    animate="visible"
-                  >
-                    {`hii, i'm a student at Binus University (Comp. Science), nice to meet you, budz!!:))`
-                      .split("")
-                      .map((char, index) => {
-                        return (
-                          <motion.span
-                            className=""
-                            key={char + "-" + index}
-                            variants={letter}
-                          >
-                            {char}
-                          </motion.span>
-                        );
-                      })}
-                  </motion.p>
-                </motion.div>
+                  {`hii, i'm daffa, student at Binus University (Comp. Science), nice to meet you, budz!!:))`
+                    .split("")
+                    .map((char, index) => {
+                      return (
+                        <motion.span
+                          className=""
+                          key={char + "-" + index}
+                          variants={letter}
+                        >
+                          {char}
+                        </motion.span>
+                      );
+                    })}
+                </motion.p>
               </motion.div>
-            ) : null}
-          </div>
-          <motion.div className="block absolute flex-col w-auto h-auto self-start justify-self-end justify-start items-center overflow-hidden">
+            </motion.div>
+          ) : null}
+        </div>
+        {/* <motion.div className="flex absolute flex-col w-auto h-auto self-start justify-start items-center overflow-hidden">
             <motion.h1
-              className="inline-flex font-extrabold ml-[14rem] text-7xl sm:text-8xl md:text-8xl lg:text-8xl xl:text-9xl 2xl:text-10xl"
+              className="inline-flex font-extrabold text-6xl sm:text-8xl md:text-8xl lg:text-8xl xl:text-9xl 2xl:text-10xl"
               variants={sentence}
               initial="hidden"
               animate="visible"
@@ -140,8 +143,7 @@ const Me = () => {
                 boxShadow: "0px -80px 70px 20px rgb(28, 28, 28, 0.7)",
               }}
             ></div>
-          </motion.div>
-        </div>
+          </motion.div> */}
       </motion.div>
     </React.Fragment>
   );
