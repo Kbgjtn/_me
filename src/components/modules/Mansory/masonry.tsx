@@ -16,8 +16,8 @@ const Masonry: FC<Props> = ({ title, projects }) => {
         className="flex relative bg-charcoal flex-col gap-10 my-24 self-center mt-[12rem] justify-center items-center transition-all"
         id="project-list"
       >
-        <h3
-          className="text-4xl font-semibold text-center translate-y-12 sm:text-6xl sm:p-5 md:text-7xl md:p-6 lg:text-8xl xl:text-8xl 2xl:text-8xl"
+        <h1
+          className="text-5xl font-semibold text-center translate-y-12 sm:text-6xl sm:p-5 md:text-7xl md:p-6 lg:text-8xl xl:text-8xl 2xl:text-8xl"
           style={{
             transform: isInView ? "none" : "translateX(-200px)",
             opacity: isInView ? 1 : 0,
@@ -25,7 +25,7 @@ const Masonry: FC<Props> = ({ title, projects }) => {
           }}
         >
           {title}
-        </h3>
+        </h1>
         {isInView ? (
           <motion.p
             className="text-center text-xs py-2 px-8 sm:text-sm md:text-xl lg:text-xl xl:text-xl 2xl:text-xl"

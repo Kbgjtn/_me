@@ -1,23 +1,26 @@
 import { motion } from "framer-motion";
-import { ComponentProps, useState } from "react";
+import { useState } from "react";
 import clsx from "clsx";
-import GithubLogoSvg from "@/assets/images/GithubLogo";
 import { z } from "zod";
-import ProjectLogoSvg from "@/assets/images/ProjectLogo";
-import { BookIcon, MeIcon, ProjectListIcon } from "@/components/icons";
+import {
+  BookIcon,
+  GithubIcon,
+  MeIcon,
+  ProjectListIcon,
+} from "@/components/icons";
+import PopOver from "@/components/ui/pop-over";
 
 const urlSchema = z.string().url();
 const NavBar = () => {
   const [hoverLogoName, setHoverLogoName] = useState<string>("");
 
   const handleClickScroll = (id: string) => {
-    console.log({ id });
     if (urlSchema.safeParse(id).success) {
       window.location.href = id;
       return;
     }
+
     const element = document.querySelectorAll(id);
-    console.log(element[0]);
 
     if (element) {
       // 👇 Will scroll smoothly to the top of the next section
@@ -48,7 +51,11 @@ const NavBar = () => {
           [
             "repository",
             "https://github.com/Kbgjtn",
-            <GithubLogoSvg key="2" title={hoverLogoName} />,
+            <GithubIcon
+              key="2"
+              props={{ className: clsx(`h-9 w-9`) }}
+              anoth={{ isIconHover: hoverLogoName === "repository" }}
+            />,
           ],
           [
             "book",
@@ -70,17 +77,16 @@ const NavBar = () => {
             />,
           ],
         ].map(([title, url, svg]) => (
-          <div
+          <span
             onClick={() => handleClickScroll(url as string)}
             onMouseEnter={() => setHoverLogoName(`${title}`)}
             onMouseLeave={() => setHoverLogoName("")}
             draggable={false}
             key={`${title}`}
             style={{ transition: "500ms" }}
-            title={title as string}
           >
             {svg}
-          </div>
+          </span>
         ))}
       </motion.dl>
       {hoverLogoName ? (
