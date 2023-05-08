@@ -63,7 +63,7 @@ const MeThree = ({ isMobile }: { isMobile: boolean }): JSX.Element => {
 
 const MeThreeCanvas = () => {
   const [dpr, setDpr] = useState(1.5);
-  const color3 = new THREE.Color("#3c3c3c");
+  const color3 = new THREE.Color("#444444");
   return (
     <Canvas
       shadows
