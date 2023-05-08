@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap");
+
+@tailwind base;
+
+@layer base {
+	* {
+		color: #f3f3f3;
+	}
+
+	.font-cascode {
+		font-family: "Cascadia Code", sans-serif;
+	}
+
+	.bg-new-black-1 {
+		background-color: #111111;
+	}
+
+	.bg-new-black-2 {
+		color: rgba(0, 0, 0, 0.54);
+	}
+
+	html {
+		@apply scroll-smooth bg-charcoal;
+		@apply box-border;
+		-ms-overflow-style: none;
+	}
+
+	::selection {
+		color: #555555;
+		opacity: 0.6;
+		fill-opacity: 0.8;
+		background: transparent;
+	}
+
+	body {
+		font-family: "Cascadia Code", sans-serif;
+		color: white;
+		-webkit-font-smoothing: antialiased;
+		-mox-osx-font-smoothing: grayscale;
+		font-smooth: always;
+	}
+
+	.noselect {
+		-webkit-touch-callout: none; /* iOS Safari */
+		-webkit-user-select: none; /* Safari */
+		-khtml-user-select: none; /* Konqueror HTML */
+		-moz-user-select: none; /* Old versions of Firefox */
+		-ms-user-select: none; /* Internet Explorer/Edge */
+		user-select: none; /* Non-prefixed version, currently
+									supported by Chrome, Edge, Opera and Firefox */
+	}
+
+	::-webkit-scrollbar {
+		width: 0px;
+		background: transparent;
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+	}
+
+	[role="tooltip"] {
+		/* hide tooltips by default */
+		display: none;
+		position: absolute;
+		top: -3em;
+		left: 1em;
+		padding: 0.5em 1em;
+		background: #1c1c1c;
+		background-color: #1c1c1c;
+		border-radius: 5px;
+		padding: 10px;
+		max-width: 380px;
+		box-shadow: 0px 8px 18px #000000;
+	}
+
+	[role="tooltip"]:after {
+		/* Add a downward arrow to style the tooltip */
+		position: absolute;
+		left: 20px;
+		bottom: -15px;
+		content: "";
+		width: 0;
+		height: 0;
+		border-right: 10px solid transparent;
+		border-left: 10px solid transparent;
+		border-top: 15px solid #1a1a1a;
+		border-bottom: none;
+	}
+
+	.tp-trigger:hover + [role="tooltip"],
+	.tp-trigger:focus + [role="tooltip"] {
+		display: block;
+	}
+
+	.pulse {
+		@layer animation: pulse-animation 2s infinite;
+	}
+
+	@keyframes pulse-animation {
+		0% {
+			box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+		}
+		100% {
+			box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+		}
+	}
+}
