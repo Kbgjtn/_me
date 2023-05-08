@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Head from "next/head";
 import React, { useRef, useState } from "react";
 import NavBar from "../../modules/navbar/navigation-bar";
+import GoTop from "@/components/modules/goTop/goTop";
 
 function AvailableForHire() {
   return (
@@ -17,6 +18,35 @@ function AvailableForHire() {
         <span className="relative inline-flex rounded-full h-3 w-3 bg-[#3c3c3c]"></span>
       </div>
       Get In Touch!
+    </div>
+  );
+}
+
+function GoNextPage() {
+  const handleClickScroll = () => {
+    const element = document.querySelectorAll("#blogpost");
+
+    if (element) {
+      // 👇 Will scroll smoothly to the top of the next section
+      element[0].scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <div
+      className={clsx(
+        `flex absolute z-10 items-center justify-center font-semibold gap-4 -translate-y-44 bottom-0 cursor-pointer`
+      )}
+    >
+      <div
+        className="animate-bounce flex h-5 w-5 items-center justify-center"
+        onClick={() => handleClickScroll()}
+      >
+        <span className="animate-ping absolute inline-flex h-8 w-3 rounded-full bg-[#f3f3f3] shadow-sm opacity-50" />
+        <span className="relative text-2xl inline-flex rounded-full h-10 text-center self-center justify-center items-center opacity-50 w-4 bg-[#3c3c3c]">
+          |
+        </span>
+      </div>
     </div>
   );
 }
@@ -55,6 +85,7 @@ const Me = () => {
             handleMouseLeaveHoverMe();
           }}
         >
+          <GoNextPage />
           <AvailableForHire />
           <MeThreeCanvas />
 
