@@ -128,7 +128,7 @@ function PostPreview({ posts }: { posts: PostMeta[] }) {
             <div className="w-full flex items-center justify-start gap-4 mb-4">
               <div
                 className={clsx(
-                  `justify-self-end inline-flex items-center gap-3`
+                  `justify-self-end inline-flex items-center gap-2`
                 )}
               >
                 <CalenderIcon props={{ className: clsx(`h-4 w-4`) }} />
@@ -139,11 +139,11 @@ function PostPreview({ posts }: { posts: PostMeta[] }) {
               </div>
               <div
                 className={clsx(
-                  `justify-self-end inline-flex items-center gap-3`
+                  `justify-self-end inline-flex items-center gap-2`
                 )}
               >
                 <BookReaderIcon props={{ className: clsx(`h-5 w-5`) }} />
-                <p className="text-[12px]">{`10 minutes`}</p>
+                <p className="text-[12px]">{`10 Mins`}</p>
               </div>
             </div>
           </motion.li>
