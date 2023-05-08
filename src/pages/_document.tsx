@@ -10,7 +10,6 @@ export default function Document() {
         {isProduction && (
           <>
             <link rel="canonical" href="https://www.coocobolo.com/" />
-
             <script
               async
               src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
