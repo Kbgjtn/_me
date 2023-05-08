@@ -8,14 +8,6 @@ const Book = () => {
   const isInView = useInView(ref, { once: true });
   return (
     <>
-      <Head>
-        <title>Daffa Requelme - Book Reading</title>
-        <link
-          rel="canonical"
-          href="https://example.com/blog/original-post"
-          key="canonical"
-        />
-      </Head>
       <div
         ref={ref}
         id="reading-list"
