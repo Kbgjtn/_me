@@ -72,6 +72,7 @@ function PostPreview({ posts }: { posts: PostMeta[] }) {
 
   return (
     <motion.div
+      id="blogpost"
       className={clsx(
         "flex flex-col w-screen h-auto justify-start items-center gap-16"
       )}
