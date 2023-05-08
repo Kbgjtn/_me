@@ -1,4 +1,5 @@
 import { motion, useInView } from "framer-motion";
+
 import { FC, useRef } from "react";
 
 interface Props {
@@ -12,7 +13,7 @@ const Masonry: FC<Props> = ({ title, projects }) => {
 
   return (
     <>
-      <div
+      <motion.div
         className="flex relative bg-charcoal flex-col gap-10 my-24 self-center mt-[12rem] justify-center items-center transition-all"
         id="project-list"
       >
@@ -48,25 +49,25 @@ const Masonry: FC<Props> = ({ title, projects }) => {
               })}
           </motion.p>
         ) : null}
-      </div>
+      </motion.div>
 
       <motion.div
         className="p-4 bg-charcoal max-w-full columns-2 md:columns-3 lg:columns-3 lg:px-8 xl:columns-3 xl:px-10 2xl:columns-3 2xl:px-[12rem]"
-        variants={container}
-        animate="visible"
+        variants={list}
+        animate={`${isInView ? "visible" : "hidden"}`}
         ref={ref}
         initial="hidden"
       >
         {projects.map(([name, link, _photo, _bgColor, height], index) => {
           return (
             <motion.div
-              className={`relative mb-4 max-w-full rounded-xl text-center font-medium transition-shadow border-4 border-[#070400]`}
-              variants={item}
+              className={`relative mb-4 max-w-full rounded-xl text-center font-medium transition-shadow border-4 border-[#1a1a1a]`}
+              variants={itemChild}
               key={`${name}-${index}`}
               style={{
                 height: `${height}px`,
-                background: `linear-gradient(${height}deg, #030303, #110309)`,
-                boxShadow: `0px 2px 6px #0d0d0d`,
+                // background: `linear-gradient(${height}deg, #030303, #110309)`,
+                background: "#1e1e1e",
               }}
             >
               <a
@@ -83,6 +84,30 @@ const Masonry: FC<Props> = ({ title, projects }) => {
       </motion.div>
     </>
   );
+};
+
+const list = {
+  visible: {
+    opacity: 1,
+    transition: {
+      when: "beforeChildren",
+      type: "just",
+      mass: 0.4,
+      damping: 8,
+      staggerChildren: 0.4,
+    },
+  },
+  hidden: {
+    opacity: 0,
+    transition: {
+      when: "afterChildren",
+    },
+  },
+};
+
+const itemChild = {
+  visible: { opacity: 1, x: 0 },
+  hidden: { opacity: 0, x: -100 },
 };
 
 const sentence = {
