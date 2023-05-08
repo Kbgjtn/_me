@@ -4,7 +4,7 @@ import matter from "gray-matter";
 
 const POSTS_DIRECTORY = path.join(process.cwd(), "src/pages/blog");
 
-interface PostMeta {
+export interface PostMeta {
   date: string;
   excerpt: string;
   slug: string;
@@ -12,23 +12,38 @@ interface PostMeta {
   tags: string[];
 }
 
-interface Post {
+export interface Post {
   content: string;
   meta: PostMeta;
 }
 
 export function getPosts() {
-  const allPost = getPostSlugs().map((slug) => {
-    getPostMeta(slug);
-  });
+  const allPost = getPostSlugs()
+    .map((slug) => getPostData(slug))
+    .sort((a, b) => {
+      if (a.meta.date > b.meta.date) return 1;
+      if (a.meta.date < b.meta.date) return -1;
+      return 0;
+    })
+    .reverse();
+
+  return allPost;
 }
 
-export function getPostMeta(slug: string): Post | never {
+export function getPostData(slug: string): Post | never {
   const postDirectory = path.join(POSTS_DIRECTORY, `${slug}.mdx`);
   const source = fs.readFileSync(postDirectory, `utf8`);
   const { content, data } = matter(source);
-  console.log({ content, data });
-  return undefined as never;
+  return {
+    content,
+    meta: {
+      excerpt: data.excerpt ?? "",
+      slug,
+      tags: (data.tags ?? []).sort(),
+      title: data.title ?? slug,
+      date: (data.date ?? new Date()).toString(),
+    },
+  };
 }
 
 export function getPostSlugs(): string[] {
