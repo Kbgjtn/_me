@@ -116,12 +116,12 @@ function PostPreview({ posts }: { posts: PostMeta[] }) {
             <div className={clsx("font-semibold text-xl")}>
               <Link
                 href={`/blog`}
-                className={clsx("hover:underline underline-offset-2", "")}
+                className={clsx("hover:underline underline-offset-2")}
               >
                 {post.title}
               </Link>
             </div>
-            <div className="max-h-28 overflow-hidden text-[12px] h-full text-ellipsis">
+            <div className="min-h-20 overflow-hidden leading-4 text-[12px] h-full text-ellipsis">
               {post.excerpt}
             </div>
 
@@ -139,7 +139,7 @@ function PostPreview({ posts }: { posts: PostMeta[] }) {
               </div>
               <div
                 className={clsx(
-                  `justify-self-end inline-flex items-center gap-2`
+                  `justify-self-end content-end inline-flex items-center gap-2 `
                 )}
               >
                 <BookReaderIcon props={{ className: clsx(`h-5 w-5`) }} />
