@@ -38,12 +38,12 @@ const MeThree = ({ isMobile }: { isMobile: boolean }): JSX.Element => {
           position={[0, 30, 30]}
           angle={1}
           penumbra={1}
-          intensity={0.2}
+          intensity={0.7}
           castShadow
-          color={"#FAEDCD"}
+          color={"#DFDFDE"}
           shadow-mapSize={1024}
         />
-        <pointLight intensity={0.3} color={"#F3DEBA"} />
+        <pointLight intensity={0.4} color={"#DFDFDE"} />
         <primitive
           object={me.scene}
           scale={1}
