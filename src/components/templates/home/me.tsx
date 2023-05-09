@@ -1,26 +1,10 @@
-import MeThreeCanvas from "@/components/contents/tree";
 import clsx from "clsx";
-import { motion } from "framer-motion";
 import Head from "next/head";
+import { motion } from "framer-motion";
+import MeThreeCanvas from "@/contents/3d/tree";
 import React, { useRef, useState } from "react";
-import NavBar from "../../modules/navbar/navigation-bar";
-import GoTop from "@/components/modules/goTop/goTop";
-
-function AvailableForHire() {
-  return (
-    <div
-      className={clsx(
-        `flex relative items-center justify-center translate-y-24 font-semibold gap-4`
-      )}
-    >
-      <div className="flex rel h-3 w-3">
-        <span className="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-[#f3f3f3] shadow-sm opacity-50" />
-        <span className="relative inline-flex rounded-full h-3 w-3 bg-[#3c3c3c]"></span>
-      </div>
-      Get In Touch!
-    </div>
-  );
-}
+import NavBar from "@/components/modules/navbar/navigation-bar";
+import GetInTouchPing from "@/components/ui/getInTouchPing";
 
 function GoNextPage() {
   const handleClickScroll = () => {
@@ -86,7 +70,7 @@ const Me = () => {
           }}
         >
           <GoNextPage />
-          <AvailableForHire />
+          <GetInTouchPing />
           <MeThreeCanvas />
 
           {isHoverMe ? (
@@ -100,7 +84,7 @@ const Me = () => {
                 }}
               >
                 <motion.p
-                  className="font-medium p-4 relative text-center text-mn sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-sm"
+                  className="font-semibold p-4 relative text-center text-mn sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-sm"
                   variants={sentence}
                   initial="hidden"
                   animate="visible"
