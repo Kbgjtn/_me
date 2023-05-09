@@ -1,10 +1,9 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class",
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx}",
-    "./src/components/**/*.{js,ts,jsx,tsx}",
-  ],
   theme: {
     screens: {
       sm: { min: "576px", max: "767px" },
@@ -14,7 +13,8 @@ module.exports = {
       "2xl": { min: "1536px" },
     },
     fontFamily: {
-      cascode: ["Cascadia Code", "sans-serif"],
+      sans: ['var(--font-space, "")', ...defaultTheme.fontFamily.sans],
+      sans: ['var(--font-space, "")', ...defaultTheme.fontFamily.mono],
     },
     fontSize: {
       mn: ".55rem",

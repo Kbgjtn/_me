@@ -1,21 +1,10 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { POST_RELATIVE_PATH } from "@/constants";
+import { Post } from "@/types/post";
 
-const POSTS_DIRECTORY = path.join(process.cwd(), "src/pages/blog");
-
-export interface PostMeta {
-  date: string;
-  excerpt: string;
-  slug: string;
-  title: string;
-  tags: string[];
-}
-
-export interface Post {
-  content: string;
-  meta: PostMeta;
-}
+const absolutePathPost = path.join(process.cwd(), POST_RELATIVE_PATH);
 
 export function getPosts() {
   const allPost = getPostSlugs()
@@ -31,9 +20,10 @@ export function getPosts() {
 }
 
 export function getPostData(slug: string): Post | never {
-  const postDirectory = path.join(POSTS_DIRECTORY, `${slug}.mdx`);
-  const source = fs.readFileSync(postDirectory, `utf8`);
+  const postDirectory = path.join(absolutePathPost, `${slug}.mdx`);
+  const source = fs.readFileSync(postDirectory, "utf8");
   const { content, data } = matter(source);
+
   return {
     content,
     meta: {
@@ -47,6 +37,6 @@ export function getPostData(slug: string): Post | never {
 }
 
 export function getPostSlugs(): string[] {
-  const postsDirectory = fs.readdirSync(POSTS_DIRECTORY);
+  const postsDirectory = fs.readdirSync(absolutePathPost);
   return postsDirectory.map((fileName) => fileName.replace(/\.mdx$/, ""));
 }

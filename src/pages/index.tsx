@@ -4,7 +4,7 @@ import Book from "@/components/templates/book/book";
 import Footer from "@/components/templates/footer/footer";
 import Me from "@/components/templates/home/me";
 import Project from "@/components/templates/project/project";
-import { PostMeta, getPosts } from "@/lib/post";
+import { getPosts } from "@/lib/post";
 import clsx from "clsx";
 import { motion, useInView } from "framer-motion";
 import Head from "next/head";
@@ -12,8 +12,10 @@ import Image from "next/image";
 import Link from "next/link";
 import templatePhoto from "../../public/photo_test.png";
 import { useRef } from "react";
+import { item, list } from "@/helpers/motion";
+import { PostMeta } from "@/types/post";
 
-export default function Home({ posts }: { posts: PostMeta[] }) {
+function Main({ posts }: { posts: PostMeta[] }) {
   return (
     <>
       <Head>
@@ -30,7 +32,7 @@ export default function Home({ posts }: { posts: PostMeta[] }) {
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
         <link rel="icon" href="/tortuga.ico" />
       </Head>
-      <main className="w-screen h-screen scroll-smooth">
+      <main className="w-screen h-screen scroll-smooth ">
         <ScrollProgressY />
         <Me />
         <PostPreview posts={posts} />
@@ -42,29 +44,7 @@ export default function Home({ posts }: { posts: PostMeta[] }) {
   );
 }
 
-const list = {
-  visible: {
-    opacity: 1,
-    transition: {
-      when: "beforeChildren",
-      type: "just",
-      mass: 0.4,
-      damping: 8,
-      staggerChildren: 0.4,
-    },
-  },
-  hidden: {
-    opacity: 0,
-    transition: {
-      when: "afterChildren",
-    },
-  },
-};
-
-const item = {
-  visible: { opacity: 1, x: 0 },
-  hidden: { opacity: 0, x: -100 },
-};
+export default Main;
 
 function PostPreview({ posts }: { posts: PostMeta[] }) {
   const ref = useRef(null);
@@ -114,15 +94,20 @@ function PostPreview({ posts }: { posts: PostMeta[] }) {
               priority
               loading="eager"
             />
-            <div className={clsx("font-semibold text-xl")}>
+            <div
+              className={clsx(
+                "relative max-h-16 h-full font-semibold overflow-y-hidden ",
+                "text-xl text-ellipsis"
+              )}
+            >
               <Link
                 href={`/blog`}
-                className={clsx("hover:underline underline-offset-2")}
+                className={clsx("relative hover:underline underline-offset-2")}
               >
                 {post.title}
               </Link>
             </div>
-            <div className="min-h-20 overflow-hidden leading-4 text-[12px] h-full text-ellipsis">
+            <div className="max-h-20 h-full overflow-hidden text-xs text-ellipsis">
               {post.excerpt}
             </div>
 
@@ -171,6 +156,5 @@ export async function getStaticProps() {
   const posts = getPosts()
     .slice(0, 9)
     .map((post) => post.meta);
-  console.log({ posts });
   return { props: { posts } };
 }
