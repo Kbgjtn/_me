@@ -2,7 +2,7 @@ import clsx from "clsx";
 import Head from "next/head";
 import { motion } from "framer-motion";
 import MeThreeCanvas from "@/contents/3d/tree";
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import NavBar from "@/components/modules/navbar/navigation-bar";
 import GetInTouchPing from "@/components/ui/getInTouchPing";
 
@@ -47,7 +47,7 @@ const Me = () => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <Head>
         <title>Daffa Requelme</title>
         <link
@@ -108,7 +108,7 @@ const Me = () => {
           ) : null}
         </div>
       </motion.div>
-    </React.Fragment>
+    </>
   );
 };
 
