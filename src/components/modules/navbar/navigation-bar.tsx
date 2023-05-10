@@ -8,9 +8,9 @@ import {
   MeIcon,
   ProjectListIcon,
 } from "@/components/icons";
-import PopOver from "@/components/ui/pop-over";
 
 const urlSchema = z.string().url();
+
 const NavBar = () => {
   const [hoverLogoName, setHoverLogoName] = useState<string>("");
 
@@ -30,12 +30,12 @@ const NavBar = () => {
 
   return (
     <motion.nav
-      className="w-full h-auto bg-charcoal  flex flex-col relative items-center justify-center top-0 z-1 py-12 px-11"
+      className="flex flex-col w-full items-center justify-center top-0 py-12 px-11"
       initial="hidden"
       animate="show"
     >
       <motion.dl
-        className="flex relative justify-center items-center font-medium text-white font-cascode text-xl gap-[2rem] xl:text-2xl"
+        className="flex justify-center items-center font-medium font-cascode text-xl gap-[2rem] xl:text-2xl"
         variants={item}
       >
         {[
