@@ -2,10 +2,12 @@ import clsx from "clsx";
 import { ComponentProps, FC, ReactNode, useRef } from "react";
 
 type ComponentsPopOver = "button" | "svg" | "div" | "input";
+
 interface Props {
   children: ReactNode;
   tooltip?: string;
 }
+
 const PopOver: FC<Props> = ({ children, tooltip }): JSX.Element => {
   const tooltipRef = useRef<HTMLSpanElement>(null);
   const container = useRef<HTMLDivElement>(null);
