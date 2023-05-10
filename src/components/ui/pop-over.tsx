@@ -1,5 +1,7 @@
 import clsx from "clsx";
-import { FC, ReactNode, useRef } from "react";
+import { ComponentProps, FC, ReactNode, useRef } from "react";
+
+type ComponentsPopOver = "button" | "svg" | "div" | "input";
 
 interface Props {
   children: ReactNode;

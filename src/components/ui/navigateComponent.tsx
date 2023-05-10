@@ -11,9 +11,7 @@ type TextStyleOption = "↓" | "|";
 function NavigateComponent(props: IPropsNavigate) {
   return (
     <div
-      className={clsx(
-        "group flex relative -translate-y-48 bottom-0 cursor-pointer"
-      )}
+      className={clsx("group absolute -translate-y-48 bottom-0 cursor-pointer")}
     >
       <div
         className={clsx(
