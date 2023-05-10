@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import Head from "next/head";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useRef, useState } from "react";
 import MeThreeCanvas from "@/contents/3d/tree";
 import GetInTouchPing from "@/components/ui/getInTouchPing";
@@ -20,20 +20,14 @@ const Me = () => {
 
   return (
     <>
-      <Head>
-        <title>Daffa Requelme</title>
-        <link
-          rel="canonical"
-          href="https://example.com/blog/original-post"
-          key="canonical"
-        />
-      </Head>
       <NavBar />
       <motion.div
-        className={clsx("w-full h-full flex-col bg-charcoal")}
         ref={ref}
+        initial="hidden"
+        animate="visible"
+        className={clsx("w-full h-full flex-col bg-charcoal")}
       >
-        <div
+        <motion.div
           className={clsx(
             "flex w-full max-h-auto h-screen self-center relative flex-col justify-center items-center"
           )}
@@ -50,48 +44,51 @@ const Me = () => {
           <MeThreeCanvas />
           <NavigateComponent id={"#blogpost"} text={"↓"} behavior={"smooth"} />
 
-          {isHoverMe ? (
-            <motion.div
-              className={clsx(
-                "flex absolute items-center justify-center top-[80px]"
-              )}
-            >
+          <AnimatePresence>
+            {isHoverMe ? (
               <motion.div
-                variants={transitionCardInfo}
                 className={clsx(
-                  "flex m-auto self-center bg-charcoal rounded-[1.5rem] w-56 h-auto justify-center items-center sm:w-80 md:w-96 lg:w-[22rem] xl:w-[26rem] 2xl:w-[30rem]"
+                  "flex absolute items-center justify-center top-[80px]"
                 )}
-                style={{
-                  boxShadow: `0px 8px 18px #000000`,
-                  border: "4px solid #1c1c1c",
-                }}
               >
-                <motion.p
-                  className={clsx(
-                    "font-semibold p-4 relative text-center text-mn sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-sm"
-                  )}
-                  variants={sentence}
+                <motion.div
                   initial="hidden"
                   animate="visible"
+                  exit="exit"
+                  variants={transitionCardInfo}
+                  className={clsx(
+                    "flex m-auto self-center bg-charcoal rounded-[1.5rem] w-56 h-auto justify-center items-center sm:w-80 md:w-96 lg:w-[22rem] xl:w-[26rem] 2xl:w-[30rem]"
+                  )}
+                  style={{
+                    boxShadow: `0px 8px 18px #000000`,
+                    border: "4px solid #1c1c1c",
+                  }}
                 >
-                  {"hii, i'm dapa, student at Binus University (Comp. Science), nice to meet you!"
-                    .split("")
-                    .map((char, index) => {
-                      return (
-                        <motion.span
-                          className=""
-                          key={char + "-" + index}
-                          variants={letter}
-                        >
-                          {char}
-                        </motion.span>
-                      );
-                    })}
-                </motion.p>
+                  <motion.p
+                    className={clsx(
+                      "font-semibold p-4 relative text-center text-mn sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-sm"
+                    )}
+                    variants={sentence}
+                  >
+                    {"hii, i'm dapa, student at Binus University (Comp. Science), nice to meet you!"
+                      .split("")
+                      .map((char, index) => {
+                        return (
+                          <motion.span
+                            className=""
+                            key={char + "-" + index}
+                            variants={letter}
+                          >
+                            {char}
+                          </motion.span>
+                        );
+                      })}
+                  </motion.p>
+                </motion.div>
               </motion.div>
-            </motion.div>
-          ) : null}
-        </div>
+            ) : null}
+          </AnimatePresence>
+        </motion.div>
       </motion.div>
     </>
   );
@@ -100,7 +97,7 @@ const Me = () => {
 export default Me;
 
 const sentence = {
-  hidden: { opacity: 1 },
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
@@ -122,30 +119,25 @@ const letter = {
 };
 
 const transitionCardInfo = {
-  hidden: { y: 50, opacity: 0 },
+  hidden: { opacity: 0 },
   visible: {
-    y: 0,
     opacity: 1,
+    transform: "scale(1)",
     transition: {
+      ease: "easeOut",
+      duration: 2,
       type: "spring",
-      stiffness: 260,
-      damping: 40,
+      stiffness: 100,
     },
   },
-  exit: { y: 50, opacity: 0 },
-};
-
-const transitionShodowCardInfo = {
-  hidden: { y: 0, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
+  exit: {
+    opacity: 0,
+    transform: "scale(0.5)",
     transition: {
-      delay: 0.5,
+      duration: 1,
+      ease: "easeIn",
       type: "spring",
-      stiffness: 260,
-      damping: 40,
+      stiffness: 100,
     },
   },
-  exit: { x: 10, opacity: 0 },
 };
