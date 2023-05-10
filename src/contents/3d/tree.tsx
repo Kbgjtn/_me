@@ -57,6 +57,7 @@ const MeThree = ({ isMobile }: { isMobile: boolean }): JSX.Element => {
 };
 
 const MeThreeCanvas = () => {
+  const [dpr, setDpr] = useState(1.5);
   const color3 = new THREE.Color("#444444");
 
   return (
@@ -67,7 +68,7 @@ const MeThreeCanvas = () => {
       camera={{ position: [-20, 8, 20], fov: 48 }}
       gl={{ preserveDrawingBuffer: true }}
       performance={{ min: 0.5 }}
-      className="max-w-full h-full"
+      className="w-full h-screen"
     >
       <Suspense fallback={<Floor position={[0, 0, 5]} />}>
         <MeThree isMobile={true} />

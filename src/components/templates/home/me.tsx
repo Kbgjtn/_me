@@ -1,9 +1,11 @@
-import GetInTouchPing from "@/components/ui/getInTouchPing";
-import NavigateComponent from "@/components/ui/navigateComponent";
-import MeThreeCanvas from "@/contents/3d/tree";
 import clsx from "clsx";
+import Head from "next/head";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRef, useState } from "react";
+import MeThreeCanvas from "@/contents/3d/tree";
+import GetInTouchPing from "@/components/ui/getInTouchPing";
+import NavBar from "@/components/modules/navbar/navigation-bar";
+import NavigateComponent from "@/components/ui/navigateComponent";
 
 const Me = () => {
   const [isHoverMe, setIsHoverMe] = useState(false);
@@ -18,17 +20,17 @@ const Me = () => {
 
   return (
     <>
+      <NavBar />
       <motion.div
-        animate="visible"
-        initial="hidden"
         ref={ref}
-        className={clsx(
-          "flex flex-col h-screen w-full items-center justify-start"
-        )}
+        initial="hidden"
+        animate="visible"
+        className={clsx("w-full h-full flex-col bg-charcoal")}
       >
-        <GetInTouchPing />
-        <div
-          className="inline-flex justify-center self-start items-center max-h-full h-full w-full"
+        <motion.div
+          className={clsx(
+            "flex w-full max-h-auto h-screen self-center relative flex-col justify-center items-center"
+          )}
           onMouseEnter={(e) => {
             e.preventDefault();
             handleMouseEnterHoverMe();
@@ -38,54 +40,55 @@ const Me = () => {
             handleMouseLeaveHoverMe();
           }}
         >
+          <GetInTouchPing />
           <MeThreeCanvas />
-        </div>
-        <NavigateComponent id={"reading-list"} text={"↓"} behavior={"smooth"} />
+          <NavigateComponent id={"#blogpost"} text={"↓"} behavior={"smooth"} />
 
-        <AnimatePresence>
-          {isHoverMe ? (
-            <motion.div
-              className={clsx(
-                "fixed items-center justify-center top-[80px] translate-y-24"
-              )}
-            >
+          <AnimatePresence>
+            {isHoverMe ? (
               <motion.div
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                variants={transitionCardInfo}
                 className={clsx(
-                  "flex relative m-auto self-center bg-charcoal rounded-[1.5rem] w-56 h-auto justify-center items-center sm:w-80 md:w-96 lg:w-[22rem] xl:w-[26rem] 2xl:w-[30rem]"
+                  "flex absolute items-center justify-center top-[80px]"
                 )}
-                style={{
-                  boxShadow: `0px 8px 18px #000000`,
-                  border: "4px solid #1c1c1c",
-                }}
               >
-                <motion.p
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  variants={transitionCardInfo}
                   className={clsx(
-                    "font-semibold p-4 relative text-center text-mn sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-sm"
+                    "flex m-auto self-center bg-charcoal rounded-[1.5rem] w-56 h-auto justify-center items-center sm:w-80 md:w-96 lg:w-[22rem] xl:w-[26rem] 2xl:w-[30rem]"
                   )}
-                  variants={sentence}
+                  style={{
+                    boxShadow: `0px 8px 18px #000000`,
+                    border: "4px solid #1c1c1c",
+                  }}
                 >
-                  {"hii, i'm dapa, student at Binus University (Comp. Science), nice to meet you!"
-                    .split("")
-                    .map((char, index) => {
-                      return (
-                        <motion.span
-                          className=""
-                          key={char + "-" + index}
-                          variants={letter}
-                        >
-                          {char}
-                        </motion.span>
-                      );
-                    })}
-                </motion.p>
+                  <motion.p
+                    className={clsx(
+                      "font-semibold p-4 relative text-center text-mn sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-sm"
+                    )}
+                    variants={sentence}
+                  >
+                    {"hii, i'm dapa, student at Binus University (Comp. Science), nice to meet you!"
+                      .split("")
+                      .map((char, index) => {
+                        return (
+                          <motion.span
+                            className=""
+                            key={char + "-" + index}
+                            variants={letter}
+                          >
+                            {char}
+                          </motion.span>
+                        );
+                      })}
+                  </motion.p>
+                </motion.div>
               </motion.div>
-            </motion.div>
-          ) : null}
-        </AnimatePresence>
+            ) : null}
+          </AnimatePresence>
+        </motion.div>
       </motion.div>
     </>
   );

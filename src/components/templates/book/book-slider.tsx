@@ -25,7 +25,7 @@ const BookSlider = () => {
   }, [innerCard]);
 
   return (
-    <motion.div className="h-[70%] w-screen overflow-hidden">
+    <motion.div className="relative h-[70%] w-screen overflow-hidden">
       {/* scroll-child */}
       <motion.div
         ref={innerCard}

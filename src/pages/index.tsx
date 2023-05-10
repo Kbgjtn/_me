@@ -4,16 +4,16 @@ import Book from "@/components/templates/book/book";
 import Footer from "@/components/templates/footer/footer";
 import Me from "@/components/templates/home/me";
 import Project from "@/components/templates/project/project";
-import { item, list } from "@/helpers/motion";
 import { getPosts } from "@/lib/post";
-import { PostMeta } from "@/types/post";
 import clsx from "clsx";
 import { motion, useInView } from "framer-motion";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
 import templatePhoto from "../../public/photo_test.png";
+import { useRef } from "react";
+import { item, list } from "@/helpers/motion";
+import { PostMeta } from "@/types/post";
 
 function Main({ posts }: { posts: PostMeta[] }) {
   return (
@@ -32,13 +32,14 @@ function Main({ posts }: { posts: PostMeta[] }) {
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
         <link rel="icon" href="/tortuga.ico" />
       </Head>
-
-      <div className={clsx("mb-12", "")}>
+      <main className="w-screen h-screen scroll-smooth ">
+        <ScrollProgressY />
         <Me />
-      </div>
-      <div className={clsx("mb-48", "2xl:mb-52")}>
+        <PostPreview posts={posts} />
+        <Project />
         <Book />
-      </div>
+        <Footer />
+      </main>
     </>
   );
 }
