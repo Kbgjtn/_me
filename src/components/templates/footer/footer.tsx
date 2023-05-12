@@ -49,6 +49,9 @@ const Footer: React.FC<Props> = () => {
           </a>
         ))}
       </div>
+      <span className="text-sm text-center py-6">
+        <span className="text-xl pr-[1px]">&copy;</span> 2022 Daffa.R
+      </span>
       <div className="mt-4"></div>
     </div>
   );
