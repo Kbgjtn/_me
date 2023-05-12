@@ -1,11 +1,15 @@
 import clsx from "clsx";
 import { useTheme } from "next-themes";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrightIcon, MoonIcon } from "../icons";
 
 function ThemeToggle(): JSX.Element {
+  const [isDark, setIsDark] = useState<boolean>();
   const { theme, setTheme } = useTheme();
-  const isDark = theme === "dark" ?? false;
+  useEffect(() => {
+    if (theme === "dark") setIsDark(true);
+    if (theme === "light") setIsDark(false);
+  }, [theme]);
 
   return (
     <button
