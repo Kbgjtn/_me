@@ -1,1 +1,1 @@
-export const POST_RELATIVE_PATH = "src/pages/blog";
+export const POST_RELATIVE_PATH = "src/contents/posts";
