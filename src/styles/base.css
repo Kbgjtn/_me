@@ -10,7 +10,7 @@
   }
 
   html {
-    @apply scroll-smooth bg-charcoal;
+    @apply scroll-smooth;
     @apply box-border;
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
@@ -24,7 +24,6 @@
   }
 
   body {
-    color: #b2b2b2;
     -mox-osx-font-smoothing: grayscale;
     font-smooth: always;
   }

@@ -22,13 +22,15 @@ function NavigateComponent(props: IPropsNavigate) {
       >
         <span
           className={clsx(
-            "animate-ping absolute inline-flex h-7 w-3 rounded-full bg-[#f3f3f3] shadow-sm opacity-50"
+            "animate-ping absolute inline-flex h-7 w-3 rounded-full bg-[#1c1c1c] shadow-sm opacity-50",
+            "dark:bg-[#f3f3f3]"
           )}
         />
         <span
           className={clsx(
-            "inline-flex relative h-10 w-4 self-center justify-center items-center rounded-full opacity-50 bg-[#3c3c3c]",
-            "text-4xl text-center font-medium"
+            "inline-flex relative h-10 w-4 self-center justify-center items-center rounded-full opacity-50 bg-[#5A5A5A]",
+            "text-4xl text-center font-medium",
+            "dark:bg-[#3c3c3c]"
           )}
         >
           {props.text}

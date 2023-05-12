@@ -1,5 +1,4 @@
 import { motion, useInView } from "framer-motion";
-import Head from "next/head";
 import { useRef } from "react";
 import BookSlider from "./book-slider";
 
@@ -11,7 +10,7 @@ const Book = () => {
       <div
         ref={ref}
         id="reading-list"
-        className="w-full h-full flex justify-center items-center bg-charcoal"
+        className="w-full h-full flex justify-center items-center"
       >
         <div className="flex justify-self-center self-center absolute w-full h-full m-auto items-center justify-center flex-col">
           <div className="flex relative flex-col gap-16 self-center mt-[12rem] justify-center items-center ">
