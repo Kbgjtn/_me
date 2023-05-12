@@ -3,8 +3,8 @@ import { getPosts } from "@/lib/post";
 import { PostMeta } from "@/types/post";
 import Me from "@/components/templates/home/me";
 import Book from "@/components/templates/book/book";
-import PostPreview from "@/contents/blog/postPreview";
 import Footer from "@/components/templates/footer/footer";
+import PostPreview from "@/components/postPreview";
 
 function Main({ posts }: { posts: PostMeta[] }) {
   return (
