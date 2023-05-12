@@ -5,7 +5,7 @@ import { PostMeta } from "@/types/post";
 import { item, list } from "@/helpers/motion";
 import Image from "next/image";
 import Link from "next/link";
-import postPhotoDummy from "../../../public/photo_test.png";
+import postPhotoDummy from "../../public/photo_test.png";
 import { BookReaderIcon, CalenderIcon } from "@/components/icons";
 
 function PostPreview({ posts }: { posts: PostMeta[] }) {
