@@ -6,9 +6,13 @@ import type { PropsWithChildren } from "react";
 function CommonLayout({ children }: PropsWithChildren) {
   return (
     <>
-      <NavBar />
+      <header>
+        <NavBar />
+      </header>
       <main>{children}</main>
-      <Footer />
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 }

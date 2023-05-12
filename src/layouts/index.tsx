@@ -15,7 +15,10 @@ function Core({ children }: PropsWithChildren) {
   }, []);
 
   return (
-    <div id="__root" className={clsx([trispace.variable])}>
+    <div
+      id="__root"
+      className={clsx("flex flex-col min-h-screen", [trispace.variable])}
+    >
       {children}
     </div>
   );
