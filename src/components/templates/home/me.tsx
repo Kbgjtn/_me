@@ -23,7 +23,7 @@ const Me = () => {
         initial="hidden"
         animate="visible"
         className={clsx(
-          "w-full min-h-screen flex-col bg-[#8B8B8B]",
+          "w-full h-full flex-col bg-[#8B8B8B]",
           "dark:bg-charcoal"
         )}
       >
