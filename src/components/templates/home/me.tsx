@@ -1,10 +1,8 @@
 import clsx from "clsx";
-import Head from "next/head";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRef, useState } from "react";
 import MeThreeCanvas from "@/contents/3d/tree";
 import GetInTouchPing from "@/components/ui/getInTouchPing";
-import NavBar from "@/components/modules/navbar/navigation-bar";
 import NavigateComponent from "@/components/ui/navigateComponent";
 
 const Me = () => {
@@ -20,12 +18,14 @@ const Me = () => {
 
   return (
     <>
-      <NavBar />
       <motion.div
         ref={ref}
         initial="hidden"
         animate="visible"
-        className={clsx("w-full h-full flex-col bg-charcoal")}
+        className={clsx(
+          "w-full min-h-screen flex-col bg-[#8B8B8B]",
+          "dark:bg-charcoal"
+        )}
       >
         <motion.div
           className={clsx(
@@ -57,16 +57,17 @@ const Me = () => {
                   exit="exit"
                   variants={transitionCardInfo}
                   className={clsx(
-                    "flex m-auto self-center bg-charcoal rounded-[1.5rem] w-56 h-auto justify-center items-center sm:w-80 md:w-96 lg:w-[22rem] xl:w-[26rem] 2xl:w-[30rem]"
+                    "flex m-auto self-center bg-[#5A5A5A] border-4 border-[#484848] rounded-[1.5rem] w-56 h-auto justify-center items-center sm:w-80 md:w-96 lg:w-[22rem] xl:w-[26rem] 2xl:w-[30rem]",
+                    "dark:bg-charcoal dark:border-[#292929]"
                   )}
                   style={{
                     boxShadow: `0px 8px 18px #000000`,
-                    border: "4px solid #1c1c1c",
                   }}
                 >
                   <motion.p
                     className={clsx(
-                      "font-semibold p-4 relative text-center text-mn sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-sm"
+                      "font-semibold p-4 relative text-center text-mn sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-sm",
+                      ""
                     )}
                     variants={sentence}
                   >

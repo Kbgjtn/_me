@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import bookImages from "../../../assets/images/books";
 import { seedBook } from "./seedBook";
+import clsx from "clsx";
 
 const xOffset = 100;
 
@@ -73,12 +74,14 @@ const BookSlider = () => {
               }}
             >
               <Image
-                className="self-center rounded-3xl noselect pointer-events-none object-fill max-h-auto w-[10rem] h-[15rem] sm:w-[12rem] sm:h-[16rem] md:w-[14rem] md:h-[20rem] lg:w-[16rem] lg:h-[22rem] xl:w-[18rem] xl:h-[24rem] 2xl:w-[20rem] 2xl:h-[26rem]"
+                className={clsx(
+                  "self-center rounded-3xl border-4 border-[#484848] noselect pointer-events-none object-fill max-h-auto w-[10rem] h-[15rem] sm:w-[12rem] sm:h-[16rem] md:w-[14rem] md:h-[20rem] lg:w-[16rem] lg:h-[22rem] xl:w-[18rem] xl:h-[24rem] 2xl:w-[20rem] 2xl:h-[26rem]",
+                  "dark:border-[#292929]"
+                )}
                 onContextMenu={(e: any) => {
                   e.preventDefault();
                 }}
                 style={{
-                  border: "4px solid #1e1e1e",
                   backgroundColor: "black",
                   transition: "500ms",
                   filter:
@@ -87,6 +90,7 @@ const BookSlider = () => {
                       : "brightness(100%) contrast(100%) saturate(100%) grayscale(0%) sepia(50%) hue-rotate(0deg) blur(0px)",
                 }}
                 src={img}
+                placeholder="blur"
                 alt=""
               />
               <div className="inline-flex absolute z-20 m-12 text-center font-bold text-lg overflow-hidden w-auto h-auto">

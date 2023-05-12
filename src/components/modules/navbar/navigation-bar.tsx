@@ -8,11 +8,14 @@ import {
   MeIcon,
   ProjectListIcon,
 } from "@/components/icons";
-import PopOver from "@/components/ui/pop-over";
+import ThemeToggle from "@/components/ui/themeToggle";
+import { useTheme } from "next-themes";
 
 const urlSchema = z.string().url();
 const NavBar = () => {
   const [hoverLogoName, setHoverLogoName] = useState<string>("");
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
 
   const handleClickScroll = (id: string) => {
     if (urlSchema.safeParse(id).success) {
@@ -30,7 +33,10 @@ const NavBar = () => {
 
   return (
     <motion.nav
-      className="w-full h-auto bg-charcoal  flex flex-col relative items-center justify-center top-0 z-1 py-12 px-11"
+      className={clsx(
+        "flex flex-col relative w-full h-auto bg-[#8B8B8B] items-center justify-center top-0 z-1 py-12 px-11",
+        "dark:bg-charcoal"
+      )}
       initial="hidden"
       animate="show"
     >
@@ -44,7 +50,7 @@ const NavBar = () => {
             "https://www.coocobolo.com",
             <MeIcon
               props={{ className: clsx(`h-9 w-9 transition-all`) }}
-              anoth={{ isIconHover: hoverLogoName === "me" }}
+              anoth={{ isIconHover: hoverLogoName === "me", isDark }}
               key="1"
             />,
           ],
@@ -54,7 +60,7 @@ const NavBar = () => {
             <GithubIcon
               key="2"
               props={{ className: clsx(`h-9 w-9`) }}
-              anoth={{ isIconHover: hoverLogoName === "repository" }}
+              anoth={{ isIconHover: hoverLogoName === "repository", isDark }}
             />,
           ],
           [
@@ -62,20 +68,20 @@ const NavBar = () => {
             "#reading-list",
             <BookIcon
               props={{ className: clsx(`h-9 w-9`) }}
-              anoth={{ isIconHover: hoverLogoName === "book" }}
+              anoth={{ isIconHover: hoverLogoName === "book", isDark }}
               key="3"
             />,
           ],
-          [
+          /* [
             "project",
             "#project-list",
 
             <ProjectListIcon
               props={{ className: clsx(`h-9 w-9`) }}
-              anoth={{ isIconHover: hoverLogoName === "project" }}
+              anoth={{ isIconHover: hoverLogoName === "project", isDark }}
               key="4"
             />,
-          ],
+          ], */
         ].map(([title, url, svg]) => (
           <span
             onClick={() => handleClickScroll(url as string)}
@@ -88,6 +94,8 @@ const NavBar = () => {
             {svg}
           </span>
         ))}
+
+        <ThemeToggle />
       </motion.dl>
       {hoverLogoName ? (
         <motion.div

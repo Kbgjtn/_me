@@ -8,7 +8,12 @@ function GetInTouchPing() {
       )}
     >
       <span className="inline-flex justify-center self-center items-center">
-        <span className="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-[#f3f3f3] opacity-50" />
+        <span
+          className={clsx(
+            "animate-ping absolute inline-flex h-3 w-3 rounded-full bg-[#1c1c1c] opacity-50",
+            "bg-[#f3f3f3]"
+          )}
+        />
         <span className="relative inline-flex rounded-full h-3 w-3 bg-[#3c3c3c]"></span>
       </span>
       Get In Touch!
