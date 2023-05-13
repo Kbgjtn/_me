@@ -9,7 +9,7 @@ function CommonLayout({ children }: PropsWithChildren) {
       <header>
         <NavBar />
       </header>
-      <main>{children}</main>
+      <main className="flex flex-col min-h-screen">{children}</main>
       <footer>
         <Footer />
       </footer>

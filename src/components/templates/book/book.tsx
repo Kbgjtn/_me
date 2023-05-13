@@ -6,52 +6,50 @@ const Book = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   return (
-    <>
-      <div
-        ref={ref}
-        id="reading-list"
-        className="w-full h-full flex justify-center items-center"
-      >
-        <div className="flex justify-self-center self-center absolute w-full h-full m-auto items-center justify-center flex-col">
-          <div className="flex relative flex-col gap-16 self-center mt-[12rem] justify-center items-center ">
-            <h3
-              className="tp-trigger text-4xl font-semibold text-center translate-y-12 sm:text-6xl sm:p-5 md:text-7xl md:p-6 lg:text-8xl xl:text-8xl 2xl:text-8xl"
-              style={{
-                transform: isInView ? "none" : "translateX(-200px)",
-                opacity: isInView ? 1 : 0,
-                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s",
-              }}
+    <div
+      ref={ref}
+      id="reading-list"
+      className="w-full min-h-screen flex justify-center items-center"
+    >
+      <div className="flex justify-self-center self-center absolute w-full h-full m-auto items-center justify-center flex-col">
+        <div className="flex relative flex-col gap-16 self-center mt-[12rem] justify-center items-center ">
+          <h3
+            className="tp-trigger text-4xl font-semibold text-center translate-y-12 sm:text-6xl sm:p-5 md:text-7xl md:p-6 lg:text-8xl xl:text-8xl 2xl:text-8xl"
+            style={{
+              transform: isInView ? "none" : "translateX(-200px)",
+              opacity: isInView ? 1 : 0,
+              transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s",
+            }}
+          >
+            Reading List
+          </h3>
+          {isInView ? (
+            <motion.p
+              className="text-center text-xs py-2 px-8 sm:text-sm md:text-xl lg:text-xl xl:text-xl 2xl:text-xl"
+              variants={sentence}
+              initial="hidden"
+              animate="visible"
             >
-              Reading List
-            </h3>
-            {isInView ? (
-              <motion.p
-                className="text-center text-xs py-2 px-8 sm:text-sm md:text-xl lg:text-xl xl:text-xl 2xl:text-xl"
-                variants={sentence}
-                initial="hidden"
-                animate="visible"
-              >
-                {`Sharing my book list, hoping to inspire all of u
+              {`Sharing my book list, hoping to inspire all of u
 							guys with fresh reading recommendations.`
-                  .split("")
-                  .map((char, index) => {
-                    return (
-                      <motion.span
-                        className=""
-                        key={char + "-" + index}
-                        variants={letter}
-                      >
-                        {char}
-                      </motion.span>
-                    );
-                  })}
-              </motion.p>
-            ) : null}
-          </div>
-          <BookSlider />
+                .split("")
+                .map((char, index) => {
+                  return (
+                    <motion.span
+                      className=""
+                      key={char + "-" + index}
+                      variants={letter}
+                    >
+                      {char}
+                    </motion.span>
+                  );
+                })}
+            </motion.p>
+          ) : null}
         </div>
+        <BookSlider />
       </div>
-    </>
+    </div>
   );
 };
 
