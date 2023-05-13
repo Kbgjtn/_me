@@ -66,7 +66,7 @@ function PostPreview({ posts }: { posts: PostMeta[] }) {
                 )}
               >
                 <Link
-                  href={`/blog`}
+                  href={"posts/" + (post.slug || post.title)}
                   className={clsx(
                     "relative hover:underline underline-offset-2"
                   )}

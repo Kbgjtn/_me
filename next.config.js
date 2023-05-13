@@ -64,6 +64,9 @@ const nextConfig = {
   images: {
     domains: [""],
   },
+  future: {
+    webpack5: true,
+  },
   async headers() {
     return [
       {
@@ -72,15 +75,23 @@ const nextConfig = {
       },
     ];
   },
-  webpack(config) {
-    const fileLoaderRule = config.module.rules.find(
-      (rule) => rule.test && rule.test.test(".svg")
-    );
-    fileLoaderRule.exclude = /\.svg$/;
-    config.module.rules.push({
-      test: /\.svg$/,
-      loader: require.resolve("@svgr/webpack"),
-    });
+
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+    };
+
+    config.resolve = {
+      ...config.resolve,
+
+      fallback: {
+        ...config.resolve.fallback,
+        child_process: false,
+        fs: false,
+        // 'builtin-modules': false,
+        // worker_threads: false,
+      },
+    };
     return config;
   },
 };

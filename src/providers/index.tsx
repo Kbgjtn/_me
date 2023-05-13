@@ -1,4 +1,6 @@
 import { ThemeProvider } from "next-themes";
+import { MDXProvider } from "@mdx-js/react";
+import mdxCustomComponentStyle from "@/components/mdx/custom";
 
 import type { PropsWithChildren } from "react";
 
@@ -9,7 +11,7 @@ function Provider({ children }: PropsWithChildren) {
       attribute="class"
       disableTransitionOnChange
     >
-      {children}
+      <MDXProvider components={mdxCustomComponentStyle}>{children}</MDXProvider>
     </ThemeProvider>
   );
 }
