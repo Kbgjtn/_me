@@ -24,13 +24,13 @@ function Main({ posts }: { posts: PostMeta[] }) {
         <link rel="icon" href="/tortuga.ico" />
       </Head>
 
-      <section className="h-screen">
+      <section className="min-h-screen">
         <Me />
       </section>
-      <section className="h-screen">
+      <section className="min-h-screen ">
         <PostPreview posts={posts} />
       </section>
-      <section className="h-screen">
+      <section className="min-h-screen">
         <Book />
       </section>
     </>

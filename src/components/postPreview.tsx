@@ -17,7 +17,7 @@ function PostPreview({ posts }: { posts: PostMeta[] }) {
       id="blogpost"
       ref={ref}
       className={clsx(
-        "flex flex-col w-screen h-screen justify-start items-center gap-16"
+        "flex flex-col w-screen min-h-screen justify-start items-center gap-16"
       )}
     >
       <h1 className={clsx("font-bold text-8xl")}>Blog</h1>

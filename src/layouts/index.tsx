@@ -1,5 +1,5 @@
-import { Trispace } from "next/font/google";
 import clsx from "clsx";
+import { Trispace } from "next/font/google";
 import { PropsWithChildren, useEffect } from "react";
 
 const trispace = Trispace({
@@ -15,10 +15,7 @@ function Core({ children }: PropsWithChildren) {
   }, []);
 
   return (
-    <div
-      id="__root"
-      className={clsx("flex flex-col min-h-screen", [trispace.variable])}
-    >
+    <div id="__root" className={clsx([trispace.variable])}>
       {children}
     </div>
   );
