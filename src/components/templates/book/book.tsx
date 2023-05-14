@@ -14,7 +14,7 @@ const Book = () => {
       <div className="flex justify-self-center self-center absolute w-full h-full m-auto items-center justify-center flex-col">
         <div className="flex relative flex-col gap-16 self-center mt-[12rem] justify-center items-center ">
           <h3
-            className="tp-trigger text-4xl font-semibold text-center translate-y-12 sm:text-6xl sm:p-5 md:text-7xl md:p-6 lg:text-8xl xl:text-8xl 2xl:text-8xl"
+            className="text-6xl font-semibold text-center translate-y-12 sm:text-6xl sm:p-5 md:text-7xl md:p-6 lg:text-8xl xl:text-8xl 2xl:text-8xl"
             style={{
               transform: isInView ? "none" : "translateX(-200px)",
               opacity: isInView ? 1 : 0,
@@ -25,7 +25,7 @@ const Book = () => {
           </h3>
           {isInView ? (
             <motion.p
-              className="text-center text-xs py-2 px-8 sm:text-sm md:text-xl lg:text-xl xl:text-xl 2xl:text-xl"
+              className="text-center text-md py-2 px-4 sm:text-sm md:text-xl lg:text-xl xl:text-xl 2xl:text-xl"
               variants={sentence}
               initial="hidden"
               animate="visible"

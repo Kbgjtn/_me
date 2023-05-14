@@ -1,8 +1,8 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import { POST_RELATIVE_PATH } from "@/constants";
 import { Post } from "@/types/post";
+import fs from "fs";
+import matter from "gray-matter";
+import path from "path";
 
 const absolutePathPost = path.join(process.cwd(), POST_RELATIVE_PATH);
 
@@ -29,6 +29,7 @@ export function getPostData(slug: string): Post | never {
     meta: {
       excerpt: data.excerpt ?? "",
       slug,
+      image: data.image ?? "",
       tags: (data.tags ?? []).sort(),
       title: data.title ?? slug,
       date: (data.date ?? new Date()).toString(),

@@ -1,14 +1,6 @@
 @tailwind base;
 
 @layer base {
-  .bg-new-black-1 {
-    background-color: #111111;
-  }
-
-  .bg-new-black-2 {
-    color: rgba(0, 0, 0, 0.54);
-  }
-
   html {
     @apply scroll-smooth;
     @apply box-border;
@@ -16,16 +8,17 @@
     scrollbar-width: none; /* Firefox */
   }
 
-  ::selection {
-    color: #555555;
-    opacity: 0.6;
-    fill-opacity: 0.8;
-    background: transparent;
+  html,
+  body,
+  #__next,
+  #__root {
+    @apply h-full;
   }
 
   body {
     -mox-osx-font-smoothing: grayscale;
     font-smooth: always;
+    @apply font-sans;
   }
 
   .noselect {
@@ -35,6 +28,15 @@
     -moz-user-select: none; /* Old versions of Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+  }
+
+  ::selection {
+    @apply text-[#43919B] opacity-60 bg-transparent;
+    @apply dark:text-[#FFCD38] dark:opacity-60 dark:bg-transparent;
+  }
+
+  :focus-visible {
+    @apply ring-accent-400 relative rounded-xl outline-none ring-2;
   }
 
   pre {

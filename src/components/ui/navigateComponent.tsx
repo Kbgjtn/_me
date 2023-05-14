@@ -29,7 +29,7 @@ function NavigateComponent(props: IPropsNavigate) {
         <span
           className={clsx(
             "inline-flex relative h-10 w-4 self-center justify-center items-center rounded-full opacity-50 bg-[#5A5A5A]",
-            "text-4xl text-center font-medium",
+            "text-sm text-center font-medium",
             "dark:bg-[#3c3c3c]"
           )}
         >

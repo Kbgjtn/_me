@@ -4,11 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import bookImages from "../../../assets/images/books";
 import { seedBook } from "./seedBook";
 import clsx from "clsx";
-
-const xOffset = 100;
+import { sliderVariants } from "@/helpers/motion";
 
 const BookSlider = () => {
-  const [width, setWidth] = useState(0);
+  const size = useWindowSize();
   const [bookDetailCard, setBookDetailCard] = useState<IBookDetailCard>({
     isHover: false,
     isDrag: false,
@@ -17,25 +16,16 @@ const BookSlider = () => {
 
   const innerCard = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    if (!innerCard.current) return;
-
-    const { scrollWidth, offsetWidth } = innerCard.current;
-
-    setWidth(scrollWidth - offsetWidth);
-  }, [innerCard]);
-
   return (
     <motion.div className="relative h-[70%] w-screen overflow-hidden">
-      {/* scroll-child */}
       <motion.div
         ref={innerCard}
-        variants={variants}
+        variants={sliderVariants}
         className="flex items-center justify-start w-screen h-full cursor-grab md:px-8 lg:px-8 xl:px-8 2xl:px-8"
         drag={"x"}
         dragConstraints={{
           right: 0,
-          left: -width,
+          left: -(size?.width + 1100),
         }}
         style={{
           animation: "primary 3s linear infinite",
@@ -56,6 +46,9 @@ const BookSlider = () => {
                 transition: { duration: 0.3 },
               }}
               key={i}
+              onContextMenu={(e) => {
+                e.preventDefault();
+              }}
               onMouseEnter={(e) => {
                 e.preventDefault();
                 setBookDetailCard({
@@ -75,36 +68,38 @@ const BookSlider = () => {
             >
               <Image
                 className={clsx(
-                  "self-center rounded-3xl border-4 border-[#484848] noselect pointer-events-none object-fill max-h-auto w-[10rem] h-[15rem] sm:w-[12rem] sm:h-[16rem] md:w-[14rem] md:h-[20rem] lg:w-[16rem] lg:h-[22rem] xl:w-[18rem] xl:h-[24rem] 2xl:w-[20rem] 2xl:h-[26rem]",
+                  "self-center noselect pointer-events-none object-fill w-[10rem] h-[15rem] sm:w-[12rem] sm:h-[16rem] md:w-[14rem] md:h-[20rem] lg:w-[16rem] lg:h-[22rem] xl:w-[18rem] xl:h-[24rem] 2xl:w-[20rem] 2xl:h-[26rem]",
+                  "duration-500 bg-[#1c1c1c]",
+                  "rounded-3xl border-4 border-[#484848]",
                   "dark:border-[#292929]"
                 )}
                 onContextMenu={(e: any) => {
                   e.preventDefault();
                 }}
                 style={{
-                  backgroundColor: "black",
-                  transition: "500ms",
                   filter:
-                    bookDetailCard.isHover && bookDetailCard.index === i
+                    bookDetailCard?.isHover && bookDetailCard?.index === i
                       ? "brightness(25%) contrast(100%) saturate(50%) grayscale(100%) sepia(50%) hue-rotate(0deg) blur(1.4px)"
                       : "brightness(100%) contrast(100%) saturate(100%) grayscale(0%) sepia(50%) hue-rotate(0deg) blur(0px)",
                 }}
                 src={img}
                 placeholder="blur"
-                alt=""
+                alt="book"
               />
-              <div className="inline-flex absolute z-20 m-12 text-center font-bold text-lg overflow-hidden w-auto h-auto">
-                <h1
-                  className="text-center font-normal text-mn overflow-hidden text-ellipsis sm:text-mn md:text-sm lg:text-sm xl:text-sm 2xl:text-sm"
-                  style={{
-                    opacity:
-                      bookDetailCard.isHover && bookDetailCard.index === i
-                        ? "1"
-                        : "0",
-                  }}
+              <div className="inline-flex absolute z-20 m-12 font-bold text-lg overflow-hidden w-auto h-auto">
+                <p
+                  className={clsx(
+                    "text-center font-medium text-mn overflow-hidden text-ellipsis sm:text-mn md:text-sm lg:text-sm xl:text-sm 2xl:text-sm",
+                    "dark:text-[#b2b2b2] text-[#b2b2b2]",
+                    `opacity-${
+                      bookDetailCard?.isHover && bookDetailCard?.index === i
+                        ? 100
+                        : 0
+                    }`
+                  )}
                 >
-                  {seedBook[i].title}
-                </h1>
+                  {seedBook[i]?.title ?? ""}
+                </p>
               </div>
             </motion.div>
           );
@@ -114,42 +109,36 @@ const BookSlider = () => {
   );
 };
 
-const sliderVariants = {
-  enter: (direction: number) => ({
-    x: direction > 0 ? xOffset : -xOffset,
-    opacity: 0,
-  }),
-  active: {
-    x: 0,
-    opacity: 1,
-    transition: { delay: 0.2 },
-  },
-  exit: (direction: number) => ({
-    x: direction > 0 ? -xOffset : xOffset,
-    opacity: 0,
-  }),
-};
+interface WindowSizeState {
+  width: number;
+  height: number;
+}
 
-const variants = {
-  enter: (direction: number) => {
-    return {
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0,
-    };
-  },
-  center: {
-    zIndex: 1,
-    x: 0,
-    opacity: 1,
-  },
-  exit: (direction: number) => {
-    return {
-      zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0,
-    };
-  },
-};
+// Hook
+function useWindowSize() {
+  // Initialize state with undefined width/height so server and client renders match
+  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+  const [windowSize, setWindowSize] = useState<WindowSizeState>({
+    width: 0,
+    height: 0,
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return windowSize;
+}
 
 interface IBookSliderArgs {
   currentPage: number;
