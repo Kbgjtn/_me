@@ -28,7 +28,7 @@ function TestLayout({ children }: PropsWithChildren) {
 
 const navLinkItem = [
   {
-    title: "me",
+    title: "home",
     href: "https://www.coocobolo.com",
     icon: (
       <MeIcon
