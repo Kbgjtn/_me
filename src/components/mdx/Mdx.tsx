@@ -80,6 +80,7 @@ export const Mdx = memo<MdxProps>(({ fronmatter, children }: MdxProps) => {
           "dark:prose-invert dark:prose-indigo",
           "dark:prose-pre:shadow-sm dark:prose-pre:border-[1px] dark:prose-pre:border-[#252525] dark:prose-pre:shadow-[#212121] dark:prose-pre:bg-[#191919]",
           "dark:prose-headings:text-[#B2B2B2]",
+          "dark:marker:prose-ul:text-[#B2B2B2]",
           "dark:prose-p:text-[#DDDDDD]",
           "dark:prose-strong:text-[#46B5D1]",
           "dark:prose-a:text-[#f3f3f3] dark:hover:prose-a:text-[#ffd100]",
