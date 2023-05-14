@@ -9,7 +9,9 @@ function NotFound() {
         <meta name="robots" content="noindex" />
       </Head>
 
-      <div className="w-screen h-screen bg-[#1a1a1a]"></div>
+      <div className="flex w-screen h-screen justify-center items-center content-center">
+        <h1>Not Found!</h1>
+      </div>
     </>
   );
 }
