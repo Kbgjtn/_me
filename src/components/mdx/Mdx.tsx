@@ -56,10 +56,13 @@ export const Mdx = memo<MdxProps>(({ fronmatter, children }: MdxProps) => {
         </div>
         <div
           className={clsx(
-            "container flex self-center justify-center content-center m-auto max-w-7xl mt-8 rounded-xl bg-current shadow-[#111111] shadow-md",
+            "container flex self-center justify-center content-center m-auto max-w-[1200px] mt-8 rounded-xl bg-current shadow-[#111111] shadow-md",
             "sm:w-[480px]",
             "md:w-[520px]",
             "lg:w-[640px]",
+            "xl:w-[720px]",
+            "2xl:w-[860px]",
+            "3xl:w-[860px]",
             "dark:shadow-[#202020] "
           )}
         >

@@ -17,7 +17,7 @@ const BookSlider = () => {
   const innerCard = useRef<HTMLDivElement | null>(null);
 
   return (
-    <motion.div className="relative h-[70%] w-screen overflow-hidden">
+    <motion.div className="relative h-full w-screen overflow-hidden">
       <motion.div
         ref={innerCard}
         variants={sliderVariants}
