@@ -1,5 +1,17 @@
+import { NpmIcon, PnpmIcon, YarnIcon } from "@/components/icons";
+import {
+  CssIcon,
+  FileIcon,
+  HtmlIcon,
+  JavaScriptIcon,
+  NpmFileIcon,
+  ReactIcon,
+  TailwindIcon,
+  TypeScriptIcon,
+} from "@/components/iconsFile";
 import slug from "slug";
-import type { ReactElement, ReactNode } from "react";
+
+import type { ReactNode } from "react";
 
 export const getSlug = (children: ReactNode) => {
   if (typeof children === "string") {
@@ -30,37 +42,37 @@ export const formatLang = (
   title?: string
 ): {
   language: string;
-  icon: ReactElement | string;
+  icon: any;
 } => {
   let language = lang;
-  let icon = "<p>file </p>";
+  let icon = <FileIcon />;
 
   switch (lang) {
     case "js":
     case "javascript":
       language = "JavaScript";
-      icon = "<p>js </p>";
+      icon = <JavaScriptIcon />;
       break;
     case "ts":
     case "typescript":
       language = "TypeScript";
-      icon = "<p>ts </p>";
+      icon = <TypeScriptIcon />;
       break;
     case "jsx":
       language = "JavaScript React";
-      icon = "<p>reactions </p>";
+      icon = <ReactIcon />;
       break;
     case "tsx":
       language = "TypeScript React";
-      icon = "<p>react</p>";
+      icon = <ReactIcon />;
       break;
     case "html":
       language = "HTML";
-      icon = "<p>html</p>";
+      icon = <HtmlIcon />;
       break;
     case "css":
       language = "CSS";
-      icon = "<p>css</p>";
+      icon = <CssIcon />;
       break;
     case "bash":
     case "cmd":
@@ -78,19 +90,19 @@ export const formatLang = (
 
   switch (title) {
     case "tailwind.config.js":
-      icon = "<p>tailwind</p>";
+      icon = <TailwindIcon />;
       break;
     case "package.json":
-      icon = "<p>package.json</p>";
+      icon = <NpmFileIcon />;
       break;
     case "npm":
-      icon = "<p>npm</p>";
+      icon = <NpmIcon />;
       break;
     case "pnpm":
-      icon = "<p>pnpm</p>";
+      icon = <PnpmIcon />;
       break;
     case "yarn":
-      icon = "<p>yarn</p>";
+      icon = <YarnIcon />;
       break;
     default:
       break;

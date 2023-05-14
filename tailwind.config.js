@@ -1,4 +1,6 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
+const colors = require("tailwindcss/colors");
+const { spacing } = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -14,7 +16,7 @@ module.exports = {
     },
     fontFamily: {
       sans: ['var(--font-space, "")', ...defaultTheme.fontFamily.sans],
-      sans: ['var(--font-space, "")', ...defaultTheme.fontFamily.mono],
+      mono: ['var(--font-mono, "")', ...defaultTheme.fontFamily.mono],
     },
     fontSize: {
       mn: ".55rem",
@@ -37,19 +39,26 @@ module.exports = {
       "14xl": "14.25rem",
       "16xl": "15.25rem",
     },
+
     extend: {
       screens: {
         "3xl": "1600px",
       },
-      extend: {
-        gridTemplateColumns: {
-          fluid: "repeat(auto-fill, minmax(300px, 1fr))",
-        },
-        gridTemplateRows: {
-          fluid: "minmax(100px, auto)",
-        },
-      },
       colors: {
+        accent: {
+          DEFAULT: "#f3f3f3",
+          50: "#f3f3f3",
+          100: "#f3f3f3",
+          200: "#f3f3f3",
+          300: "#f3f3f3",
+          400: "#f3f3f3",
+          500: "#f3f3f3",
+          600: "#f3f3f3",
+          700: "#f3f3f3",
+          800: "#f3f3f3",
+          900: "#f3f3f3",
+        },
+
         charcoal: {
           DEFAULT: "#111111",
           50: "#D0BCFF",
@@ -66,5 +75,79 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
+
+/* typography: (theme) => ({
+        default: {
+          css: {
+            color: theme("colors.charcoal"),
+            code: {
+              padding: "3px 5px",
+              borderRadius: 5,
+              background: theme("colors.gray.100"),
+            },
+            h1: {
+              fontSize: theme("fontSize.3xl"),
+              lineHeight: theme("lineHeight.tight"),
+              fontWeight: theme("fontWeight.bold"),
+            },
+            h2: {
+              fontSize: theme("fontSize.xl"),
+              lineHeight: theme("lineHeight.snug"),
+              fontWeight: theme("fontWeight.bold"),
+            },
+            h3: {
+              fontSize: theme("fontSize.lg"),
+              lineHeight: theme("lineHeight.normal"),
+              fontWeight: theme("fontWeight.extrabold"),
+            },
+            "h2,h3,h4": {
+              "scroll-margin-top": spacing[32],
+            },
+            mark: {
+              background: theme("colors.pink.100"),
+            },
+          },
+        },
+        dark: {
+          css: {
+            color: theme("colors.white"),
+            blockquote: {
+              borderLeftColor: theme("colors.gray.700"),
+              color: theme("colors.gray.100"),
+            },
+            h1: {
+              color: theme("colors.white"),
+            },
+            "h2,h3,h4": {
+              color: theme("colors.white"),
+              "scroll-margin-top": spacing[32],
+            },
+            code: {
+              padding: "3px 5px",
+              borderRadius: 5,
+              color: theme("colors.white"),
+              background: theme("colors.gray.800"),
+            },
+            "pre > code": {
+              background: "none",
+              padding: 0,
+            },
+            hr: { borderColor: theme("colors.gray.700") },
+            strong: { color: theme("colors.white") },
+            thead: {
+              color: theme("colors.gray.100"),
+            },
+            tbody: {
+              tr: {
+                borderBottomColor: theme("colors.gray.700"),
+              },
+            },
+            mark: {
+              background: theme("colors.yellow.100"),
+            },
+          },
+        },
+      }),
+ */

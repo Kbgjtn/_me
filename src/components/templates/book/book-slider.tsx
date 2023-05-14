@@ -6,10 +6,7 @@ import { seedBook } from "./seedBook";
 import clsx from "clsx";
 import { sliderVariants } from "@/helpers/motion";
 
-const xOffset = 100;
-
 const BookSlider = () => {
-  const [width, setWidth] = useState(0);
   const size = useWindowSize();
   const [bookDetailCard, setBookDetailCard] = useState<IBookDetailCard>({
     isHover: false,
@@ -19,18 +16,8 @@ const BookSlider = () => {
 
   const innerCard = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    if (!innerCard.current) return;
-
-    if (innerCard.current) {
-      const { scrollWidth, offsetWidth } = innerCard.current;
-      setWidth(scrollWidth - offsetWidth);
-    }
-  }, [innerCard]);
-
   return (
     <motion.div className="relative h-[70%] w-screen overflow-hidden">
-      {/* scroll-child */}
       <motion.div
         ref={innerCard}
         variants={sliderVariants}
@@ -100,9 +87,10 @@ const BookSlider = () => {
                 alt="book"
               />
               <div className="inline-flex absolute z-20 m-12 font-bold text-lg overflow-hidden w-auto h-auto">
-                <h1
+                <p
                   className={clsx(
-                    "text-center font-normal text-mn overflow-hidden text-ellipsis sm:text-mn md:text-sm lg:text-sm xl:text-sm 2xl:text-sm",
+                    "text-center font-medium text-mn overflow-hidden text-ellipsis sm:text-mn md:text-sm lg:text-sm xl:text-sm 2xl:text-sm",
+                    "dark:text-[#b2b2b2] text-[#b2b2b2]",
                     `opacity-${
                       bookDetailCard?.isHover && bookDetailCard?.index === i
                         ? 100
@@ -111,7 +99,7 @@ const BookSlider = () => {
                   )}
                 >
                   {seedBook[i]?.title ?? ""}
-                </h1>
+                </p>
               </div>
             </motion.div>
           );

@@ -2,17 +2,20 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import clsx from "clsx";
 import { z } from "zod";
-import {
-  BookIcon,
-  GithubIcon,
-  MeIcon,
-  ProjectListIcon,
-} from "@/components/icons";
+import { BookIcon, GithubIcon, MeIcon } from "@/components/icons";
 import ThemeToggle from "@/components/ui/themeToggle";
 import { useTheme } from "next-themes";
 
+import type { ReactElement } from "react";
+
+type NavigationLinkItems = {
+  title: string;
+  href: string;
+  icon: ReactElement<"svg">;
+};
 const urlSchema = z.string().url();
-const NavBar = () => {
+
+const NavBar = (props: NavigationLinkItems[]) => {
   const [hoverLogoName, setHoverLogoName] = useState<string>("");
   const { theme } = useTheme();
   const isDark = theme === "dark";
