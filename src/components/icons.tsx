@@ -273,6 +273,48 @@ export function BookIcon({ props, anoth }: IconProps) {
   );
 }
 
+<svg
+  width="20"
+  height="20"
+  viewBox="0 0 20 20"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+></svg>;
+
+export function PostsIcon({ props, anoth }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 20 20"
+      role="img"
+      fill="currentColor"
+      {...props}
+    >
+      <g clip-path="url(#clip0_1114_68)">
+        <path
+          d="M17.3782 0.716553H6.90695C5.85485 0.716553 5.00195 1.56945 5.00195 2.62155V16.0391C5.00195 17.0912 5.85485 17.9441 6.90695 17.9441H17.3782C18.4303 17.9441 19.2832 17.0912 19.2832 16.0391V2.62155C19.2832 1.56945 18.4303 0.716553 17.3782 0.716553Z"
+          stroke="#3C3B3D"
+          fill="#111111"
+          strokeLinecap="round"
+        />
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M3.57203 5H16.4286V15C16.4286 16.6831 15.4595 18.4609 13.5717 19.2856H0.714844C2.19484 18.2087 3.73797 17.1744 3.57203 15V5Z"
+          fill="#111111"
+          stroke="#444444"
+          strokeLinejoin="round"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_1114_68">
+          <rect width="20" height="20" fill="#3C3B3D" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+}
+
 export function MeIcon({ props, anoth }: IconProps) {
   return (
     <svg

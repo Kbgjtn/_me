@@ -6,6 +6,7 @@ import Footer from "@/components/templates/footer/footer";
 import clsx from "clsx";
 import type { ReactNode } from "react";
 import { useTheme } from "next-themes";
+import { useRouter } from "next/router";
 
 import type { PropsWithChildren } from "react";
 
@@ -32,7 +33,9 @@ const navLinkItem = [
     href: "https://www.coocobolo.com",
     icon: (
       <MeIcon
-        props={{ className: clsx(`h-9 w-9 transition-all`) }}
+        props={{
+          className: clsx(`h-9 w-9 transition-all`),
+        }}
         anoth={{ isIconHover: false }}
         key="1"
       />
