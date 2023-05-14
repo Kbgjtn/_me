@@ -20,7 +20,6 @@ const NavBar = ({ items }: { items: NavigationLinkItemProps[] }) => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
-  console.log({ items });
   const handleClickScroll = (id: string) => {
     if (urlSchema.safeParse(id).success) {
       window.location.href = id;
