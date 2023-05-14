@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import clsx from "clsx";
 import { z } from "zod";
-import { BookIcon, GithubIcon, MeIcon } from "@/components/icons";
 import ThemeToggle from "@/components/ui/themeToggle";
 import { useTheme } from "next-themes";
 
@@ -39,8 +38,7 @@ const NavBar = ({ items }: { items: NavigationLinkItemProps[] }) => {
   return (
     <motion.nav
       className={clsx(
-        "flex flex-col relative w-full h-auto bg-[#8B8B8B] items-center justify-center top-0 z-1 py-12 px-11",
-        "dark:bg-charcoal"
+        "flex flex-col relative w-full h-auto items-center justify-center top-0 z-1 py-12 px-11"
       )}
       initial="hidden"
       animate="show"
