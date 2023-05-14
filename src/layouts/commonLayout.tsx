@@ -54,7 +54,9 @@ const navLinkItem = [
     icon: (
       <PostsIcon
         key="2"
-        props={{ className: clsx(`h-8 w-8`) }}
+        props={{
+          className: clsx(`h-8 w-8 dark:fill-charcoal fill-[#AAAAAA]`),
+        }}
         anoth={{ isIconHover: false }}
       />
     ),
@@ -65,7 +67,7 @@ const navLinkItem = [
     href: "#reading-list",
     icon: (
       <BookIcon
-        props={{ className: clsx(`h-9 w-9`) }}
+        props={{ className: clsx(`h-9 w-9 `) }}
         anoth={{ isIconHover: false }}
         key="3"
       />
