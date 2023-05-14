@@ -1,0 +1,40 @@
+---
+title: NPM vs PNPM
+description: Learn how to create content using Markdown or MDX with Astro
+date: "2021-01-15"
+lang: id
+tags:
+    - features
+    - concept
+category: features
+author: chatGPT
+excerpt: Markdown is commonly used to author text-heavy content like blog posts and documentation. Astro includes built-in support for standard Markdown files that can also include frontmatter YAML to define custom metadata such as a title, description, and tags.
+image: /images/Fq9c2E-671977017.jpeg
+---
+
+
+# NPM vs PNPM
+
+When it comes to package managers for Node.js, two popular options are NPM and PNPM. Both tools allow developers to install and manage packages, but there are some differences between them that can affect your development workflow. In this post, we'll take a closer look at NPM and PNPM to help you decide which one is right for your project.
+
+## NPM
+
+NPM (short for "Node Package Manager") is the default package manager for Node.js. It has been around for a long time and has a vast repository of packages available for installation. 
+
+NPM has a simple and intuitive CLI interface that allows you to easily install, update, and remove packages. It also has a robust system for managing dependencies, which makes it easy to ensure that your project is using the correct versions of each package.
+
+However, one of the downsides of NPM is that it installs packages in a centralized location. This means that if you have multiple projects that rely on different versions of the same package, there can be conflicts. Additionally, installing and updating packages can be slow, especially for larger projects.
+
+## PNPM
+
+PNPM (short for "Plug-N-Play Package Manager") is a relatively new package manager for Node.js that aims to solve some of the issues with NPM. PNPM installs packages in a decentralized way, which means that each project has its own node_modules directory. This approach reduces the chance of conflicts between different versions of the same package.
+
+PNPM also uses a unique caching system that can speed up package installation and updates. When you install a package, PNPM stores a compressed version of the package in a global cache. If you install the same package in another project, PNPM can use the cached version instead of downloading it again. This can save a lot of time, especially for larger projects with many dependencies.
+
+However, PNPM has a more complex CLI interface than NPM, which can be overwhelming for new users. Additionally, some packages may not be fully compatible with PNPM, which can cause issues.
+
+## Conclusion
+
+So, which package manager should you use for your project? It depends on your needs and preferences. If you are working on a small project or a project that has only a few dependencies, NPM may be the simpler choice. However, if you are working on a larger project with many dependencies, PNPM may be a better option because of its decentralized installation and caching system.
+
+Regardless of which package manager you choose, it's essential to understand the tools you're working with and their strengths and weaknesses. By choosing the right package manager for your project, you can ensure that your development workflow is as efficient as possible.
