@@ -61,14 +61,15 @@ function PostPreview({
             >
               <Image
                 className={clsx(
-                  "object-cover max-w-md w-full h-auto",
+                  "object-cover max-w-md w-full h-auto rounded-3xl",
                   "grayscale hover:grayscale-0"
                 )}
-                src={postPhotoDummy}
+                src={post.image || postPhotoDummy}
                 alt={post.title}
-                placeholder="blur"
                 crossOrigin="anonymous"
                 priority
+                width="100"
+                height="100"
                 loading="eager"
               />
               <div
