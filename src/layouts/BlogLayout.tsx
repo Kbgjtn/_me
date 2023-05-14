@@ -1,4 +1,4 @@
-import { BookIcon, GithubIcon, MeIcon } from "@/components/icons";
+import { BookIcon, GithubIcon, MeIcon, PostsIcon } from "@/components/icons";
 import NavBar, {
   NavigationLinkItemProps,
 } from "@/components/modules/navbar/navigation-bar";
@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 
 import type { PropsWithChildren } from "react";
 
-function TestLayout({ children }: PropsWithChildren) {
+function BlogLayout({ children }: PropsWithChildren) {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
@@ -41,8 +41,21 @@ const navLinkItem = [
       />
     ),
   },
+  {
+    title: "posts",
+    href: "https://www.coocobolo.com/posts",
+    icon: (
+      <PostsIcon
+        key="2"
+        props={{
+          className: clsx(`h-8 w-8 dark:fill-charcoal fill-[#AAAAAA]`),
+        }}
+        anoth={{ isIconHover: false }}
+      />
+    ),
+  },
 ];
 
-export const getLayout = (page: ReactNode) => <TestLayout>{page}</TestLayout>;
+export const getLayout = (page: ReactNode) => <BlogLayout>{page}</BlogLayout>;
 
-export default TestLayout;
+export default BlogLayout;

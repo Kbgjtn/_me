@@ -61,7 +61,6 @@ const navLinkItem = [
       />
     ),
   },
-
   {
     title: "book",
     href: "#reading-list",

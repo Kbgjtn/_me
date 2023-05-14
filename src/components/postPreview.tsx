@@ -8,7 +8,13 @@ import Link from "next/link";
 import { useRef } from "react";
 import postPhotoDummy from "../../public/photo_test.png";
 
-function PostPreview({ posts }: { posts: PostMeta[] }) {
+function PostPreview({
+  posts,
+  enableShowMore = false,
+}: {
+  posts: PostMeta[];
+  enableShowMore?: boolean;
+}) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -109,19 +115,23 @@ function PostPreview({ posts }: { posts: PostMeta[] }) {
           ))}
         </motion.ul>
       ) : null}
-      <div className={clsx("max-h-12 max-w-xs")}>
-        <button
-          className={clsx(
-            "w-32 h-12 border-2 border-[#484848] rounded-lg mx-auto",
-            "font-semibold text-md shadow-[#1c1c1c] shadow-sm",
-            "dark:border-[#292929]"
-          )}
-          type="button"
-          onClick={() => {}}
-        >
-          {"See More"}
-        </button>
-      </div>
+      {enableShowMore ? (
+        <motion.div className={clsx("max-h-12 max-w-xs")}>
+          <button
+            className={clsx(
+              "w-32 h-12 border-2 border-[#484848] rounded-lg mx-auto",
+              "font-semibold text-md shadow-[#1c1c1c] shadow-sm",
+              "dark:border-[#292929]"
+            )}
+            type="button"
+            onClick={() => {
+              window.location.href = "/posts";
+            }}
+          >
+            {"See More"}
+          </button>
+        </motion.div>
+      ) : null}
     </motion.div>
   );
 }
