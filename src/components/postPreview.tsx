@@ -70,6 +70,7 @@ function PostPreview({
                 priority
                 width="100"
                 height="100"
+                quality={100}
                 loading="eager"
               />
               <div
