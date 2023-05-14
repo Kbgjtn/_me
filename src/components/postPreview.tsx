@@ -59,20 +59,22 @@ function PostPreview({
                 "dark:border-[#292929] dark:bg-charcoal"
               )}
             >
-              <Image
-                className={clsx(
-                  "object-cover object-center self-center max-w-lg w-full max-h-[180px]  rounded-3xl",
-                  "grayscale hover:grayscale-0"
-                )}
-                src={post.image || postPhotoDummy}
-                alt={post.title}
-                crossOrigin="anonymous"
-                priority
-                width="100"
-                height="100"
-                quality={100}
-                loading="eager"
-              />
+              <div className="flex justify-center items-center max-w-lg w-full h-full max-h-[180px]">
+                <Image
+                  className={clsx(
+                    "object-cover object-center self-center w-full h-full rounded-3xl",
+                    "grayscale hover:grayscale-0"
+                  )}
+                  src={post.image || postPhotoDummy}
+                  alt={post.title}
+                  crossOrigin="anonymous"
+                  priority
+                  width="100"
+                  height="100"
+                  quality={100}
+                  loading="eager"
+                />
+              </div>
               <div
                 className={clsx(
                   "relative max-h-16 h-full font-semibold overflow-y-hidden",
@@ -82,7 +84,8 @@ function PostPreview({
                 <Link
                   href={"posts/" + (post.slug || post.title)}
                   className={clsx(
-                    "relative hover:underline underline-offset-2"
+                    "relative hover",
+                    "no-underline hover:text-[#ffd100]"
                   )}
                 >
                   {post.title}
@@ -95,7 +98,7 @@ function PostPreview({
 
               <div
                 className={clsx(
-                  "w-full flex-col items-center justify-start gap-4 mb-4"
+                  "w-full h-auto flex flex-col items-start justify-center mb-4"
                 )}
               >
                 <div
