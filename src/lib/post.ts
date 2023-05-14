@@ -33,6 +33,7 @@ export function getPostData(slug: string): Post | never {
     meta: {
       excerpt: data.excerpt ?? "",
       slug,
+      author: data.author ?? "unknown",
       image: data.image ?? "",
       tags: (data.tags ?? []).sort(),
       title: data.title ?? slug,
