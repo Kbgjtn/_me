@@ -50,7 +50,7 @@ function PostPreview({ posts }: { posts: PostMeta[] }) {
                 "w-full h-full inline-flex flex-col gap-3",
                 "p-5 border-2 bg-[#8B8B8B] border-[#484848] rounded-[44px]",
                 "shadow-[#1c1c1c] shadow-sm",
-                "dark:border-[#292929]"
+                "dark:border-[#292929] dark:bg-charcoal"
               )}
             >
               <Image
