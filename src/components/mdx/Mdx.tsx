@@ -24,17 +24,19 @@ export const Mdx = memo<MdxProps>(({ fronmatter, children }: MdxProps) => {
         <div
           className={clsx("flex flex-col justify-center items-center gap-4")}
         >
-          <h1
-            className={clsx(
-              "text-5xl text-center font-extrabold rounded-lg",
-              "lg:text-6xl",
-              "xl:text-6xl",
-              "2xl:text-7xl",
-              "3xl:text-7xl"
-            )}
-          >
-            {title}
-          </h1>
+          <div className="container">
+            <h1
+              className={clsx(
+                "text-5xl text-center font-extrabold rounded-lg",
+                "lg:text-6xl",
+                "xl:text-6xl",
+                "2xl:text-7xl",
+                "3xl:text-7xl"
+              )}
+            >
+              {title}
+            </h1>
+          </div>
           <div className="flex w-full items-center justify-center gap-8">
             <div
               className="flex items-center justify-center gap-2"
