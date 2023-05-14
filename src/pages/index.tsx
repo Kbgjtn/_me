@@ -3,7 +3,6 @@ import { getPosts } from "@/lib/post";
 import { PostMeta } from "@/types/post";
 import Me from "@/components/templates/home/me";
 import Book from "@/components/templates/book/book";
-import Footer from "@/components/templates/footer/footer";
 import PostPreview from "@/components/postPreview";
 
 function Main({ posts }: { posts: PostMeta[] }) {
@@ -27,7 +26,7 @@ function Main({ posts }: { posts: PostMeta[] }) {
       <section className="min-h-screen">
         <Me />
       </section>
-      <section className="min-h-screen ">
+      <section className="min-h-screen">
         <PostPreview posts={posts} />
       </section>
       <section className="min-h-screen">

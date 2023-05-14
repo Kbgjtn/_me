@@ -63,7 +63,7 @@ export const Mdx = memo<MdxProps>(({ fronmatter, children }: MdxProps) => {
       </header>
       <section
         className={clsx(
-          "prose prose-sm text-[#111111]",
+          "prose prose-sm text-[#111111] mb-32",
           "prose-pre:bg-[#111111] prose-pre:font-mono prose-pre:font-medium prose-pre:text-lg",
           "prose-li:text-[#111111]",
           "prose-a:text-[#252525] prose-a:no-underline hover:prose-a:text-black",
