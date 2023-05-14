@@ -3,8 +3,8 @@ import { CodeWithinTitle } from "@/components/mdx/CodeWithinTitle";
 import { Heading } from "@/components/mdx/Heading";
 import { Highlight } from "@/components/mdx/Highlight";
 import { Mdx } from "@/components/mdx/Mdx";
+import Sparkles from "@/components/shared/sparkles";
 import { getPostData, getPosts } from "@/lib/post";
-import clsx from "clsx";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import Head from "next/head";
@@ -70,6 +70,7 @@ function Post({ content, meta }: { content: any; meta: any }) {
           height={height ? parseInt(height) : 300}
         />
       ),
+      Sparkles,
       Image,
       CodeWithinTitle,
       Highlight,
