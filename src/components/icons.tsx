@@ -368,7 +368,7 @@ export function ProjectListIcon({ props, anoth }: IconProps) {
   );
 }
 
-export function BookReaderIcon({ props, anoth }: Partial<IconProps>) {
+export function BookReaderIcon({ props }: Partial<IconProps>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -382,7 +382,7 @@ export function BookReaderIcon({ props, anoth }: Partial<IconProps>) {
   );
 }
 
-export function CalenderIcon({ props, anoth }: Partial<IconProps>) {
+export function CalenderIcon({ props }: Partial<IconProps>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

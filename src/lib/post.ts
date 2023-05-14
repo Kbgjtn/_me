@@ -1,4 +1,5 @@
 import { POST_RELATIVE_PATH } from "@/constants";
+import { getTimeToRead } from "@/helpers";
 import { Post } from "@/types/post";
 import fs from "fs";
 import matter from "gray-matter";
@@ -23,6 +24,9 @@ export function getPostData(slug: string): Post | never {
   const postDirectory = path.join(absolutePathPost, `${slug}.mdx`);
   const source = fs.readFileSync(postDirectory, "utf8");
   const { content, data } = matter(source);
+  const timeToRead = getTimeToRead(content, 200);
+
+  console.log(timeToRead);
 
   return {
     content,
@@ -32,6 +36,7 @@ export function getPostData(slug: string): Post | never {
       image: data.image ?? "",
       tags: (data.tags ?? []).sort(),
       title: data.title ?? slug,
+      timeToRead: timeToRead ?? "-",
       date: (data.date ?? new Date()).toString(),
     },
   };

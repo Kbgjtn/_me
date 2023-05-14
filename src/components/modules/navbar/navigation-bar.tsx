@@ -8,19 +8,20 @@ import { useTheme } from "next-themes";
 
 import type { ReactElement } from "react";
 
-type NavigationLinkItems = {
+export type NavigationLinkItemProps = {
   title: string;
   href: string;
-  icon: ReactElement<"svg">;
+  icon: ReactElement;
 };
 
 const urlSchema = z.string().url();
 
-const NavBar = () => {
+const NavBar = ({ items }: { items: NavigationLinkItemProps[] }) => {
   const [hoverLogoName, setHoverLogoName] = useState<string>("");
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
+  console.log({ items });
   const handleClickScroll = (id: string) => {
     if (urlSchema.safeParse(id).success) {
       window.location.href = id;
@@ -48,54 +49,16 @@ const NavBar = () => {
         className="flex relative justify-center items-center font-medium text-white font-cascode text-xl gap-[2rem] xl:text-2xl"
         variants={item}
       >
-        {[
-          [
-            "me",
-            "https://www.coocobolo.com",
-            <MeIcon
-              props={{ className: clsx(`h-9 w-9 transition-all`) }}
-              anoth={{ isIconHover: hoverLogoName === "me", isDark }}
-              key="1"
-            />,
-          ],
-          [
-            "repository",
-            "https://github.com/Kbgjtn",
-            <GithubIcon
-              key="2"
-              props={{ className: clsx(`h-9 w-9`) }}
-              anoth={{ isIconHover: hoverLogoName === "repository", isDark }}
-            />,
-          ],
-          [
-            "book",
-            "#reading-list",
-            <BookIcon
-              props={{ className: clsx(`h-9 w-9`) }}
-              anoth={{ isIconHover: hoverLogoName === "book", isDark }}
-              key="3"
-            />,
-          ],
-          /* [
-            "project",
-            "#project-list",
-
-            <ProjectListIcon
-              props={{ className: clsx(`h-9 w-9`) }}
-              anoth={{ isIconHover: hoverLogoName === "project", isDark }}
-              key="4"
-            />,
-          ], */
-        ].map(([title, url, svg]) => (
+        {items.map((item) => (
           <span
-            onClick={() => handleClickScroll(url as string)}
-            onMouseEnter={() => setHoverLogoName(`${title}`)}
+            onClick={() => handleClickScroll(item.href as string)}
+            onMouseEnter={() => setHoverLogoName(`${item.title}`)}
             onMouseLeave={() => setHoverLogoName("")}
             draggable={false}
-            key={`${title}`}
+            key={`${item.title}`}
             style={{ transition: "500ms" }}
           >
-            {svg}
+            {item.icon}
           </span>
         ))}
 

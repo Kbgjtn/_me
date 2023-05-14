@@ -3,6 +3,7 @@ import { CodeWithinTitle } from "@/components/mdx/CodeWithinTitle";
 import { Heading } from "@/components/mdx/Heading";
 import { Highlight } from "@/components/mdx/Highlight";
 import { Mdx } from "@/components/mdx/Mdx";
+import { getLayout } from "@/layouts/test";
 import Sparkles from "@/components/shared/sparkles";
 import { getPostData, getPosts } from "@/lib/post";
 import { MDXRemote } from "next-mdx-remote";
@@ -96,6 +97,7 @@ function Post({ content, meta }: { content: any; meta: any }) {
   );
 }
 
+Post.getLayout = getLayout;
 export default Post;
 
 export const getStaticPaths = async () => {

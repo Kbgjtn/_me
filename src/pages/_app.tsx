@@ -36,6 +36,8 @@ function App({
   } else {
     getLayout = getDefaultLayout;
   }
+
+  console.log({ getLayout });
   return (
     <Provider>
       <Core>

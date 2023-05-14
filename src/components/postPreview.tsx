@@ -102,7 +102,7 @@ function PostPreview({ posts }: { posts: PostMeta[] }) {
                   )}
                 >
                   <BookReaderIcon props={{ className: clsx(`h-5 w-5`) }} />
-                  <p className="text-[12px]">{`10 Mins`}</p>
+                  <p className="text-[12px]">{post.timeToRead} min(s)</p>
                 </div>
               </div>
             </motion.li>
