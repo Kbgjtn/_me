@@ -21,7 +21,9 @@ export const Mdx = memo<MdxProps>(({ fronmatter, children }: MdxProps) => {
       )}
     >
       <header className={clsx("mt-8 mb-12")}>
-        <div className={clsx("flex flex-col justify-center items-center ")}>
+        <div
+          className={clsx("flex flex-col justify-center items-center gap-4")}
+        >
           <h1
             className={clsx(
               "text-5xl text-center font-extrabold rounded-lg",
