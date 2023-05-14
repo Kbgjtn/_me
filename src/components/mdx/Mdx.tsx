@@ -1,12 +1,10 @@
 import { memo } from "react";
-import Link from "next/link";
 import Image from "next/image";
-
-import type { ReactNode } from "react";
 import { PostMeta } from "@/types/post";
 import clsx from "clsx";
-import { Heading } from "./Heading";
-import { CalenderIcon, InfoIcon } from "../icons";
+import { CalenderIcon, InfoIcon, BookReaderIcon } from "../icons";
+
+import type { ReactNode } from "react";
 
 type MdxProps = {
   readonly fronmatter: PostMeta;
@@ -14,7 +12,7 @@ type MdxProps = {
 };
 
 export const Mdx = memo<MdxProps>(({ fronmatter, children }: MdxProps) => {
-  const { title, image, date } = fronmatter;
+  const { title, image, date, timeToRead } = fronmatter;
 
   return (
     <article
@@ -25,18 +23,24 @@ export const Mdx = memo<MdxProps>(({ fronmatter, children }: MdxProps) => {
       <header className={clsx("mt-8 mb-12")}>
         <div className={clsx("flex flex-col justify-center items-center ")}>
           <h1
-            className={clsx("text-5xl text-center font-extrabold  rounded-lg ")}
+            className={clsx(
+              "text-5xl text-center font-extrabold rounded-lg",
+              "lg:text-6xl",
+              "xl:text-6xl",
+              "2xl:text-7xl",
+              "3xl:text-7xl"
+            )}
           >
             {title}
           </h1>
           <div className="flex w-full items-center justify-center gap-8">
-            <div className="flex items-center justify-center gap-4">
+            <div className="flex items-center justify-center gap-2">
               <CalenderIcon props={{ className: "h-6 w-6" }} anoth={{}} />
-              <p>{date}</p>
+              <p>{`${new Date(date).toDateString()}`}</p>
             </div>
-            <div className="flex items-center justify-center gap-4">
-              <InfoIcon className={"h-7 w-7"} />
-              <p>{10} mins</p>
+            <div className="flex items-center justify-center gap-2">
+              <BookReaderIcon props={{ className: "h-7 w-7" }} />
+              <p>{timeToRead} min(s)</p>
             </div>
           </div>
         </div>
@@ -65,8 +69,9 @@ export const Mdx = memo<MdxProps>(({ fronmatter, children }: MdxProps) => {
         className={clsx(
           "prose prose-sm text-[#111111] mb-32",
           "prose-pre:bg-[#111111] prose-pre:font-mono prose-pre:font-medium prose-pre:text-lg",
-          "prose-li:text-[#111111] prose-li:",
+          "prose-li:text-[#111111]",
           "marker:prose-ul:text-[#111111]",
+          "marker:prose-ol:text-[#111111]",
           "prose-a:text-[#252525] prose-a:no-underline hover:prose-a:text-black",
           "prose-strong:text-[#000000]",
           "prose-p:font-medium",
@@ -81,6 +86,7 @@ export const Mdx = memo<MdxProps>(({ fronmatter, children }: MdxProps) => {
           "dark:prose-pre:shadow-sm dark:prose-pre:border-[1px] dark:prose-pre:border-[#252525] dark:prose-pre:shadow-[#212121] dark:prose-pre:bg-[#191919]",
           "dark:prose-headings:text-[#B2B2B2]",
           "dark:marker:prose-ul:text-[#B2B2B2]",
+          "dark:marker:prose-ol:text-[#B2B2B2]",
           "dark:prose-p:text-[#DDDDDD]",
           "dark:prose-strong:text-[#46B5D1]",
           "dark:prose-a:text-[#f3f3f3] dark:hover:prose-a:text-[#ffd100]",

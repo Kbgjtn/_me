@@ -30,11 +30,6 @@
     user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
   }
 
-  ::selection {
-    @apply text-[#43919B] opacity-60 bg-transparent;
-    @apply dark:text-[#FFCD38] dark:opacity-60 dark:bg-transparent;
-  }
-
   :focus-visible {
     @apply ring-accent-400 relative rounded-xl outline-none ring-2;
   }

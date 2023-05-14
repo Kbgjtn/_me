@@ -4,11 +4,12 @@ import NavBar, {
 } from "@/components/modules/navbar/navigation-bar";
 import Footer from "@/components/templates/footer/footer";
 import clsx from "clsx";
+import type { ReactNode } from "react";
 import { useTheme } from "next-themes";
 
 import type { PropsWithChildren } from "react";
 
-function CommonLayout({ children }: PropsWithChildren) {
+function TestLayout({ children }: PropsWithChildren) {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
@@ -37,28 +38,8 @@ const navLinkItem = [
       />
     ),
   },
-  {
-    title: "repository",
-    href: "https://github.com/Kbgjtn",
-    icon: (
-      <GithubIcon
-        key="2"
-        props={{ className: clsx(`h-9 w-9`) }}
-        anoth={{ isIconHover: false }}
-      />
-    ),
-  },
-  {
-    title: "book",
-    href: "#reading-list",
-    icon: (
-      <BookIcon
-        props={{ className: clsx(`h-9 w-9`) }}
-        anoth={{ isIconHover: false }}
-        key="3"
-      />
-    ),
-  },
 ];
 
-export default CommonLayout;
+export const getLayout = (page: ReactNode) => <TestLayout>{page}</TestLayout>;
+
+export default TestLayout;
