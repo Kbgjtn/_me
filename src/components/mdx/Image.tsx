@@ -23,6 +23,7 @@ export const Image = memo(
         {EXTERNAL_IMAGE_PATTERN.test(src) ? (
           <div
             style={{ backgroundImage: `url(${src})` }}
+            draggable={false}
             className={clsx(
               "absolute -inset-8 z-[-1] rounded-[20%] bg-[length:180%_180%] bg-center opacity-25 blur-2xl",
               "hidden", // disable immersive on light mode
