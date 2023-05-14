@@ -26,8 +26,6 @@ export function getPostData(slug: string): Post | never {
   const { content, data } = matter(source);
   const timeToRead = getTimeToRead(content, 200);
 
-  console.log(timeToRead);
-
   return {
     content,
     meta: {
