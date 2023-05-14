@@ -12,8 +12,9 @@ type MdxProps = {
 };
 
 export const Mdx = memo<MdxProps>(({ fronmatter, children }: MdxProps) => {
-  const { title, image, date, timeToRead } = fronmatter;
+  const { title, image, date, timeToRead, author } = fronmatter;
 
+  console.log(author);
   return (
     <article
       className={clsx(
@@ -53,6 +54,7 @@ export const Mdx = memo<MdxProps>(({ fronmatter, children }: MdxProps) => {
               <p>{timeToRead} min(s)</p>
             </div>
           </div>
+          <div className="text-sm">by: {author}</div>
         </div>
         <div
           className={clsx(

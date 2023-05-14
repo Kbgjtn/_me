@@ -5,6 +5,7 @@ export interface PostMeta {
   title: string;
   tags: string[];
   image: string;
+  author: string;
   timeToRead: number | string;
 }
 
