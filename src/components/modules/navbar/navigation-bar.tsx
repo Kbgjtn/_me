@@ -15,7 +15,7 @@ type NavigationLinkItems = {
 };
 const urlSchema = z.string().url();
 
-const NavBar = (props: NavigationLinkItems[]) => {
+const NavBar = () => {
   const [hoverLogoName, setHoverLogoName] = useState<string>("");
   const { theme } = useTheme();
   const isDark = theme === "dark";
