@@ -2,7 +2,7 @@ import { memo } from "react";
 import Image from "next/image";
 import { PostMeta } from "@/types/post";
 import clsx from "clsx";
-import { CalenderIcon, InfoIcon, BookReaderIcon } from "../icons";
+import { CalenderIcon, BookReaderIcon } from "../icons";
 
 import type { ReactNode } from "react";
 
@@ -34,11 +34,17 @@ export const Mdx = memo<MdxProps>(({ fronmatter, children }: MdxProps) => {
             {title}
           </h1>
           <div className="flex w-full items-center justify-center gap-8">
-            <div className="flex items-center justify-center gap-2">
+            <div
+              className="flex items-center justify-center gap-2"
+              title={"latest updated: " + date}
+            >
               <CalenderIcon props={{ className: "h-6 w-6" }} anoth={{}} />
               <p>{`${new Date(date).toDateString()}`}</p>
             </div>
-            <div className="flex items-center justify-center gap-2">
+            <div
+              className="flex items-center justify-center gap-2"
+              title={"The avarage time for reading this post is: " + timeToRead}
+            >
               <BookReaderIcon props={{ className: "h-7 w-7" }} />
               <p>{timeToRead} min(s)</p>
             </div>
@@ -58,6 +64,8 @@ export const Mdx = memo<MdxProps>(({ fronmatter, children }: MdxProps) => {
               "relative object-cover w-full h-full object-center rounded-xl"
             )}
             src={image ?? ""}
+            title={title}
+            draggable={false}
             alt="image-post"
             loading="eager"
             width={800}
@@ -68,7 +76,7 @@ export const Mdx = memo<MdxProps>(({ fronmatter, children }: MdxProps) => {
       <section
         className={clsx(
           "prose prose-sm text-[#111111] mb-32",
-          "prose-pre:bg-[#111111] prose-pre:font-mono prose-pre:font-medium prose-pre:text-lg",
+          "prose-pre:bg-[#444444] prose-pre:font-mono prose-pre:rounded-xl prose-pre:font-medium prose-pre:text-lg",
           "prose-li:text-[#111111]",
           "marker:prose-ul:text-[#111111]",
           "marker:prose-ol:text-[#111111]",
@@ -83,7 +91,7 @@ export const Mdx = memo<MdxProps>(({ fronmatter, children }: MdxProps) => {
           "2xl:prose-2xl",
           "3xl:prose-3xl",
           "dark:prose-invert dark:prose-indigo",
-          "dark:prose-pre:shadow-sm dark:prose-pre:border-[1px] dark:prose-pre:border-[#252525] dark:prose-pre:shadow-[#212121] dark:prose-pre:bg-[#191919]",
+          "dark:prose-pre:shadow-sm dark:prose-pre:rounded-xl dark:prose-pre:border-[1px] dark:prose-pre:border-[#252525] dark:prose-pre:shadow-[#212121] dark:prose-pre:bg-[#191919]",
           "dark:prose-headings:text-[#B2B2B2]",
           "dark:marker:prose-ul:text-[#B2B2B2]",
           "dark:marker:prose-ol:text-[#B2B2B2]",
