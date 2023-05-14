@@ -13,6 +13,7 @@ type NavigationLinkItems = {
   href: string;
   icon: ReactElement<"svg">;
 };
+
 const urlSchema = z.string().url();
 
 const NavBar = () => {
