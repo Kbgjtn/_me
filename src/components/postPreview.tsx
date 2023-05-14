@@ -100,7 +100,7 @@ function PostPreview({
                 >
                   <CalenderIcon props={{ className: clsx(`h-4 w-4`) }} />
 
-                  <p className="text-mn">{`${new Date(
+                  <p className="text-sm">{`${new Date(
                     post.date
                   ).toDateString()}`}</p>
                 </div>
@@ -110,7 +110,7 @@ function PostPreview({
                   )}
                 >
                   <BookReaderIcon props={{ className: clsx(`h-5 w-5`) }} />
-                  <p className="text-mn">{post.timeToRead} min(s)</p>
+                  <p className="text-sm">{post.timeToRead} min(s)</p>
                 </div>
               </div>
             </motion.li>
