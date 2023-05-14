@@ -61,7 +61,7 @@ function PostPreview({
             >
               <Image
                 className={clsx(
-                  "object-cover max-w-md w-full h-auto rounded-3xl",
+                  "object-cover max-w-md w-full h-full rounded-3xl",
                   "grayscale hover:grayscale-0"
                 )}
                 src={post.image || postPhotoDummy}
