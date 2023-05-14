@@ -3,7 +3,7 @@ import { CodeWithinTitle } from "@/components/mdx/CodeWithinTitle";
 import { Heading } from "@/components/mdx/Heading";
 import { Highlight } from "@/components/mdx/Highlight";
 import { Mdx } from "@/components/mdx/Mdx";
-import { getLayout } from "@/layouts/test";
+import { getLayout } from "@/layouts/BlogLayout";
 import Sparkles from "@/components/shared/sparkles";
 import { getPostData, getPosts } from "@/lib/post";
 import { MDXRemote } from "next-mdx-remote";
