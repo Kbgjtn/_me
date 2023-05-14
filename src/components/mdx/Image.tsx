@@ -35,6 +35,7 @@ export const Image = memo(
             className={clsx("max-w-full")}
             src={src}
             alt={alt}
+            draggable={false}
             width={width as number}
             height={height as number}
             loading="lazy"

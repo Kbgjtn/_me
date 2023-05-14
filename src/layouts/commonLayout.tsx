@@ -1,4 +1,4 @@
-import { BookIcon, GithubIcon, MeIcon } from "@/components/icons";
+import { BookIcon, GithubIcon, MeIcon, PostsIcon } from "@/components/icons";
 import NavBar, {
   NavigationLinkItemProps,
 } from "@/components/modules/navbar/navigation-bar";
@@ -48,6 +48,18 @@ const navLinkItem = [
       />
     ),
   },
+  {
+    title: "posts",
+    href: "#blogpost",
+    icon: (
+      <PostsIcon
+        key="2"
+        props={{ className: clsx(`h-8 w-8`) }}
+        anoth={{ isIconHover: false }}
+      />
+    ),
+  },
+
   {
     title: "book",
     href: "#reading-list",
