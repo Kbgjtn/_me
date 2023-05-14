@@ -40,7 +40,7 @@ function PostPreview({
           animate={"visible"}
           variants={list}
           className={clsx(
-            "container list-none px-20 grid grid-cols-1 gap-y-8 gap-x-6",
+            "container mx-auto list-none px-20 grid grid-cols-1 gap-y-8 gap-x-6",
             "md:grid-cols-2",
             "lg:grid-cols-3",
             "xl:grid-cols-4",
@@ -53,7 +53,7 @@ function PostPreview({
               variants={item}
               key={post.slug}
               className={clsx(
-                "w-full h-full inline-flex flex-col gap-3",
+                "container flex flex-col gap-3",
                 "p-5 border-2 bg-[#8B8B8B] border-[#484848] rounded-[44px]",
                 "shadow-[#1c1c1c] shadow-sm",
                 "dark:border-[#292929] dark:bg-charcoal"
@@ -61,7 +61,7 @@ function PostPreview({
             >
               <Image
                 className={clsx(
-                  "object-cover max-w-md w-full h-full rounded-3xl",
+                  "object-cover object-center self-center max-w-lg w-full max-h-[180px] h-auto rounded-3xl",
                   "grayscale hover:grayscale-0"
                 )}
                 src={post.image || postPhotoDummy}
@@ -88,11 +88,16 @@ function PostPreview({
                   {post.title}
                 </Link>
               </div>
-              <div className="max-h-20 h-full overflow-hidden text-xs text-ellipsis">
-                {post.excerpt}
+
+              <div className="max-h-20 bordere-balck border-2 h-full overflow-hidden text-xs text-ellipsis">
+                <p className="mb-2">{post.excerpt.slice(0, 92)}</p>
               </div>
 
-              <div className="w-full flex items-center justify-start gap-4 mb-4">
+              <div
+                className={clsx(
+                  "w-full flex-col items-center justify-start gap-4 mb-4"
+                )}
+              >
                 <div
                   className={clsx(
                     `justify-self-end inline-flex items-center gap-2`
