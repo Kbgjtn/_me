@@ -1,5 +1,0 @@
-.mdx-heading {
-  &--h2 {
-    @apply text-[500px] text-red-500;
-  }
-}
