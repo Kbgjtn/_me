@@ -1,6 +1,7 @@
 import bundeAnalyzer from '@next/bundle-analyzer';
 import nextMDX from '@next/mdx';
 
+
 /** @type {import('next').NextConfig} */
 
 const ContentSecurityPolicy = `
@@ -64,12 +65,6 @@ const nextConfig = {
       // Warning: This allows production builds to successfully complete even if
       // your project has ESLint errors.
       ignoreDuringBuilds: true,
-   },
-   images: {
-      domains: [''],
-   },
-   future: {
-      webpack5: true,
    },
    async headers() {
       return [
