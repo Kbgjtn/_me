@@ -1,6 +1,10 @@
 {
    "private": true,
    "main": "index.js",
+   "workspace": [
+     "apps/_me",
+     "ui"
+   ],
    "scripts": {
       "clean": "turbo run clean",
       "dev": "turbo run dev",
