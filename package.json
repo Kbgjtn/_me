@@ -5,7 +5,8 @@
       "clean": "turbo run clean",
       "dev": "turbo run dev",
       "format": "prettier --write .",
-      "start": "turbo run build"
+      "start": "turbo run build",
+      "deploy": "turbo run build --scope=apps/_me --includeDependencies --no-deps"
    },
    "packageManager": "pnpm@8.5.0",
    "engines": {
