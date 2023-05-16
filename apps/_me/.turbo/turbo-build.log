@@ -1,0 +1,65 @@
+
+> me@ build /home/tortuga/Documents/test_me/apps/_me
+> next build
+
+- info Loaded env from /home/tortuga/Documents/test_me/apps/_me/.env
+- info Skipping linting
+- info Checking validity of types...
+- info Creating an optimized production build...
+> Promise returned in next config. https://nextjs.org/docs/messages/promise-in-next-config
+> Promise returned in next config. https://nextjs.org/docs/messages/promise-in-next-config
+> Promise returned in next config. https://nextjs.org/docs/messages/promise-in-next-config
+Warning: For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'yarn add sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+- info Compiled successfully
+- info Collecting page data...
+- info Generating static pages (0/11)
+- info Generating static pages (2/11)
+- info Generating static pages (5/11)
+- info Generating static pages (8/11)
+- info Generating static pages (11/11)
+- info Finalizing page optimization...
+
+Route (pages)                              Size     First Load JS
+┌ ● /                                      237 kB          444 kB
+├   /_app                                  0 B             156 kB
+├ ○ /404                                   1.97 kB         158 kB
+├ λ /api/hello                             0 B             156 kB
+├ ○ /blog                                  302 B           156 kB
+├ ● /posts                                 6.31 kB         227 kB
+└ ● /posts/[slug]                          11.3 kB         232 kB
+    ├ /posts/micvsmon
+    ├ /posts/sdlc-se
+    ├ /posts/markdown-dummies
+    └ [+3 more paths]
++ First Load JS shared by all              167 kB
+  ├ chunks/framework-2647c7e378e02044.js   45.2 kB
+  ├ chunks/main-94ffd4c25d087bfd.js        29.8 kB
+  ├ chunks/pages/_app-2b484b64b91d3906.js  80.4 kB
+  ├ chunks/webpack-b8f8d6679aaa5f42.js     755 B
+  └ css/b3831e5f8b124ace.css               10.6 kB
+
+λ  (Server)  server-side renders at runtime (uses getInitialProps or getServerSideProps)
+○  (Static)  automatically rendered as static HTML (uses no initial props)
+●  (SSG)     automatically generated as static HTML + JSON (uses getStaticProps)
+
+
+> me@ postbuild /home/tortuga/Documents/test_me/apps/_me
+> next-sitemap
+
+Loaded env from /home/tortuga/Documents/test_me/apps/_me/.env
+✨ [next-sitemap] Loading next-sitemap config: file:///home/tortuga/Documents/test_me/apps/_me/next-sitemap.config.js
+✅ [next-sitemap] Generation completed
+┌───────────────┬────────┐
+│    (index)    │ Values │
+├───────────────┼────────┤
+│ indexSitemaps │   0    │
+│   sitemaps    │   1    │
+└───────────────┴────────┘
+-----------------------------------------------------
+ SITEMAPS 
+-----------------------------------------------------
+
+   ○ https://www.coocobolo.com/sitemap.xml
+
+

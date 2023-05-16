@@ -1,0 +1,11 @@
+{
+   "name": "tsconfig",
+   "version": "1.0.0",
+   "keywords": [],
+   "author": "",
+   "license": "no_license",
+   "private": true,
+   "publishConfig": {
+      "access": "restricted"
+   }
+}

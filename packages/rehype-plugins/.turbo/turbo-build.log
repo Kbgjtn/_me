@@ -1,0 +1,13 @@
+
+> rehype-plugins@1.0.0 build /home/tortuga/Documents/test_me/packages/rehype-plugins
+> tsup --env.NODE_ENV production
+
+CLI Building entry: src/index.ts
+CLI Using tsconfig: tsconfig.json
+CLI tsup v6.7.0
+CLI Using tsup config: /home/tortuga/Documents/test_me/packages/rehype-plugins/tsup.config.js
+CLI Target: node14
+CLI Cleaning output folder
+ESM Build start
+ESM dist/index.mjs 1.15 KB
+ESM ⚡️ Build success in 7ms
