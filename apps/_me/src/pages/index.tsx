@@ -53,7 +53,7 @@ export default Main;
 
 export async function getStaticProps() {
    const posts = getPosts()
-      .slice(0, 9)
+      .slice(0, 6)
       .map((post) => post.meta);
 
    return { props: { posts } };
