@@ -5,7 +5,7 @@ export function randomNumber(min: number, max: number) {
 export function getHost(): string {
    if (process.env.NODE_ENV === 'production') {
       // if you are hosting a http website use http instead of https
-      return `https://${process.env.URL_CLIENT_DOMAIN}`;
+      return `https://www.coocobolo.com`;
    }
 
    return 'http://localhost:3000';
