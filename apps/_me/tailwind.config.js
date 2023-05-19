@@ -7,13 +7,6 @@ module.exports = {
    content: ['./src/**/*.{js,ts,jsx,tsx}'],
    darkMode: 'class',
    theme: {
-      screens: {
-         sm: { min: '576px', max: '767px' },
-         md: { min: '768px', max: '1023px' },
-         lg: { min: '1024px', max: '1279px' },
-         xl: { min: '1280px', max: '1535px' },
-         '2xl': { min: '1536px' },
-      },
       fontFamily: {
          sans: ['var(--font-space, "")', ...defaultTheme.fontFamily.sans],
          mono: ['var(--font-mono, "")', ...defaultTheme.fontFamily.mono],
@@ -41,10 +34,9 @@ module.exports = {
       },
 
       extend: {
-         screens: {
-            '3xl': '1600px',
-         },
          colors: {
+            chineseBlack: '#131313',
+            earie: '#1A1A1A',
             accent: {
                DEFAULT: '#f3f3f3',
                50: '#f3f3f3',
@@ -58,9 +50,43 @@ module.exports = {
                800: '#f3f3f3',
                900: '#f3f3f3',
             },
-
+            silversand_tints: {
+               DEFAULT: '#C3C3C3',
+               1000: '#F9F9F9',
+               900: '#F3F3F3',
+               800: '#EDEDED',
+               700: '#E7E7E7',
+               600: '#E1E1E1',
+               500: '#DBDBDB',
+               400: '#D5D5D5',
+               300: '#CFCFCF',
+            },
+            silversand_shades: {
+               DEFAULT: '#141414',
+               1000: '#141414',
+               900: '#272727',
+               800: '#3B3B3B',
+               700: '#4E4E4E',
+               600: '#626262',
+               500: '#757575',
+               400: '#898989',
+               300: '#9C9C9C',
+            },
             charcoal: {
                DEFAULT: '#111111',
+               50: '#D0BCFF',
+               100: '#48464C',
+               200: '#575360',
+               300: '#655F73',
+               400: '#756D88',
+               500: '#847A9B',
+               600: '#9387AF',
+               700: '#A395C3',
+               800: '#B1A1D7',
+               900: '#8B8B8B',
+            },
+            blackOlive: {
+               DEFAULT: '#',
                50: '#D0BCFF',
                100: '#48464C',
                200: '#575360',
