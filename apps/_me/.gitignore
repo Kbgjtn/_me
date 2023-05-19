@@ -49,5 +49,8 @@ sitemap.xml
 *.tsbuildinfo
 next-env.d.ts
 
+/public/robots.txt
+/public/sitemap.xml
+
 # prevent accidentally committing and pushing draft files/directories
 *((DRAFT))*

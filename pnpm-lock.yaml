@@ -14,8 +14,8 @@ importers:
         specifier: ^0.3.0
         version: 0.3.0(prettier@2.8.8)
       turbo:
-        specifier: ^1.9.5
-        version: 1.9.5
+        specifier: ^1.9.8
+        version: 1.9.8
 
   apps/_me:
     dependencies:
@@ -27,7 +27,7 @@ importers:
         version: 0.1.3(tailwindcss@3.3.2)
       '@mdx-js/loader':
         specifier: ^2.3.0
-        version: 2.3.0(webpack@5.82.1)
+        version: 2.3.0(webpack@5.83.1)
       '@mdx-js/react':
         specifier: ^2.3.0
         version: 2.3.0(react@18.2.0)
@@ -82,6 +82,9 @@ importers:
       next-mdx-remote:
         specifier: ^4.4.1
         version: 4.4.1(react-dom@18.2.0)(react@18.2.0)
+      next-seo:
+        specifier: ^6.0.0
+        version: 6.0.0(next@13.4.2)(react-dom@18.2.0)(react@18.2.0)
       next-themes:
         specifier: ^0.2.1
         version: 0.2.1(next@13.4.2)(react-dom@18.2.0)(react@18.2.0)
@@ -151,10 +154,13 @@ importers:
         version: link:../../packages/eslint-config-next-typescript
       next-sitemap:
         specifier: ^4.0.9
-        version: 4.0.9(@next/env@13.4.2)(next@13.4.2)
+        version: 4.0.9(@next/env@13.4.3)(next@13.4.2)
       postcss:
         specifier: ^8.4.23
         version: 8.4.23
+      prettier:
+        specifier: ^2.8.8
+        version: 2.8.8
       tailwindcss:
         specifier: ^3.3.2
         version: 3.3.2
@@ -1831,14 +1837,14 @@ packages:
       - supports-color
     dev: false
 
-  /@mdx-js/loader@2.3.0(webpack@5.82.1):
+  /@mdx-js/loader@2.3.0(webpack@5.83.1):
     resolution: {integrity: sha512-IqsscXh7Q3Rzb+f5DXYk0HU71PK+WuFsEhf+mSV3fOhpLcEpgsHvTQ2h0T6TlZ5gHOaBeFjkXwB52by7ypMyNg==}
     peerDependencies:
       webpack: '>=4'
     dependencies:
       '@mdx-js/mdx': 2.3.0
       source-map: 0.7.4
-      webpack: 5.82.1(esbuild@0.17.19)
+      webpack: 5.83.1(esbuild@0.17.19)
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -1889,6 +1895,10 @@ packages:
   /@next/env@13.4.2:
     resolution: {integrity: sha512-Wqvo7lDeS0KGwtwg9TT9wKQ8raelmUxt+TQKWvG/xKfcmDXNOtCuaszcfCF8JzlBG1q0VhpI6CKaRMbVPMDWgw==}
 
+  /@next/env@13.4.3:
+    resolution: {integrity: sha512-pa1ErjyFensznttAk3EIv77vFbfSYT6cLzVRK5jx4uiRuCQo+m2wCFAREaHKIy63dlgvOyMlzh6R8Inu8H3KrQ==}
+    dev: true
+
   /@next/eslint-plugin-next@13.4.2:
     resolution: {integrity: sha512-ZeFWgrxwckxTpYM+ANeUL9E7LOGPbZKmI94LJIjbDU69iEIgqd4WD0l2pVbOJMr/+vgoZmJ9Dx1m0WJ7WScXHA==}
     dependencies:
@@ -1906,7 +1916,7 @@ packages:
       '@mdx-js/react':
         optional: true
     dependencies:
-      '@mdx-js/loader': 2.3.0(webpack@5.82.1)
+      '@mdx-js/loader': 2.3.0(webpack@5.83.1)
       '@mdx-js/react': 2.3.0(react@18.2.0)
       source-map: 0.7.4
     dev: false
@@ -5729,7 +5739,19 @@ packages:
       - supports-color
     dev: false
 
-  /next-sitemap@4.0.9(@next/env@13.4.2)(next@13.4.2):
+  /next-seo@6.0.0(next@13.4.2)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-jKKt1p1z4otMA28AyeoAONixVjdYmgFCWwpEFtu+DwRHQDllVX3RjtyXbuCQiUZEfQ9rFPBpAI90vDeLZlMBdg==}
+    peerDependencies:
+      next: ^8.1.1-canary.54 || >=9.0.0
+      react: '>=16.0.0'
+      react-dom: '>=16.0.0'
+    dependencies:
+      next: 13.4.2(@babel/core@7.21.8)(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /next-sitemap@4.0.9(@next/env@13.4.3)(next@13.4.2):
     resolution: {integrity: sha512-8pbcEe4vrmgGEc3beVbrSqd8mTQ9lCsGxP+AOlArrGmeLkKD4TbSR41R2unQHHSTkBG8cQ/7gjKkdLBlzwtu6g==}
     engines: {node: '>=14.18'}
     hasBin: true
@@ -5738,7 +5760,7 @@ packages:
       next: '*'
     dependencies:
       '@corex/deepmerge': 4.0.43
-      '@next/env': 13.4.2
+      '@next/env': 13.4.3
       minimist: 1.2.8
       next: 13.4.2(@babel/core@7.21.8)(react-dom@18.2.0)(react@18.2.0)
     dev: true
@@ -6983,8 +7005,8 @@ packages:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
     engines: {node: '>=6'}
 
-  /terser-webpack-plugin@5.3.8(esbuild@0.17.19)(webpack@5.82.1):
-    resolution: {integrity: sha512-WiHL3ElchZMsK27P8uIUh4604IgJyAW47LVXGbEoB21DbQcZ+OuMpGjVYnEUaqcWM6dO8uS2qUbA7LSCWqvsbg==}
+  /terser-webpack-plugin@5.3.9(esbuild@0.17.19)(webpack@5.83.1):
+    resolution: {integrity: sha512-ZuXsqE07EcggTWQjXUj+Aot/OMcD0bMKGgF63f7UxYcu5/AJF53aIpK1YoP5xR9l6s/Hy2b+t1AM0bLNPRuhwA==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
       '@swc/core': '*'
@@ -7004,12 +7026,12 @@ packages:
       jest-worker: 27.5.1
       schema-utils: 3.1.2
       serialize-javascript: 6.0.1
-      terser: 5.17.3
-      webpack: 5.82.1(esbuild@0.17.19)
+      terser: 5.17.4
+      webpack: 5.83.1(esbuild@0.17.19)
     dev: false
 
-  /terser@5.17.3:
-    resolution: {integrity: sha512-AudpAZKmZHkG9jueayypz4duuCFJMMNGRMwaPvQKWfxKedh8Z2x3OCoDqIIi1xx5+iwx1u6Au8XQcc9Lke65Yg==}
+  /terser@5.17.4:
+    resolution: {integrity: sha512-jcEKZw6UPrgugz/0Tuk/PVyLAPfMBJf5clnGueo45wTweoV8yh7Q7PEkhkJ5uuUbC7zAxEcG3tqNr1bstkQ8nw==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
@@ -7197,65 +7219,65 @@ packages:
       tslib: 1.14.1
       typescript: 5.0.4
 
-  /turbo-darwin-64@1.9.5:
-    resolution: {integrity: sha512-rtVuXm4QH5oA+BU/Vv7mfu9y4ok2zmpqQJEnV3Fn+h+BNgFaPU5HOOEZNiBLVHvpefO9uUB7maU5IVc76w4VPA==}
+  /turbo-darwin-64@1.9.8:
+    resolution: {integrity: sha512-PkTdBjPfgpj/Dob/6SjkzP0BBP80/KmFjLEocXVEECCLJE6tHKbWLRdvc79B0N6SufdYdZ1uvvoU3KPtBokSPw==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-darwin-arm64@1.9.5:
-    resolution: {integrity: sha512-KH01n3GwpphOf3mx9pZoRBt0r9zZi0s5omDJorenN9hKDudTCLRhitbHyfCE9v/2x4hiX1zz8y/zET950YYCEw==}
+  /turbo-darwin-arm64@1.9.8:
+    resolution: {integrity: sha512-sLwqOx3XV57QCEoJM9GnDDnnqidG8wf29ytxssBaWHBdeJTjupyrmzTUrX+tyKo3Q+CjWvbPLyqVqxT4g5NuXQ==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-64@1.9.5:
-    resolution: {integrity: sha512-b1XXy/NReTe/sNiohCDcl8YTDe/WSnz+DPA9jPoBfKH4crF8QlIuPUDFHYFmBflAYdItD4htKxy+47ReCoES1w==}
+  /turbo-linux-64@1.9.8:
+    resolution: {integrity: sha512-AMg6VT6sW7aOD1uOs5suxglXfTYz9T0uVyKGKokDweGOYTWmuTMGU5afUT1tYRUwQ+kVPJI+83Atl5Ob0oBsgw==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-arm64@1.9.5:
-    resolution: {integrity: sha512-0tlgIsjNChtyPlPCnB6k9oh2WCoO80D4nEj9zdU1D3xBL30qlsC1dAEOouGi0uK6Sh2GJLrEiRaeBh+/M9h68w==}
+  /turbo-linux-arm64@1.9.8:
+    resolution: {integrity: sha512-tLnxFv+OIklwTjiOZ8XMeEeRDAf150Ry4BCivNwgTVFAqQGEqkFP6KGBy56hb5RRF1frPQpoPGipJNVm7c8m1w==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-64@1.9.5:
-    resolution: {integrity: sha512-HO8Bh4zoViQ3BE8TKG6XJGQyUnCR4ljejWj+soCCZnmgg0rYUgRPKVTDmLA/9wV58b4QWsaEOWN9sWApydDrkg==}
+  /turbo-windows-64@1.9.8:
+    resolution: {integrity: sha512-r3pCjvXTMR7kq2E3iqwFlN1R7pFO/TOsuUjMhOSPP7HwuuUIinAckU4I9foM3q7ZCQd1XXScBUt3niDyHijAqQ==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-arm64@1.9.5:
-    resolution: {integrity: sha512-XNpxXggn7JtqfLUHOj/hgLMwhTGEVVBix42N4gBMVOgo2GLA5AngTf0dt8ZGKkOFXA75zHn+iHA3sq+lrCRT/g==}
+  /turbo-windows-arm64@1.9.8:
+    resolution: {integrity: sha512-CWzRbX2TM5IfHBC6uWM659qUOEDC4h0nn16ocG8yIq1IF3uZMzKRBHgGOT5m1BHom+R08V0NcjTmPRoqpiI0dg==}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo@1.9.5:
-    resolution: {integrity: sha512-ipfHCxx4/DOoEcdp8eItqfQ878NbCJrfAQ28EJdMUUS85sDbftn6XzGQULYdfJDp4q+Wwvu3m4tMNRjZSWZz5Q==}
+  /turbo@1.9.8:
+    resolution: {integrity: sha512-dTouGZBm4a2fE0OPafcTQERCp4i3ZOow0Pr0JlOyxKmzJy0JRwXypH013kbZoK6k1ET5tS/g9rwUXIM/AmWXXQ==}
     hasBin: true
     requiresBuild: true
     optionalDependencies:
-      turbo-darwin-64: 1.9.5
-      turbo-darwin-arm64: 1.9.5
-      turbo-linux-64: 1.9.5
-      turbo-linux-arm64: 1.9.5
-      turbo-windows-64: 1.9.5
-      turbo-windows-arm64: 1.9.5
+      turbo-darwin-64: 1.9.8
+      turbo-darwin-arm64: 1.9.8
+      turbo-linux-64: 1.9.8
+      turbo-linux-arm64: 1.9.8
+      turbo-windows-64: 1.9.8
+      turbo-windows-arm64: 1.9.8
     dev: true
 
   /type-check@0.4.0:
@@ -7507,8 +7529,8 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: false
 
-  /webpack@5.82.1(esbuild@0.17.19):
-    resolution: {integrity: sha512-C6uiGQJ+Gt4RyHXXYt+v9f+SN1v83x68URwgxNQ98cvH8kxiuywWGP4XeNZ1paOzZ63aY3cTciCEQJNFUljlLw==}
+  /webpack@5.83.1(esbuild@0.17.19):
+    resolution: {integrity: sha512-TNsG9jDScbNuB+Lb/3+vYolPplCS3bbEaJf+Bj0Gw4DhP3ioAflBb1flcRt9zsWITyvOhM96wMQNRWlSX52DgA==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     peerDependencies:
@@ -7538,7 +7560,7 @@ packages:
       neo-async: 2.6.2
       schema-utils: 3.1.2
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.8(esbuild@0.17.19)(webpack@5.82.1)
+      terser-webpack-plugin: 5.3.9(esbuild@0.17.19)(webpack@5.83.1)
       watchpack: 2.4.0
       webpack-sources: 3.2.3
     transitivePeerDependencies:
