@@ -4,7 +4,7 @@ function GetInTouchPing() {
    return (
       <div
          className={clsx(
-            'text-md flex translate-y-24 content-center items-center justify-center gap-4 font-semibold'
+            'text-md absolute top-5 flex translate-y-24 content-center items-center justify-center gap-4 font-semibold'
          )}
       >
          <span className="inline-flex items-center justify-center self-center">
@@ -16,7 +16,14 @@ function GetInTouchPing() {
             />
             <span className="relative inline-flex h-3 w-3 rounded-full bg-[#3c3c3c]"></span>
          </span>
-         Get In Touch!
+         <span
+            className={clsx(
+               'from-charcoal to-charcoal animate-pulse bg-gradient-to-r bg-clip-text text-transparent transition delay-1000 ease-in-out',
+               'dark:from-silversand_tints-300 dark:to-silversand_shades-700'
+            )}
+         >
+            Get In Touch!
+         </span>
       </div>
    );
 }

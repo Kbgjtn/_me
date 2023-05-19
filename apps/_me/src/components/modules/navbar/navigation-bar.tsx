@@ -3,7 +3,6 @@ import { useState } from 'react';
 import clsx from 'clsx';
 import { z } from 'zod';
 import ThemeToggle from '@/components/ui/themeToggle';
-import { useTheme } from 'next-themes';
 
 import type { ReactElement } from 'react';
 
@@ -17,8 +16,6 @@ const urlSchema = z.string().url();
 
 const NavBar = ({ items }: { items: NavigationLinkItemProps[] }) => {
    const [hoverLogoName, setHoverLogoName] = useState<string>('');
-   const { theme } = useTheme();
-   const isDark = theme === 'dark';
 
    const handleClickScroll = (id: string) => {
       if (urlSchema.safeParse(id).success) {
@@ -37,13 +34,13 @@ const NavBar = ({ items }: { items: NavigationLinkItemProps[] }) => {
    return (
       <motion.nav
          className={clsx(
-            'z-1 relative top-0 flex h-auto w-full flex-col items-center justify-center px-11 py-12'
+            'relative top-0 flex h-auto w-full flex-col items-center justify-center px-10 py-12 backdrop-opacity-100 backdrop-saturate-50 max-md:px-0 max-md:pb-4'
          )}
          initial="hidden"
          animate="show"
       >
-         <motion.dl
-            className="font-cascode relative flex items-center justify-center gap-[2rem] text-xl font-medium text-white xl:text-2xl"
+         <motion.ul
+            className="font-cascode sticky flex items-center justify-center gap-[2rem] text-xl font-medium text-white xl:text-2xl"
             variants={item}
          >
             {items.map((item) => (
@@ -60,7 +57,7 @@ const NavBar = ({ items }: { items: NavigationLinkItemProps[] }) => {
             ))}
 
             <ThemeToggle />
-         </motion.dl>
+         </motion.ul>
          {hoverLogoName ? (
             <motion.div
                className="text-md absolute top-28 mx-auto text-center font-semibold opacity-30"

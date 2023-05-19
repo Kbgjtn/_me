@@ -6,7 +6,6 @@ import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRef } from 'react';
-import postPhotoDummy from '../../public/photo_test.png';
 
 function PostPreview({
    posts,
@@ -65,14 +64,15 @@ function PostPreview({
                               'h-full w-full self-center rounded-3xl object-cover object-center',
                               'grayscale hover:grayscale-0'
                            )}
-                           src={post.image || postPhotoDummy}
+                           src={post.image}
                            alt={post.title}
                            crossOrigin="anonymous"
                            priority
-                           width="100"
-                           height="100"
+                           width="1200"
+                           height="1200"
                            quality={100}
                            loading="eager"
+                           referrerPolicy="no-referrer"
                         />
                      </div>
                      <div

@@ -12,7 +12,7 @@ function NavigateComponent(props: IPropsNavigate) {
    return (
       <div
          className={clsx(
-            'group absolute bottom-0 -translate-y-48 cursor-pointer'
+            'group absolute bottom-48 cursor-pointer max-sm:bottom-44'
          )}
       >
          <div
@@ -24,7 +24,7 @@ function NavigateComponent(props: IPropsNavigate) {
          >
             <span
                className={clsx(
-                  'absolute inline-flex h-7 w-3 animate-ping rounded-full bg-[#1c1c1c] opacity-50 shadow-sm',
+                  'absolute inline-flex h-7 w-3 animate-ping rounded-full bg-[#1c1c1c] shadow-sm',
                   'dark:bg-[#f3f3f3]'
                )}
             />

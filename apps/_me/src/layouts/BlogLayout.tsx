@@ -1,6 +1,7 @@
-import { BookIcon, GithubIcon, MeIcon, PostsIcon } from '@/components/icons';
+import { MeIcon, PostsIcon } from '@/components/icons';
 import NavBar from '@/components/modules/navbar/navigation-bar';
 import Footer from '@/components/templates/footer/footer';
+import { getHost } from '@/helpers';
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
@@ -23,7 +24,7 @@ function BlogLayout({ children }: PropsWithChildren) {
 const navLinkItem = [
    {
       title: 'home',
-      href: 'https://www.coocobolo.com',
+      href: getHost(),
       icon: (
          <MeIcon
             props={{
@@ -36,7 +37,7 @@ const navLinkItem = [
    },
    {
       title: 'posts',
-      href: 'https://www.coocobolo.com/posts',
+      href: `${getHost()}/posts`,
       icon: (
          <PostsIcon
             key="2"
