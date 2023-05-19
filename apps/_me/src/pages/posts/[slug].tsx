@@ -8,6 +8,7 @@ import Sparkles from '@/components/shared/sparkles';
 import { getPostData, getPosts } from '@/lib/post';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
+import { NextSeo } from 'next-seo';
 import Head from 'next/head';
 import Image from 'next/image';
 import {
@@ -17,6 +18,9 @@ import {
    useEffect,
    useMemo,
 } from 'react';
+import { PostMeta } from '@/types/post';
+import { useTheme } from 'next-themes';
+import { getHost } from '@/helpers';
 
 type HeadingComponentProps = {
    readonly children: string;
@@ -29,8 +33,10 @@ type ImageProps = {
    readonly height: string;
 };
 
-function Post({ content, meta }: { content: any; meta: any }) {
-   const url = `https://www.coocobolo.com/posts/${meta.slug}`;
+function Post({ content, meta }: { content: any; meta: PostMeta }) {
+   const url = `${getHost()}/posts/${meta.slug}`;
+   const articleImage = `${getHost()}${meta.image}`;
+   const { theme } = useTheme();
    const getHeadingProps = useCallback(
       ({ children }: HeadingComponentProps) => {
          return {
@@ -92,6 +98,29 @@ function Post({ content, meta }: { content: any; meta: any }) {
             <title>{meta?.title ?? 'My blog'}</title>
             <link rel="icon" href="/tortuga.ico" />
          </Head>
+         <NextSeo
+            title={meta.title}
+            description={meta.excerpt}
+            canonical={url}
+            themeColor={theme}
+            openGraph={{
+               type: 'article',
+               article: {
+                  publishedTime: `${new Date(meta.date).toDateString()}`,
+               },
+               description: meta.excerpt,
+               url,
+               title: meta.title,
+               images: [
+                  {
+                     url: articleImage,
+                     alt: meta.title,
+                     width: 1200,
+                     height: 860,
+                  },
+               ],
+            }}
+         />
          <main>
             <Mdx fronmatter={meta}>
                <MDXRemote {...content} components={{ customMdxComponents }} />

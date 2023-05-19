@@ -4,6 +4,16 @@ module.exports = {
    priority: 0.6,
    generateRobotsTxt: true,
    generateIndexSitemap: false,
+   robotsTxtOptions: {
+      policies: [
+         { userAgent: '*', disallow: '/secret/*' },
+         { userAgent: '*', allow: '/' },
+      ],
+   },
+    exclude: [
+        '/_next',
+        '/404',
+  ],
    transform: async (config, path) => {
       const defaultValue = (priority) => ({
          loc: path,

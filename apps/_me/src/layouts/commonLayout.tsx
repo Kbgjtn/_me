@@ -1,6 +1,7 @@
 import { BookIcon, GithubIcon, MeIcon, PostsIcon } from '@/components/icons';
 import NavBar from '@/components/modules/navbar/navigation-bar';
 import Footer from '@/components/templates/footer/footer';
+import { getHost } from '@/helpers';
 import clsx from 'clsx';
 
 import type { PropsWithChildren } from 'react';
@@ -22,7 +23,7 @@ function CommonLayout({ children }: PropsWithChildren) {
 const navLinkItem = [
    {
       title: 'me',
-      href: 'https://www.coocobolo.com',
+      href: getHost(),
       icon: (
          <MeIcon
             props={{ className: clsx(`h-9 w-9 transition-all`) }}

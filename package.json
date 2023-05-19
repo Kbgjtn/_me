@@ -2,8 +2,8 @@
    "private": true,
    "main": "index.js",
    "workspace": [
-     "apps/_me",
-     "ui"
+      "apps/_me",
+      "ui"
    ],
    "scripts": {
       "clean": "turbo run clean",
@@ -21,6 +21,6 @@
       "eslint": "^8.40.0",
       "prettier": "^2.8.8",
       "prettier-plugin-tailwindcss": "^0.3.0",
-      "turbo": "^1.9.5"
+      "turbo": "^1.9.8"
    }
 }

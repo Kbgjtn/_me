@@ -22,11 +22,11 @@ const Me = () => {
             ref={ref}
             initial="hidden"
             animate="visible"
-            className={clsx('h-full w-full flex-col')}
+            className={clsx('flex h-screen w-full flex-col')}
          >
             <motion.div
                className={clsx(
-                  'max-h-auto relative flex h-screen w-full flex-col items-center justify-center self-center'
+                  'relative flex h-full w-full flex-col items-center justify-center'
                )}
                onMouseEnter={(e) => {
                   e.preventDefault();
@@ -38,7 +38,14 @@ const Me = () => {
                }}
             >
                <GetInTouchPing />
-               <MeThreeCanvas />
+
+               <div
+                  className={clsx(
+                     'h-full max-h-full w-full self-center max-md:max-h-fit'
+                  )}
+               >
+                  <MeThreeCanvas />
+               </div>
                <NavigateComponent
                   id={'#blogpost'}
                   text={'↓'}
@@ -47,27 +54,24 @@ const Me = () => {
 
                <AnimatePresence>
                   {isHoverMe ? (
-                     <motion.div
-                        className={clsx(
-                           'absolute top-[80px] flex items-center justify-center'
-                        )}
-                     >
+                     <motion.div className={clsx('absolute top-20')}>
                         <motion.div
                            initial="hidden"
                            animate="visible"
                            exit="exit"
                            variants={transitionCardInfo}
                            className={clsx(
-                              'm-auto flex h-auto w-56 items-center justify-center self-center rounded-[1.5rem] border-4 border-[#484848] bg-[#8B8B8B] sm:w-80 md:w-96 lg:w-[22rem] xl:w-[26rem] 2xl:w-[30rem]',
-                              'dark:bg-charcoal dark:border-[#292929]'
+                              'flex place-items-center',
+                              'bg-silversand_shades-400 max-w-auto mx-auto h-auto max-w-md max-md:max-w-sm',
+                              'border-silversand_shades-700 rounded-[1.3rem] border-4',
+                              'shadow-silversand_shades-900 drop-shadow-silversand_shades-900 shadow-lg drop-shadow-md',
+                              'dark:drop-shadow-chineseBlack dark:shadow-chineseBlack dark:shadow-lg dark:drop-shadow-md',
+                              'dark:bg-charcoal dark:border-earie'
                            )}
-                           style={{
-                              boxShadow: `0px 8px 18px #000000`,
-                           }}
                         >
-                           <motion.p
+                           <motion.span
                               className={clsx(
-                                 'text-mn relative p-4 text-center font-semibold sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-sm'
+                                 'mx-6 my-6 text-center text-sm font-semibold max-sm:my-4'
                               )}
                               variants={sentence}
                            >
@@ -84,7 +88,7 @@ const Me = () => {
                                        </motion.span>
                                     );
                                  })}
-                           </motion.p>
+                           </motion.span>
                         </motion.div>
                      </motion.div>
                   ) : null}

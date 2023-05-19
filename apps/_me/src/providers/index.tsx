@@ -5,9 +5,11 @@ import type { PropsWithChildren } from 'react';
 function Provider({ children }: PropsWithChildren) {
    return (
       <ThemeProvider
-         defaultTheme="system"
+         defaultTheme="dark"
+         enableColorScheme
+         enableSystem={true}
          attribute="class"
-         disableTransitionOnChange
+         disableTransitionOnChange={false}
       >
          {children}
       </ThemeProvider>
