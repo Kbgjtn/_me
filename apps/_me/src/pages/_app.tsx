@@ -27,7 +27,7 @@ function App({
    pageProps,
    router,
 }: AppPropsWithLayout): ReactElement {
-   let getLayout;
+   let getLayout: any;
 
    if (router.query.simpleLayout) {
       getLayout = (page: ReactElement) => <main>{page}</main>;

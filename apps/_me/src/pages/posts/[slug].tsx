@@ -9,7 +9,7 @@ import { getPostData, getPosts } from '@/lib/post';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { NextSeo } from 'next-seo';
-import Head from 'next/head';
+import Head from '@/components/head';
 import Image from 'next/image';
 import {
    DetailedHTMLProps,
@@ -94,10 +94,13 @@ function Post({ content, meta }: { content: any; meta: PostMeta }) {
 
    return (
       <>
-         <Head>
-            <title>{meta?.title ?? 'My blog'}</title>
-            <link rel="icon" href="/tortuga.ico" />
-         </Head>
+         <Head
+            title={meta.title}
+            description={meta.excerpt}
+            ogImage={`${getHost()}/og_posts_me.png`}
+            override
+         />
+
          <NextSeo
             title={meta.title}
             description={meta.excerpt}
