@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import BookSlider from './book-slider';
+import BookSlider from './bookSlider';
 
 const Book = () => {
    const ref = useRef(null);

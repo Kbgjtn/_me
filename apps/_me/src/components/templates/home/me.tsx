@@ -1,25 +1,16 @@
 import clsx from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import MeThreeCanvas from '@/contents/3d/tree';
 import GetInTouchPing from '@/components/ui/getInTouchPing';
 import NavigateComponent from '@/components/ui/navigateComponent';
 
-const Me = () => {
-   const [isHoverMe, setIsHoverMe] = useState(false);
-   const ref = useRef(null);
-   const handleMouseEnterHoverMe = () => {
-      setIsHoverMe(true);
-   };
-
-   const handleMouseLeaveHoverMe = () => {
-      setIsHoverMe(false);
-   };
+function Me() {
+   const [isHoverMe, setIsHoverMe] = useState<boolean | null>(null);
 
    return (
       <>
          <motion.div
-            ref={ref}
             initial="hidden"
             animate="visible"
             className={clsx('flex h-screen w-full flex-col')}
@@ -28,14 +19,8 @@ const Me = () => {
                className={clsx(
                   'relative flex h-full w-full flex-col items-center justify-center'
                )}
-               onMouseEnter={(e) => {
-                  e.preventDefault();
-                  handleMouseEnterHoverMe();
-               }}
-               onMouseLeave={(e) => {
-                  e.preventDefault();
-                  handleMouseLeaveHoverMe();
-               }}
+               onMouseEnter={() => setIsHoverMe(!isHoverMe)}
+               onMouseLeave={() => setIsHoverMe(false)}
             >
                <GetInTouchPing />
 
@@ -97,7 +82,7 @@ const Me = () => {
          </motion.div>
       </>
    );
-};
+}
 
 export default Me;
 
