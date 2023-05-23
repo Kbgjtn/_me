@@ -1,6 +1,6 @@
-import { ThemeProvider } from 'next-themes';
+import { ThemeProvider } from "next-themes";
 
-import type { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from "react";
 
 function Provider({ children }: PropsWithChildren) {
    return (

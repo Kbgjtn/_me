@@ -1,6 +1,7 @@
 import bundeAnalyzer from '@next/bundle-analyzer';
 import nextMDX from '@next/mdx';
-
+import rehypePlugins from 'rehype-plugins';
+import remarkPlugins from 'remark-plugins';
 
 /** @type {import('next').NextConfig} */
 
@@ -57,7 +58,6 @@ const securityHeaders = [
 
 const nextConfig = {
    reactStrictMode: true,
-   swcMinify: true,
    poweredByHeader: false,
    trailingSlash: true,
    pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
@@ -74,24 +74,6 @@ const nextConfig = {
          },
       ];
    },
-   webpack: async (config) => {
-      config.resolve.alias = {
-         ...config.resolve.alias,
-      };
-
-      config.resolve = {
-         ...config.resolve,
-
-         fallback: {
-            ...config.resolve.fallback,
-            child_process: false,
-            fs: false,
-            // 'builtin-modules': false,
-            // worker_threads: false,
-         },
-      };
-      return config;
-   },
 };
 
 const withBundleAnalyzer = bundeAnalyzer({
@@ -102,6 +84,8 @@ const withMDX = nextMDX({
    extension: /\.mdx?$/,
    options: {
       providerImportSource: '@mdx-js/react',
+      remarkPlugins,
+      rehypePlugins,
    },
 });
 

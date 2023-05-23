@@ -10,10 +10,7 @@ module.exports = {
          { userAgent: '*', allow: '/' },
       ],
    },
-    exclude: [
-        '/_next',
-        '/404',
-  ],
+   exclude: ['/_next', '/404'],
    transform: async (config, path) => {
       const defaultValue = (priority) => ({
          loc: path,

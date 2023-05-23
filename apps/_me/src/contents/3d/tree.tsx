@@ -1,19 +1,19 @@
-import Floor from './floor';
-import { Suspense, useRef, useState } from 'react';
-import * as THREE from 'three';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import Floor from "./floor";
+import { Suspense, useRef, useState } from "react";
+import * as THREE from "three";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import {
    OrbitControls,
    Preload,
    useGLTF,
    Center,
    Text3D,
-} from '@react-three/drei';
+} from "@react-three/drei";
 
 const MeThree = ({ isMobile }: { isMobile: boolean }): JSX.Element => {
    const ref = useRef<THREE.Group>(null);
-   const me = useGLTF('/me2.glb');
-   const gridLineColor = new THREE.Color('#3c3c3c');
+   const me = useGLTF("/me2.glb");
+   const gridLineColor = new THREE.Color("#3c3c3c");
    const mouse = useLerpedMouse();
 
    useFrame(() => {
@@ -35,10 +35,10 @@ const MeThree = ({ isMobile }: { isMobile: boolean }): JSX.Element => {
                penumbra={1}
                intensity={0.7}
                castShadow
-               color={'#DFDFDE'}
+               color={"#DFDFDE"}
                shadow-mapSize={1024}
             />
-            <pointLight intensity={0.4} color={'#DFDFDE'} />
+            <pointLight intensity={0.4} color={"#DFDFDE"} />
             <primitive
                object={me.scene}
                scale={1}
@@ -59,20 +59,19 @@ const MeThree = ({ isMobile }: { isMobile: boolean }): JSX.Element => {
 };
 
 const MeThreeCanvas = () => {
-   const [dpr, setDpr] = useState(1.5);
-   const color3 = new THREE.Color('#444444');
+   const color3 = new THREE.Color("#444444");
 
    return (
       <Canvas
          shadows
          dpr={[1, 2]}
-         frameloop={'demand'}
-         camera={{ position: [-20, 8, 20], fov: 48 }}
+         frameloop={"demand"}
+         camera={{ position: [-20, 8, 20], fov: 70 }}
          gl={{ preserveDrawingBuffer: true }}
          performance={{ min: 0.5 }}
          className="h-screen w-full"
       >
-         <Suspense fallback={<Floor position={[0, 0, 5]} />}>
+         <Suspense fallback={<Floor />}>
             <MeThree isMobile={true} />
             <Center bottom position={[1, 0, 0]} rotation={[-0.3, 0, 0]}>
                <Text3D
@@ -100,17 +99,17 @@ const MeThreeCanvas = () => {
             <OrbitControls
                enableDamping={true}
                enableZoom={true}
-               minDistance={10}
-               maxDistance={65}
+               minDistance={15}
+               maxDistance={40}
                maxPolarAngle={Math.PI / 13}
                minPolarAngle={Math.PI / 2.8}
                autoRotate={true}
                autoRotateSpeed={0.5}
             />
 
-            <ambientLight color={'#f3f3f3'} intensity={0.28} />
+            <ambientLight color={"#f3f3f3"} intensity={0.28} />
          </Suspense>
-         <Preload all={true} />
+         <Preload all={false} />
       </Canvas>
    );
 };

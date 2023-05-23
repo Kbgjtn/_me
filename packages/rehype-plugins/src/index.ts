@@ -11,4 +11,6 @@ const plugins: PluggableList = [
    withCodeAttributes,
 ];
 
+console.log('test from rehypePrismPlus');
+
 export default plugins;

@@ -99,7 +99,7 @@
       @apply dark:text-accent-400 dark:font-semibold;
 
       &:hover,
-      &[aria-expanded='true'] {
+      &[aria-expanded="true"] {
          @apply text-accent-700;
          @apply dark:text-accent-300;
       }
