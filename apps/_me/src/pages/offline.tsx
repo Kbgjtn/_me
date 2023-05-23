@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import Head from "next/head";
+import memoji from "../../public/images/memoji.png";
 import Image from "next/image";
 
 function Offline() {
@@ -24,10 +25,11 @@ function Offline() {
             <figure className="max-w-lg">
                <Image
                   className="h-auto max-w-full rounded-lg grayscale filter hover:grayscale-0"
-                  src="/images/memoji.png"
+                  src={memoji}
                   alt="memoji cannot unloaded"
                   width="1200"
                   height="1200"
+                  placeholder="blur"
                   quality={100}
                   referrerPolicy="no-referrer"
                   draggable={false}
