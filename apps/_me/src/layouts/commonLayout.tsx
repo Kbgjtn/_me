@@ -1,10 +1,10 @@
-import { BookIcon, GithubIcon, MeIcon, PostsIcon } from '@/components/icons';
-import NavBar from '@/components/modules/navbar/navigation-bar';
-import Footer from '@/components/templates/footer/footer';
-import { getHost } from '@/helpers';
-import clsx from 'clsx';
+import { BookIcon, GithubIcon, MeIcon, PostsIcon } from "@/components/icons";
+import NavBar from "@/components/modules/navbar/navigation-bar";
+import Footer from "@/components/templates/footer/footer";
+import { getHost } from "@/helpers";
+import clsx from "clsx";
 
-import type { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from "react";
 
 function CommonLayout({ children }: PropsWithChildren) {
    return (
@@ -22,7 +22,7 @@ function CommonLayout({ children }: PropsWithChildren) {
 
 const navLinkItem = [
    {
-      title: 'me',
+      title: "me",
       href: getHost(),
       icon: (
          <MeIcon
@@ -33,8 +33,8 @@ const navLinkItem = [
       ),
    },
    {
-      title: 'repository',
-      href: 'https://github.com/Kbgjtn',
+      title: "repository",
+      href: "https://github.com/Kbgjtn",
       icon: (
          <GithubIcon
             key="2"
@@ -44,8 +44,8 @@ const navLinkItem = [
       ),
    },
    {
-      title: 'posts',
-      href: '#blogpost',
+      title: "posts",
+      href: "#blogpost",
       icon: (
          <PostsIcon
             key="2"
@@ -57,8 +57,8 @@ const navLinkItem = [
       ),
    },
    {
-      title: 'book',
-      href: '#reading-list',
+      title: "book",
+      href: "#reading-list",
       icon: (
          <BookIcon
             props={{ className: clsx(`h-9 w-9 `) }}
