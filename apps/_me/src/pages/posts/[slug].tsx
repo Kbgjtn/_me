@@ -1,26 +1,28 @@
-import Code from '@/components/mdx/Code';
-import { CodeWithinTitle } from '@/components/mdx/CodeWithinTitle';
-import { Heading } from '@/components/mdx/Heading';
-import { Highlight } from '@/components/mdx/Highlight';
-import { Mdx } from '@/components/mdx/Mdx';
-import { getLayout } from '@/layouts/BlogLayout';
-import Sparkles from '@/components/shared/sparkles';
-import { getPostData, getPosts } from '@/lib/post';
-import { MDXRemote } from 'next-mdx-remote';
-import { serialize } from 'next-mdx-remote/serialize';
-import { NextSeo } from 'next-seo';
-import Head from '@/components/head';
-import Image from 'next/image';
+import Code from "@/components/mdx/Code";
+import { CodeWithinTitle } from "@/components/mdx/CodeWithinTitle";
+import { Heading } from "@/components/mdx/Heading";
+import { Highlight } from "@/components/mdx/Highlight";
+import { Mdx } from "@/components/mdx/Mdx";
+import { getLayout } from "@/layouts/BlogLayout";
+import Sparkles from "@/components/shared/sparkles";
+import { getPostData, getPosts } from "@/lib/post";
+import { MDXRemote } from "next-mdx-remote";
+import { serialize } from "next-mdx-remote/serialize";
+import { NextSeo } from "next-seo";
+import Head from "@/components/head";
+import Image from "next/image";
+import rehypePlugins from "rehype-plugins";
 import {
    DetailedHTMLProps,
    HTMLAttributes,
+   ReactNode,
    useCallback,
    useEffect,
    useMemo,
-} from 'react';
-import { PostMeta } from '@/types/post';
-import { useTheme } from 'next-themes';
-import { getHost } from '@/helpers';
+} from "react";
+import { PostMeta } from "@/types/post";
+import { useTheme } from "next-themes";
+import { getHost } from "@/helpers";
 
 type HeadingComponentProps = {
    readonly children: string;
@@ -37,8 +39,10 @@ function Post({ content, meta }: { content: any; meta: PostMeta }) {
    const url = `${getHost()}/posts/${meta.slug}`;
    const articleImage = `${getHost()}${meta.image}`;
    const { theme } = useTheme();
+
    const getHeadingProps = useCallback(
-      ({ children }: HeadingComponentProps) => {
+      ({ children }: any) => {
+         console.log({ children });
          return {
             slug: children,
             url,
@@ -47,49 +51,10 @@ function Post({ content, meta }: { content: any; meta: PostMeta }) {
       [url]
    );
 
-   const customMdxComponents = useMemo(
-      () => ({
-         pre: (
-            props: DetailedHTMLProps<
-               HTMLAttributes<HTMLPreElement>,
-               HTMLPreElement
-            >
-         ) => {
-            return <Code {...props} />;
-         },
-         h2: (props: HeadingComponentProps) => (
-            <Heading headingTag="h2" {...getHeadingProps(props)}></Heading>
-         ),
-         h3: (props: HeadingComponentProps) => (
-            <Heading headingTag="h3" {...getHeadingProps(props)}></Heading>
-         ),
-         h4: (props: HeadingComponentProps) => (
-            <Heading headingTag="h4" {...getHeadingProps(props)}></Heading>
-         ),
-         h5: (props: HeadingComponentProps) => (
-            <Heading headingTag="h5" {...getHeadingProps(props)}></Heading>
-         ),
-         h6: (props: HeadingComponentProps) => (
-            <Heading headingTag="h6" {...getHeadingProps(props)}></Heading>
-         ),
-         img: ({ alt, src, width, height }: ImageProps) => (
-            <Image
-               src={src}
-               alt={alt ? alt : ''}
-               width={width ? parseInt(width) : 300}
-               height={height ? parseInt(height) : 300}
-            />
-         ),
-         Sparkles,
-         Image,
-         CodeWithinTitle,
-         Highlight,
-      }),
-      [getHeadingProps]
-   );
+   const customMdxComponents = { Code, Heading };
 
    useEffect(() => {
-      window.history.scrollRestoration = 'manual';
+      window.history.scrollRestoration = "manual";
    }, []);
 
    return (
@@ -107,7 +72,7 @@ function Post({ content, meta }: { content: any; meta: PostMeta }) {
             canonical={url}
             themeColor={theme}
             openGraph={{
-               type: 'article',
+               type: "article",
                article: {
                   publishedTime: `${new Date(meta.date).toDateString()}`,
                },
@@ -126,7 +91,7 @@ function Post({ content, meta }: { content: any; meta: PostMeta }) {
          />
          <main>
             <Mdx fronmatter={meta}>
-               <MDXRemote {...content} components={{ customMdxComponents }} />
+               <MDXRemote {...content} lazy />
             </Mdx>
          </main>
       </>
@@ -148,7 +113,11 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }: { params: any }) => {
    const { content, meta } = getPostData(params.slug);
-   const mdxSource = await serialize(content);
+   const mdxSource = await serialize(content, {
+      mdxOptions: {
+         rehypePlugins: [rehypePlugins],
+      },
+   });
 
    return {
       props: {

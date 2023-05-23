@@ -2,7 +2,8 @@
 
 @layer components {
    .content-wrapper {
-      @apply mx-[4rem] my-0 w-full;
+      @apply mx-auto max-w-[75rem] px-4;
+      @apply sm:px-12 md:px-10 lg:px-16 xl:px-6;
    }
 
    .content-wrapper-max {
@@ -14,8 +15,7 @@
       @apply dark:bg-[#0c1222];
 
       &::before {
-         @apply absolute inset-0 z-[-1] bg-white/80 content-[''];
-         @apply dark:bg-white/[.025];
+         @apply absolute inset-0 z-[-1] bg-current content-[''];
 
          mask-image: linear-gradient(transparent, black, transparent);
       }

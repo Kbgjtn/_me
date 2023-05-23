@@ -1,46 +1,96 @@
-import useCopyableRef from '@/hooks/useCopyableRef';
-import clsx from 'clsx';
-import {
-   DetailedHTMLProps,
-   HTMLAttributes,
-   isValidElement,
-   useRef,
-   useCallback,
-} from 'react';
-import { CodeHeader } from './CodeHeader';
+import clsx from "clsx";
+import { PropsWithChildren, useRef, useState } from "react";
 
-function Code(
-   props: DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement>
-) {
-   const preRef = useRef<HTMLPreElement | null>(null);
-   const { isCopied, copy } = useCopyableRef<HTMLPreElement>(preRef);
+import { ClipboardIcon } from "@/components/icons";
 
-   const getCodeTitle = useCallback(() => {
-      if (isValidElement(props.children)) {
-         if ('data-title' in props.children.props) {
-            return props.children.props['data-title'] as string;
+interface CodeFooterProps {
+   lines?: number;
+   language?: string;
+   selected?: string;
+}
+
+function CodeFooter({
+   lines = 0,
+   language = "",
+   selected = "",
+}: CodeFooterProps) {
+   return (
+      <div className={clsx("")}>
+         {selected && <div className={clsx("")}>Selected: {selected}</div>}
+         {language && (
+            <div className={clsx("mdx-code__footer-item")}>{language}</div>
+         )}
+         {lines && (
+            <div className={clsx("mdx-code__footer-item hidden", "sm:flex")}>
+               Lines: {lines}
+            </div>
+         )}
+
+         <div className={clsx("mdx-code__footer-item")}>UTF-8</div>
+      </div>
+   );
+}
+
+export type CodeProps = CodeFooterProps & {
+   withCopyButton?: boolean;
+   withFooter?: boolean;
+};
+
+function Code({
+   lines = 0,
+   language = "",
+   selected = "",
+   withCopyButton = true,
+   withFooter = true,
+   children = null,
+}: PropsWithChildren<CodeProps>) {
+   const codeRef = useRef<HTMLPreElement>(null);
+   const [isCopied, setCopied] = useState<boolean>(false);
+
+   console.log({ child: children });
+   console.log({ lang: language });
+
+   const copyToClipboard = async () => {
+      try {
+         const content = codeRef.current.textContent || "";
+         await navigator.clipboard.writeText(content);
+
+         if (!isCopied) {
+            setCopied(true);
+            setTimeout(() => setCopied(false), 1000);
          }
-         return undefined;
+      } catch (err) {
+         setCopied(false);
       }
-
-      return undefined;
-   }, [props.children]);
+   };
 
    return (
-      <article className={clsx('')}>
-         <CodeHeader
-            code={preRef.current?.textContent}
-            onCopy={copy}
-            isCopied={isCopied}
-            title={getCodeTitle()}
-         />
-
-         <pre ref={preRef} {...props}>
-            {isValidElement(props.children) && (
-               <code {...props.children.props} />
-            )}
-         </pre>
-      </article>
+      <div className={clsx("mdx-code")}>
+         {withCopyButton && (
+            <button
+               type="button"
+               className={clsx("mdx-code__copy-button")}
+               onClick={copyToClipboard}
+               title="Copy to Clipboard"
+               aria-label="Copy to Clipboard"
+            >
+               <div
+                  className={clsx("mdx-code__copy-button-message", [
+                     isCopied ? "mdx-code__copy-button-message-copied" : "",
+                  ])}
+               >
+                  Copied!
+               </div>
+               <ClipboardIcon />
+            </button>
+         )}
+         <div className={clsx("mdx-code__content")}>
+            <pre ref={codeRef}>{children}</pre>
+         </div>
+         {withFooter && (
+            <CodeFooter lines={lines} selected={selected} language={language} />
+         )}
+      </div>
    );
 }
 

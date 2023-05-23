@@ -62,7 +62,7 @@ function Offline() {
                   "border-earie dark:border-silversand_shades-800 mt-4 rounded-md border-2 px-12 py-2"
                }
             >
-               Retry
+               <span>↻</span> Retry
             </button>
          </div>
       </>

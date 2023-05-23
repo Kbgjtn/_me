@@ -48,7 +48,7 @@
  * Base
  */
 pre > code,
-[class*='language-*'] {
+[class*="language-*"] {
    .code-line {
       @apply text-[var(--prism-color-base-primary)];
    }

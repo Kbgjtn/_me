@@ -1,7 +1,7 @@
-import bundeAnalyzer from '@next/bundle-analyzer';
-import nextMDX from '@next/mdx';
-import rehypePlugins from 'rehype-plugins';
-import remarkPlugins from 'remark-plugins';
+import bundeAnalyzer from "@next/bundle-analyzer";
+import nextMDX from "@next/mdx";
+import rehypePlugins from "rehype-plugins";
+import remarkPlugins from "remark-plugins";
 
 /** @type {import('next').NextConfig} */
 
@@ -15,40 +15,40 @@ const ContentSecurityPolicy = `
 
 const securityHeaders = [
    {
-      key: 'X-DNS-Prefetch-Control',
-      value: 'on',
+      key: "X-DNS-Prefetch-Control",
+      value: "on",
    },
    {
-      key: 'Access-Control-Allow-Origin',
-      value: 'https://www.coocobolo.com',
+      key: "Access-Control-Allow-Origin",
+      value: "https://www.coocobolo.com",
    },
    {
-      key: 'Permissions-Policy',
-      value: 'camera=(), microphone=(), geolocation=(), browsing-topics=()',
+      key: "Permissions-Policy",
+      value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
    },
    {
-      key: 'Server',
-      value: 'coocobolo',
+      key: "Server",
+      value: "coocobolo",
    },
    {
-      key: 'Strict-Transport-Security',
-      value: 'max-age=63072000; includeSubDomains; preload',
+      key: "Strict-Transport-Security",
+      value: "max-age=63072000; includeSubDomains; preload",
    },
    {
-      key: 'X-XSS-Protection',
-      value: '0',
+      key: "X-XSS-Protection",
+      value: "0",
    },
    {
-      key: 'X-Frame-Options',
-      value: 'SAMEORIGIN',
+      key: "X-Frame-Options",
+      value: "SAMEORIGIN",
    },
    {
-      key: 'X-Content-Type-Options',
-      value: 'nosniff',
+      key: "X-Content-Type-Options",
+      value: "nosniff",
    },
    {
-      key: 'Referrer-Policy',
-      value: 'no-referrer',
+      key: "Referrer-Policy",
+      value: "no-referrer",
    },
    // {
    // 	key: "Content-Security-Policy",
@@ -60,7 +60,8 @@ const nextConfig = {
    reactStrictMode: true,
    poweredByHeader: false,
    trailingSlash: true,
-   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+
+   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
    eslint: {
       // Warning: This allows production builds to successfully complete even if
       // your project has ESLint errors.
@@ -69,24 +70,19 @@ const nextConfig = {
    async headers() {
       return [
          {
-            source: '/:path*',
+            source: "/:path*",
             headers: securityHeaders,
          },
       ];
    },
 };
-
-const withBundleAnalyzer = bundeAnalyzer({
-   enabled: process.env.ANALYZE === 'true',
-});
-
 const withMDX = nextMDX({
    extension: /\.mdx?$/,
    options: {
-      providerImportSource: '@mdx-js/react',
-      remarkPlugins,
-      rehypePlugins,
+      providerImportSource: "@mdx-js/react",
+      remarkPlugins: [remarkPlugins],
+      rehypePlugins: [rehypePlugins],
    },
 });
 
-export default withBundleAnalyzer(withMDX(nextConfig));
+export default withMDX(nextConfig);
