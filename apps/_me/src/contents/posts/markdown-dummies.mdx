@@ -9,8 +9,10 @@ tags:
 category: features
 author: unknown
 excerpt: In Next.js, a page is a React Component exported from a .js, .jsx, .ts, or .tsx file in the pages directory. Each page is associated with a route based on its file name.
-image: /images/23774-12-4280744934.jpeg
+image: /images/22707-11-171511848.jpeg
 ---
+
+import Image from "@/components/mdx/Image";
 
 # h1 Heading
 
@@ -143,16 +145,30 @@ Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
 
 ## Images
 
-![Minion](https://octodex.github.com/images/minion.png)
-![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg 'The Stormtroopocat')
-
+<Image 
+  src="/images/23864-11-313353666.jpeg"
+  alt="Minion"
+  width={1200}
+  height={1086} 
+/>
 Like links, Images also have a footnote style syntax
 
+<Image
+  src="/images/apple-bubble-background-b2-3840x2160-4051695046.jpeg"
+  alt="The Stormtroopocat"
+ width={1200}
+  height={1086} 
+/>
 ![Alt text][id]
 
 With a reference later in the document defining the URL location:
+<Image
+  src="/images/940dd296688ef2d74bc50c6aa7e1949a-1341866492.jpeg"
+  alt="The Stormtroopocat"
+  width={1200}
+  height={1086}
+/>
 
-[id]: https://octodex.github.com/images/dojocat.jpg 'The Dojocat'
 
 ## Plugins
 

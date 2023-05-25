@@ -1,57 +1,30 @@
 import Code from "@/components/mdx/Code";
 import { CodeWithinTitle } from "@/components/mdx/CodeWithinTitle";
-import { Heading } from "@/components/mdx/Heading";
+import { H2, H3, Heading } from "@/components/mdx/Heading";
 import { Highlight } from "@/components/mdx/Highlight";
 import { Mdx } from "@/components/mdx/Mdx";
 import { getLayout } from "@/layouts/BlogLayout";
-import Sparkles from "@/components/shared/sparkles";
 import { getPostData, getPosts } from "@/lib/post";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import { NextSeo } from "next-seo";
 import Head from "@/components/head";
-import Image from "next/image";
+import Image from "@/components/mdx/Image";
+import remarkGfm from "remark-gfm";
 import rehypePlugins from "rehype-plugins";
-import {
-   DetailedHTMLProps,
-   HTMLAttributes,
-   ReactNode,
-   useCallback,
-   useEffect,
-   useMemo,
-} from "react";
+import { useEffect } from "react";
 import { PostMeta } from "@/types/post";
 import { useTheme } from "next-themes";
 import { getHost } from "@/helpers";
-
-type HeadingComponentProps = {
-   readonly children: string;
-};
-
-type ImageProps = {
-   readonly src: string;
-   readonly alt: string;
-   readonly width: string;
-   readonly height: string;
-};
+import { Link } from "@/components/mdx/Link";
+import { Hr } from "@/components/mdx/Hr";
+import { Table } from "@/components/mdx/Table";
+import Labels from "@/components/mdx/Labels";
 
 function Post({ content, meta }: { content: any; meta: PostMeta }) {
    const url = `${getHost()}/posts/${meta.slug}`;
    const articleImage = `${getHost()}${meta.image}`;
    const { theme } = useTheme();
-
-   const getHeadingProps = useCallback(
-      ({ children }: any) => {
-         console.log({ children });
-         return {
-            slug: children,
-            url,
-         };
-      },
-      [url]
-   );
-
-   const customMdxComponents = { Code, Heading };
 
    useEffect(() => {
       window.history.scrollRestoration = "manual";
@@ -91,7 +64,22 @@ function Post({ content, meta }: { content: any; meta: PostMeta }) {
          />
          <main>
             <Mdx fronmatter={meta}>
-               <MDXRemote {...content} lazy />
+               <MDXRemote
+                  {...content}
+                  lazy
+                  components={{
+                     pre: Code,
+                     h1: H2,
+                     h2: H2,
+                     h3: H3,
+                     link: Link,
+                     a: Link,
+                     hr: Hr,
+                     table: Table,
+                     Image,
+                     label: Labels,
+                  }}
+               />
             </Mdx>
          </main>
       </>
@@ -116,6 +104,7 @@ export const getStaticProps = async ({ params }: { params: any }) => {
    const mdxSource = await serialize(content, {
       mdxOptions: {
          rehypePlugins: [rehypePlugins],
+         remarkPlugins: [remarkGfm],
       },
    });
 

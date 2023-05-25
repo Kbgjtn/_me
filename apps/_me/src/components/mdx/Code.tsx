@@ -41,14 +41,11 @@ function Code({
    language = "",
    selected = "",
    withCopyButton = true,
-   withFooter = true,
+   withFooter = false,
    children = null,
 }: PropsWithChildren<CodeProps>) {
    const codeRef = useRef<HTMLPreElement>(null);
    const [isCopied, setCopied] = useState<boolean>(false);
-
-   console.log({ child: children });
-   console.log({ lang: language });
 
    const copyToClipboard = async () => {
       try {
@@ -65,28 +62,48 @@ function Code({
    };
 
    return (
-      <div className={clsx("mdx-code")}>
-         {withCopyButton && (
-            <button
-               type="button"
-               className={clsx("mdx-code__copy-button")}
-               onClick={copyToClipboard}
-               title="Copy to Clipboard"
-               aria-label="Copy to Clipboard"
-            >
-               <div
-                  className={clsx("mdx-code__copy-button-message", [
-                     isCopied ? "mdx-code__copy-button-message-copied" : "",
-                  ])}
-               >
-                  Copied!
-               </div>
-               <ClipboardIcon />
-            </button>
+      <div
+         className={clsx(
+            "dark:bg-chineseBlack my-6 rounded-lg border-2 bg-[#1c1c1c]",
+            "border-charcoal"
          )}
-         <div className={clsx("mdx-code__content")}>
-            <pre ref={codeRef}>{children}</pre>
+      >
+         <div className={"relative p-4"}>
+            {withCopyButton && (
+               <button
+                  type="button"
+                  className={clsx(
+                     "absolute right-4 top-4 rounded-md border-2 p-1 ",
+                     "border-silversand_tints"
+                  )}
+                  onClick={copyToClipboard}
+                  title="Copy to Clipboard"
+                  aria-label="Copy to Clipboard"
+               >
+                  <div
+                     className={clsx(
+                        "text-earie absolute -top-1 -translate-x-24 text-center text-sm font-semibold",
+                        "rounded-md bg-[#f25f5c] px-2 py-1 dark:bg-[#00CCC0]",
+                        [isCopied ? "visible" : "hidden"]
+                     )}
+                  >
+                     Copied!
+                  </div>
+                  <ClipboardIcon
+                     className={clsx("text-silversand_tints h-4 w-4")}
+                  />
+               </button>
+            )}
+            <pre
+               className={clsx(
+                  "overflow-x-auto font-mono text-lg font-bold text-[#f3f3f3]"
+               )}
+               ref={codeRef}
+            >
+               {children}
+            </pre>
          </div>
+
          {withFooter && (
             <CodeFooter lines={lines} selected={selected} language={language} />
          )}

@@ -1,20 +1,20 @@
 "use client";
 import clsx from "clsx";
-import { Trispace, JetBrains_Mono as JetBrainsMono } from "next/font/google";
+import { Fira_Mono, JetBrains_Mono as JetBrainsMono } from "next/font/google";
 import { useEffect } from "react";
 import type { PropsWithChildren } from "react";
 
-const trispace = Trispace({
+const trispace = Fira_Mono({
    subsets: ["latin"],
    display: "swap",
-   variable: "--font-mono",
+   variable: "--font-sans",
    weight: "400",
 });
 
 const jetBrainsMono = JetBrainsMono({
    subsets: ["latin"],
    display: "swap",
-   variable: "--font-space",
+   variable: "--font-mono",
    weight: "400",
 });
 

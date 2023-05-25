@@ -7,7 +7,7 @@ function Document() {
          <Head />
          <body
             className={clsx(
-               "bg-silversand_tints font-sans text-[#141414] selection:bg-[#f25f5c] selection:text-[#1a1a1a]",
+               "bg-silversand_tints font-inter text-[#141414] selection:bg-[#f25f5c] selection:text-[#1a1a1a]",
                "dark:bg-super-black dark:text-[#b2b2b2] dark:selection:bg-[#a3b18a] dark:selection:text-[#1c1c1c]"
             )}
          >
