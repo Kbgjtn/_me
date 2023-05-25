@@ -1,6 +1,6 @@
 .mdx-contents {
    @apply w-full;
-   @apply font-medium text-current;
+   @apply font-mono font-medium text-current;
    @apply dark:text-[#f3f3f3];
 
    p {
