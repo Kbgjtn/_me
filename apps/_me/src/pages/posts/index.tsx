@@ -1,23 +1,23 @@
-import Head from '@/components/head';
-import { getPosts } from '@/lib/post';
-import { PostMeta } from '@/types/post';
-import PostPreview from '@/components/postPreview';
-import { getLayout } from '@/layouts/BlogLayout';
-import { NextSeo } from 'next-seo';
-import { getHost } from '@/helpers';
-import { useTheme } from 'next-themes';
-import { useRouter } from 'next/router';
+import Head from "@/components/head";
+import { getPosts } from "@/lib/post";
+import { PostMeta } from "@/types/post";
+import PostPreview from "@/components/postPreview";
+import { getLayout } from "@/layouts/BlogLayout";
+import { NextSeo } from "next-seo";
+import { getHost } from "@/helpers";
+import { useTheme } from "next-themes";
+import { useRouter } from "next/router";
 
 function Posts({ posts }: { posts: PostMeta[] }) {
    const url = `${getHost()}/posts/`;
-   const description = 'hii, welcome to my posts blog';
+   const description = "hii, welcome to my posts blog";
    const { theme } = useTheme();
    const { pathname } = useRouter();
    console.log({ pathname });
    return (
       <>
          <Head
-            title={'Posts'}
+            title={"Posts"}
             description={description}
             ogImage={`${getHost()}/og_posts_me.png`}
             override
@@ -28,10 +28,10 @@ function Posts({ posts }: { posts: PostMeta[] }) {
             canonical={url}
             themeColor={theme}
             openGraph={{
-               type: 'site',
+               type: "site",
                description: description,
                url,
-               title: 'My Posts',
+               title: "My Posts",
             }}
          />
 
