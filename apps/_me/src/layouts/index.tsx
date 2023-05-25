@@ -4,7 +4,7 @@ import { Fira_Mono, JetBrains_Mono as JetBrainsMono } from "next/font/google";
 import { useEffect } from "react";
 import type { PropsWithChildren } from "react";
 
-const trispace = Fira_Mono({
+const firaMono = Fira_Mono({
    subsets: ["latin"],
    display: "swap",
    variable: "--font-sans",
@@ -29,7 +29,7 @@ function Core({ children }: PropsWithChildren) {
    return (
       <div
          id="__root"
-         className={clsx("flex-1", [jetBrainsMono.variable, trispace.variable])}
+         className={clsx("flex-1", [jetBrainsMono.variable, firaMono.variable])}
       >
          {children}
       </div>
