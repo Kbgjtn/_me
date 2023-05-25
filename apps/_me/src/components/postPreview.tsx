@@ -97,9 +97,9 @@ function PostPreview({
                               </Link>
                            </div>
 
-                           <div className="h-full max-h-20 overflow-hidden text-ellipsis text-xs">
+                           <div className="h-full text-ellipsis text-sm">
                               <p className="mb-2">
-                                 {post.excerpt.slice(0, 92)}
+                                 {post.excerpt.slice(0, 100) + ".."}
                               </p>
                            </div>
 

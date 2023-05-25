@@ -1,6 +1,7 @@
 .mdx-contents {
-   @apply w-full text-slate-600;
-   @apply dark:text-slate-400;
+   @apply w-full;
+   @apply font-medium text-current;
+   @apply dark:text-[#f3f3f3];
 
    p {
       @apply leading-relaxed;
@@ -12,8 +13,7 @@
    }
 
    strong {
-      @apply font-bold text-slate-700;
-      @apply dark:text-slate-300;
+      @apply font-bold;
    }
 
    hr {
@@ -46,17 +46,19 @@
          }
 
          &::before {
-            @apply absolute -left-7 top-[7px] h-3 w-3 rounded-[4px] bg-slate-500 content-[''];
+            @apply absolute -left-7 top-[7px] h-3 w-3 rounded-[4px] content-[''];
             @apply md:-left-9;
-            @apply dark:bg-slate-400;
+            @apply bg-[#595959];
          }
       }
    }
 
    :not(pre, .mdx-inline-highlight) {
       > code {
-         @apply font-medium text-slate-700;
-         @apply dark:text-slate-300;
+         @apply font-mono text-[#CCEA8D] dark:text-[#FF5F5D];
+         @apply bg-silversand_shades-800;
+         @apply dark:bg-chineseBlack;
+         @apply rounded-md px-2 py-[2px];
 
          &::before,
          &::after {
@@ -74,12 +76,11 @@
    }
 
    blockquote {
-      @apply relative my-6 py-1 pl-6 text-slate-600;
-      @apply dark:text-slate-400;
+      @apply relative my-6 py-1 pl-6;
 
       &::before {
-         @apply absolute bottom-0 left-0 top-0 w-1 rounded-full bg-slate-200 content-[''];
-         @apply dark:bg-slate-800;
+         @apply absolute bottom-0 left-0 top-0 w-1 rounded-full content-[''];
+         @apply bg-[#595959];
       }
    }
 }

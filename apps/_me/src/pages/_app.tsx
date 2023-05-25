@@ -10,7 +10,6 @@ import type { NextPage } from "next";
 import type { ReactElement, ReactNode } from "react";
 import CommonLayout from "@/layouts/commonLayout";
 import useNetworkStatus from "@/hooks/useNetworkStatus";
-import NotFound from "./404";
 import Offline from "./offline";
 
 type WithLayout<P = object, IP = P> = NextPage<P, IP> & {

@@ -8,7 +8,7 @@ module.exports = {
    darkMode: "class",
    theme: {
       fontFamily: {
-         sans: ['var(--font-space, "")', ...defaultTheme.fontFamily.sans],
+         sans: ['var(--font-sans, "")', ...defaultTheme.fontFamily.sans],
          mono: ['var(--font-mono, "")', ...defaultTheme.fontFamily.mono],
       },
       fontSize: {

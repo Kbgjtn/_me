@@ -161,22 +161,21 @@
    }
 
    .link {
-      @apply text-accent-600 relative inline-flex items-center gap-1;
-      @apply dark:text-accent-400;
+      @apply relative inline-flex items-center gap-1;
 
       svg {
-         @apply h-3.5 w-3.5;
+         @apply h-4 w-4;
       }
 
       &:hover {
-         &::after {
-            @apply scale-y-[1];
-         }
+         @apply text-[#f25f5c] dark:text-[#00CCC0];
       }
 
+      /*  
+
       &::after {
-         @apply bg-accent-600/20 absolute bottom-1 left-0 right-0 z-[-1] h-2 origin-bottom scale-y-[.4] transition-transform content-[''];
-      }
+         @apply absolute bottom-1 left-0 right-0 z-[-1] h-2 origin-bottom scale-y-[.4] bg-[#f3f3f3] transition-transform content-[''];
+      } */
    }
 
    .footer-link {

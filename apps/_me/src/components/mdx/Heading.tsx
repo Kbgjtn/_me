@@ -1,37 +1,54 @@
-import type { Heading as HeadingVariant } from '@/types';
-import clsx from 'clsx';
-import Link from 'next/link';
-import { memo, ReactNode } from 'react';
-import slugify from 'slugify';
+import clsx from "clsx";
+import { HashtagIcon } from "@/components/icons";
+import { getSlug } from "@/helpers/mdx";
+import type { DetailedHTMLProps, HTMLAttributes } from "react";
 
-type HeadingProps = {
-   readonly slug: string;
-   readonly headingTag: HeadingVariant;
-   readonly url: string;
-};
+type Props = DetailedHTMLProps<
+   HTMLAttributes<HTMLHeadingElement>,
+   HTMLHeadingElement
+>;
 
-export const Heading = memo(({ headingTag: Tag, slug, url }: HeadingProps) => {
-   const id = slugify(slug, { lower: true });
+export function H2({ children }: Props) {
+   const slug = getSlug(children);
 
    return (
-      <Tag
-         id={id}
+      <h2
+         id={slug}
          data-ss={slug}
          data-ss-mt={96}
-         className={clsx('mdx-heading mdx-heading--h2')}
+         className={clsx("mdx-heading mdx-heading--h2 group")}
       >
-         <Link
-            id={id}
-            className={clsx('')}
-            href={`${url}/#${id}`}
-            aria-hidden={true}
-            tabIndex={-1}
+         <a
+            href={`#${slug}`}
+            className={clsx("mdx-heading__anchor group-hover:opacity-100")}
+            aria-labelledby={slug}
+            title={`Link to ${children}`}
          >
-            <span></span>
-         </Link>
-         {slug}
-      </Tag>
+            <HashtagIcon />
+         </a>
+         <span>{children}</span>
+      </h2>
    );
-});
+}
 
-Heading.displayName = 'Heading';
+export function H3({ children }: Props) {
+   const slug = getSlug(children);
+
+   return (
+      <h3
+         id={slug}
+         data-ss={slug}
+         data-ss-mt={96}
+         className={clsx("mdx-heading mdx-heading--h3 group")}
+      >
+         <a
+            href={`#${slug}`}
+            className={clsx("mdx-heading__anchor group-hover:opacity-100")}
+            aria-labelledby={slug}
+         >
+            <HashtagIcon />
+         </a>
+         <span>{children}</span>
+      </h3>
+   );
+}

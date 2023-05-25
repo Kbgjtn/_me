@@ -4,6 +4,7 @@
 @import "tailwindcss/components";
 @import "./components.css";
 @import "./mdx-components.css";
-@import "./prism-colors.css";
+@import "./mdx-contents.css";
+@import "./syntax-highlight.css";
 
 @import "tailwindcss/utilities";

@@ -18,7 +18,7 @@ export const Mdx = memo<MdxProps>(({ fronmatter, children }: MdxProps) => {
    return (
       <article
          className={clsx(
-            "mx-auto flex w-full flex-col items-center justify-center px-8"
+            "mdx-contents mx-auto flex w-full flex-col items-center justify-center px-8"
          )}
       >
          <header className={clsx("mb-12 mt-8")}>
@@ -30,7 +30,7 @@ export const Mdx = memo<MdxProps>(({ fronmatter, children }: MdxProps) => {
                <div className="container">
                   <h1
                      className={clsx(
-                        "rounded-lg text-center text-5xl font-extrabold",
+                        "max-w-5xl rounded-lg text-center text-5xl font-extrabold",
                         "lg:text-6xl",
                         "xl:text-6xl",
                         "2xl:text-7xl",
@@ -66,7 +66,7 @@ export const Mdx = memo<MdxProps>(({ fronmatter, children }: MdxProps) => {
             </div>
             <div
                className={clsx(
-                  "container m-auto mt-8 flex max-w-[1200px] content-center justify-center self-center rounded-xl bg-current shadow-md shadow-[#111111]",
+                  "container mx-auto mt-8 flex max-w-[1200px] content-center justify-center self-center rounded-xl bg-current shadow-md shadow-[#111111]",
                   "sm:w-[480px]",
                   "md:w-[520px]",
                   "lg:w-[640px]",
@@ -90,15 +90,14 @@ export const Mdx = memo<MdxProps>(({ fronmatter, children }: MdxProps) => {
                />
             </div>
          </header>
-         <section
-            className={clsx(
-               "prose prose-sm mb-32 text-[#111111]",
-               "prose-pre:bg-[#444444] prose-pre:font-mono prose-pre:rounded-xl prose-pre:font-medium prose-pre:text-lg",
-               "prose-li:text-[#111111]",
-               "prose-hr:border-[#111111]",
-               "prose-headings:text-[#111111]",
-               "marker:prose-ul:text-[#111111]",
-               "marker:prose-ol:text-[#111111]",
+         <section className={clsx("container mx-auto max-w-4xl ", "mb-32")}>
+            {children}
+         </section>
+      </article>
+   );
+});
+
+/* className={clsx( "not-prose prose-sm mb-32 text-[#111111]", "prose-pre:bg-[#444444] prose-pre:font-mono prose-pre:rounded-xl prose-pre:font-medium prose-pre:text-lg", "prose-pre:not-prose", "dark:prose-pre:not-prose", "prose-code:not-prose", "dark:prose-code:not-prose", "prose-li:text-[#111111]", "prose-hr:border-[#111111]", "prose-headings:text-[#111111]", "marker:prose-ul:text-[#111111]", "marker:prose-ol:text-[#111111]",
                "prose-a:text-[#444444] prose-a:no-underline hover:prose-a:text-[#ffd100]",
                "prose-strong:text-[#000000]",
                "prose-p:font-medium",
@@ -110,7 +109,7 @@ export const Mdx = memo<MdxProps>(({ fronmatter, children }: MdxProps) => {
                "2xl:prose-2xl",
                "3xl:prose-3xl",
                "dark:prose-invert dark:prose-indigo",
-               "dark:prose-pre:shadow-sm dark:prose-pre:rounded-xl dark:prose-pre:border-[1px] dark:prose-pre:border-[#252525] dark:prose-pre:shadow-[#212121] dark:prose-pre:bg-[#191919]",
+                "dark:prose-pre:shadow-sm dark:prose-pre:rounded-xl dark:prose-pre:border-[1px] dark:prose-pre:border-[#252525] dark:prose-pre:shadow-[#212121] dark:prose-pre:bg-[#191919]", 
                "dark:prose-headings:text-[#B2B2B2]",
                "dark:marker:prose-ul:text-[#B2B2B2]",
                "dark:marker:prose-ol:text-[#B2B2B2]",
@@ -121,10 +120,4 @@ export const Mdx = memo<MdxProps>(({ fronmatter, children }: MdxProps) => {
                "dark:prose-li:text-[#B2B2B2]",
                "dark:prose-img:rounded-xl dark:prose-img:shadow-md",
                "dark:prose-blockquote:border-[#46B5D1]"
-            )}
-         >
-            {children}
-         </section>
-      </article>
-   );
-});
+            )} */
