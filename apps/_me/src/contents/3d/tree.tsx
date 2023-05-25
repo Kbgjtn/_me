@@ -59,58 +59,59 @@ const MeThree = ({ isMobile }: { isMobile: boolean }): JSX.Element => {
 };
 
 const MeThreeCanvas = () => {
-   const color3 = new THREE.Color("#444444");
+   const color3 = new THREE.Color("#4e4e4e");
 
    return (
-      <Canvas
-         shadows
-         dpr={[1, 2]}
-         frameloop={"demand"}
-         camera={{ position: [-20, 8, 20], fov: 70 }}
-         gl={{ preserveDrawingBuffer: true }}
-         performance={{ min: 0.5 }}
-         className="h-screen w-full"
-      >
-         <Suspense fallback={<Floor />}>
-            <MeThree isMobile={true} />
-            <Center bottom position={[1, 0, 0]} rotation={[-0.3, 0, 0]}>
-               <Text3D
-                  curveSegments={32}
-                  bevelEnabled
-                  bevelSize={0.04}
-                  bevelThickness={0.12}
-                  height={0.5}
-                  lineHeight={0.8}
-                  letterSpacing={-0.06}
-                  size={1.4}
-                  font="/inter_bold.json"
-               >
-                  {`Hi, i'm dapa!`}
+      <div className="max-w-screen h-[75vh] w-screen max-md:h-[80vh] ">
+         <Canvas
+            shadows
+            dpr={[1, 2]}
+            frameloop={"demand"}
+            camera={{ position: [-20, -40, 20], fov: 40 }}
+            gl={{ preserveDrawingBuffer: true }}
+            performance={{ min: 0.5 }}
+         >
+            <Suspense fallback={<Floor />}>
+               <MeThree isMobile={true} />
+               <Center bottom position={[1, 0, 0]} rotation={[-0.3, 0, 0]}>
+                  <Text3D
+                     curveSegments={32}
+                     bevelEnabled
+                     bevelSize={0.04}
+                     bevelThickness={0.12}
+                     height={0.5}
+                     lineHeight={0.8}
+                     letterSpacing={-0.06}
+                     size={1.5}
+                     font="/inter_bold.json"
+                  >
+                     {`Hi, i'm dapa!`}
 
-                  <meshPhysicalMaterial
-                     color={color3}
-                     clearcoat={1}
-                     clearcoatRoughness={0.8}
-                     metalness={0}
-                     roughness={0.5}
-                  />
-               </Text3D>
-            </Center>
-            <OrbitControls
-               enableDamping={true}
-               enableZoom={true}
-               minDistance={15}
-               maxDistance={40}
-               maxPolarAngle={Math.PI / 13}
-               minPolarAngle={Math.PI / 2.8}
-               autoRotate={true}
-               autoRotateSpeed={0.5}
-            />
+                     <meshPhysicalMaterial
+                        color={color3}
+                        clearcoat={1}
+                        clearcoatRoughness={0.8}
+                        metalness={0}
+                        roughness={0.5}
+                     />
+                  </Text3D>
+               </Center>
+               <OrbitControls
+                  enableDamping={true}
+                  enableZoom={false}
+                  minDistance={15}
+                  maxDistance={40}
+                  maxPolarAngle={Math.PI / 13}
+                  minPolarAngle={Math.PI / 2.8}
+                  autoRotate={true}
+                  autoRotateSpeed={0.5}
+               />
 
-            <ambientLight color={"#f3f3f3"} intensity={0.28} />
-         </Suspense>
-         <Preload all={false} />
-      </Canvas>
+               <ambientLight color={"#f3f3f3"} intensity={0.28} />
+            </Suspense>
+            <Preload all={false} />
+         </Canvas>
+      </div>
    );
 };
 
