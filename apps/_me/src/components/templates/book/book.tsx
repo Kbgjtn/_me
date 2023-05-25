@@ -10,9 +10,13 @@ const Book = () => {
       <>
          {/*heading title & description*/}
          <div className="mx-auto flex flex-col items-center justify-center pt-20">
-            <h3 className={clsx("text-center text-8xl max-sm:text-6xl")}>
+            <h1
+               className={clsx(
+                  "text-center text-6xl font-semibold sm:p-5 sm:text-6xl md:p-6 md:text-7xl lg:text-8xl xl:text-8xl 2xl:text-8xl"
+               )}
+            >
                Reading
-            </h3>
+            </h1>
             {isInView ? (
                <motion.p
                   className={clsx("max-w-lg text-center max-md:max-w-sm")}
