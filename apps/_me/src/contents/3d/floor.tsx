@@ -3,8 +3,6 @@ import { LoadingBar } from "@/components/ui/loadingBar";
 import clsx from "clsx";
 
 function Floor() {
-   const { progress } = useProgress();
-
    return (
       <Html
          as="div"

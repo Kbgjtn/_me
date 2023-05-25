@@ -1,18 +1,20 @@
-import Floor from "./floor";
-import { Suspense, useRef, useState } from "react";
-import * as THREE from "three";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import {
+   Center,
    OrbitControls,
    Preload,
-   useGLTF,
-   Center,
    Text3D,
+   useGLTF,
 } from "@react-three/drei";
+import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
+import { Suspense, useRef } from "react";
+import * as THREE from "three";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import Floor from "./floor";
 
 const MeThree = ({ isMobile }: { isMobile: boolean }): JSX.Element => {
    const ref = useRef<THREE.Group>(null);
-   const me = useGLTF("/me2.glb");
+   const gltf = useLoader(GLTFLoader, "/me.glb");
+
    const gridLineColor = new THREE.Color("#3c3c3c");
    const mouse = useLerpedMouse();
 
@@ -28,19 +30,28 @@ const MeThree = ({ isMobile }: { isMobile: boolean }): JSX.Element => {
    return (
       <group ref={ref} dispose={null}>
          <mesh>
-            <hemisphereLight intensity={0.6} groundColor="#f4f4f4" />
+            <hemisphereLight intensity={1} groundColor="#f4f4f4" />
             <spotLight
-               position={[0, 30, 30]}
+               position={[10, 25, -50]}
                angle={1}
                penumbra={1}
-               intensity={0.7}
+               intensity={0.8}
                castShadow
-               color={"#DFDFDE"}
+               color={"white"}
                shadow-mapSize={1024}
             />
-            <pointLight intensity={0.4} color={"#DFDFDE"} />
+            <spotLight
+               position={[10, 25, 30]}
+               angle={1}
+               penumbra={1}
+               intensity={0.4}
+               castShadow
+               color={"white"}
+               shadow-mapSize={1024}
+            />
+            <pointLight intensity={0.8} color={"#F79327"} />
             <primitive
-               object={me.scene}
+               object={gltf.scene}
                scale={1}
                position={isMobile ? [0, -3, -2.2] : [0, -2.25, -1.8]}
                rotation={[0, 0, -0.018]}
