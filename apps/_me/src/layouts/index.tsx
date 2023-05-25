@@ -22,7 +22,7 @@ function Core({ children }: PropsWithChildren) {
    useEffect(() => {
       document.documentElement.classList.add(
          jetBrainsMono.variable,
-         trispace.variable
+         firaMono.variable
       );
    }, []);
 
