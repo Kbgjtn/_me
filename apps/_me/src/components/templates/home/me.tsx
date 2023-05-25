@@ -22,15 +22,8 @@ function Me() {
                onMouseEnter={() => setIsHoverMe(!isHoverMe)}
                onMouseLeave={() => setIsHoverMe(false)}
             >
-               <GetInTouchPing />
-
-               <div
-                  className={clsx(
-                     "h-full max-h-full w-full self-center max-md:max-h-fit"
-                  )}
-               >
-                  <MeThreeCanvas />
-               </div>
+               <GetInTouchPing isHover={isHoverMe} />
+               <MeThreeCanvas />
                <NavigateComponent
                   id={"#blogpost"}
                   text={"↓"}
@@ -56,11 +49,11 @@ function Me() {
                         >
                            <motion.span
                               className={clsx(
-                                 "mx-6 my-6 text-center text-sm font-semibold max-sm:my-4"
+                                 "mx-6 my-6 text-center text-sm font-semibold max-sm:mx-4 max-sm:my-4"
                               )}
                               variants={sentence}
                            >
-                              {"hii, i'm dapa, student at Binus University (Comp. Science), nice to meet you!"
+                              {"Hi there, i'm a student at Binus University (Comp. Science), nice to meet you!"
                                  .split("")
                                  .map((char, index) => {
                                     return (

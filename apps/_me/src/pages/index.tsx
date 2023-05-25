@@ -1,16 +1,16 @@
-import { getPosts } from '@/lib/post';
-import { PostMeta } from '@/types/post';
-import Me from '@/components/templates/home/me';
-import Book from '@/components/templates/book/book';
-import PostPreview from '@/components/postPreview';
-import { getHost } from '@/helpers';
-import { useTheme } from 'next-themes';
-import { NextSeo } from 'next-seo';
-import Head from '@/components/head';
+import { getPosts } from "@/lib/post";
+import { PostMeta } from "@/types/post";
+import Me from "@/components/templates/home/me";
+import Book from "@/components/templates/book/book";
+import PostPreview from "@/components/postPreview";
+import { getHost } from "@/helpers";
+import { useTheme } from "next-themes";
+import { NextSeo } from "next-seo";
+import Head from "@/components/head";
 
 function Main({ posts }: { posts: PostMeta[] }) {
    const url = `${getHost()}/`;
-   const title = 'Daffa Requelme';
+   const title = "Daffa Requelme";
    const description =
       "hii, i'm a student at Binus University (Comp. Science), nice to meet you, budz!";
    const { theme } = useTheme();
@@ -29,7 +29,7 @@ function Main({ posts }: { posts: PostMeta[] }) {
             canonical={url}
             themeColor={theme}
             openGraph={{
-               type: 'website',
+               type: "website",
                description: description,
                url,
                title: title,
