@@ -4,6 +4,7 @@ import { useState } from "react";
 import MeThreeCanvas from "@/contents/3d/tree";
 import GetInTouchPing from "@/components/ui/getInTouchPing";
 import NavigateComponent from "@/components/ui/navigateComponent";
+import ShortcutHome from "@/components/shortcutHome";
 
 function Me() {
    const [isHoverMe, setIsHoverMe] = useState<boolean | null>(null);
@@ -43,8 +44,8 @@ function Me() {
                               "bg-silversand_shades-400 max-w-auto mx-auto h-auto max-w-md max-md:max-w-sm",
                               "border-silversand_shades-700 rounded-[1.3rem] border-4",
                               "shadow-silversand_shades-900 drop-shadow-silversand_shades-900 shadow-lg drop-shadow-md",
-                              "dark:drop-shadow-chineseBlack dark:shadow-chineseBlack dark:shadow-lg dark:drop-shadow-md",
-                              "dark:bg-charcoal dark:border-earie"
+                              "dark:bg-charcoal dark:border-earie",
+                              "dark:shadow-earie dark:shadow-sm"
                            )}
                         >
                            <motion.span

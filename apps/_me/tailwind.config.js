@@ -38,6 +38,8 @@ module.exports = {
             chineseBlack: "#131313",
             "super-black": "#05050A",
             earie: "#1A1A1A",
+            yellow1: "#F2C12E",
+            red1: "#F24141",
             accent: {
                DEFAULT: "#f3f3f3",
                50: "#f3f3f3",
@@ -73,6 +75,7 @@ module.exports = {
                400: "#898989",
                300: "#9C9C9C",
             },
+            green1: "#87D609",
             charcoal: {
                DEFAULT: "#111111",
                50: "#D0BCFF",
@@ -87,7 +90,7 @@ module.exports = {
                900: "#8B8B8B",
             },
             blackOlive: {
-               DEFAULT: "#",
+               DEFAULT: "#8B8B8B",
                50: "#D0BCFF",
                100: "#48464C",
                200: "#575360",

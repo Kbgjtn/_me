@@ -1,10 +1,4 @@
-import {
-   Center,
-   OrbitControls,
-   Preload,
-   Text3D,
-   useGLTF,
-} from "@react-three/drei";
+import { Center, OrbitControls, Preload, Text3D } from "@react-three/drei";
 import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import { Suspense, useRef } from "react";
 import * as THREE from "three";
@@ -30,12 +24,12 @@ const MeThree = ({ isMobile }: { isMobile: boolean }): JSX.Element => {
    return (
       <group ref={ref} dispose={null}>
          <mesh>
-            <hemisphereLight intensity={1} groundColor="#f4f4f4" />
+            <hemisphereLight intensity={0.4} groundColor="#f4f4f4" />
             <spotLight
                position={[10, 25, -50]}
                angle={1}
                penumbra={1}
-               intensity={0.8}
+               intensity={0.5}
                castShadow
                color={"white"}
                shadow-mapSize={1024}
@@ -49,7 +43,7 @@ const MeThree = ({ isMobile }: { isMobile: boolean }): JSX.Element => {
                color={"white"}
                shadow-mapSize={1024}
             />
-            <pointLight intensity={0.8} color={"#F79327"} />
+            <pointLight intensity={0.8} color={"#D99C52"} />
             <primitive
                object={gltf.scene}
                scale={1}
@@ -70,7 +64,7 @@ const MeThree = ({ isMobile }: { isMobile: boolean }): JSX.Element => {
 };
 
 const MeThreeCanvas = () => {
-   const color3 = new THREE.Color("#4e4e4e");
+   const color3 = new THREE.Color("#222326");
 
    return (
       <div className="max-w-screen h-[75vh] w-screen max-md:h-[80vh] ">
@@ -118,7 +112,7 @@ const MeThreeCanvas = () => {
                   autoRotateSpeed={0.5}
                />
 
-               <ambientLight color={"#f3f3f3"} intensity={0.28} />
+               <ambientLight color={"#F2AE2E"} intensity={0.28} />
             </Suspense>
             <Preload all={false} />
          </Canvas>
