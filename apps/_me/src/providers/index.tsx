@@ -1,5 +1,5 @@
 import { ThemeProvider } from "next-themes";
-
+import CommandBar from "./commandProvider";
 import type { PropsWithChildren } from "react";
 
 function Provider({ children }: PropsWithChildren) {
@@ -11,7 +11,7 @@ function Provider({ children }: PropsWithChildren) {
          attribute="class"
          disableTransitionOnChange={false}
       >
-         {children}
+         <CommandBar>{children}</CommandBar>
       </ThemeProvider>
    );
 }

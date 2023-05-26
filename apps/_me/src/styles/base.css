@@ -41,6 +41,13 @@
       scrollbar-width: none; /* Firefox */
    }
 
+   .disable_scrollbar {
+      width: 0px;
+      background: transparent;
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+   }
+
    [role="tooltip"] {
       /* hide tooltips by default */
       display: none;
