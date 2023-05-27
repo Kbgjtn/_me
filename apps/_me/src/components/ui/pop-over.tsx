@@ -1,7 +1,7 @@
-import clsx from 'clsx';
-import { ComponentProps, FC, ReactNode, useRef } from 'react';
+import clsx from "clsx";
+import { ComponentProps, FC, ReactNode, useRef } from "react";
 
-type ComponentsPopOver = 'button' | 'svg' | 'div' | 'input';
+type ComponentsPopOver = "button" | "svg" | "div" | "input";
 
 interface Props {
    children: ReactNode;
@@ -18,15 +18,16 @@ const PopOver: FC<Props> = ({ children, tooltip }): JSX.Element => {
          onMouseEnter={({ clientX }) => {
             if (!tooltipRef.current || !container.current) return;
             const { left } = container.current.getBoundingClientRect();
-            tooltipRef.current.style.left = clientX - left + 'px';
+            tooltipRef.current.style.left = clientX - left + "px";
          }}
-         className={clsx('group relative inline-block')}
+         className={clsx("group relative inline-block")}
          tabIndex={0}
          data-te-toggle="popover"
          data-te-trigger="hover focus"
          data-te-content="Disabled popover"
       >
          {children}
+
          {tooltip ? (
             <span
                ref={tooltipRef}

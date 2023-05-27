@@ -1,8 +1,9 @@
 import clsx from "clsx";
 import type { ComponentProps } from "react";
+import type { ComponentType } from "@/types";
 
 type IconProps = {
-   props: ComponentProps<"svg">;
+   props: ComponentProps<ComponentType>;
    anoth?: any;
 };
 
@@ -359,6 +360,8 @@ export function PostsIcon({ props }: IconProps) {
                d="M17.3782 0.716553H6.90695C5.85485 0.716553 5.00195 1.56945 5.00195 2.62155V16.0391C5.00195 17.0912 5.85485 17.9441 6.90695 17.9441H17.3782C18.4303 17.9441 19.2832 17.0912 19.2832 16.0391V2.62155C19.2832 1.56945 18.4303 0.716553 17.3782 0.716553Z"
                strokeLinecap="round"
                className={clsx(
+                  "stroke-silversand_shades-800 fill-blackOlive",
+                  "group-hover:fill-silversand_shades-600",
                   "dark:stroke-silversand_shades-900 dark:fill-blackOlive",
                   "dark:group-hover:fill-silversand_shades-300"
                )}
@@ -368,6 +371,9 @@ export function PostsIcon({ props }: IconProps) {
                clipRule="evenodd"
                d="M3.57203 5H16.4286V15C16.4286 16.6831 15.4595 18.4609 13.5717 19.2856H0.714844C2.19484 18.2087 3.73797 17.1744 3.57203 15V5Z"
                className={clsx(
+                  "stroke-silversand_shades-800 fill-blackOlive",
+                  "group-hover:fill-silversand_shades-600",
+                  "dark:stroke-silversand_shades-900 dark:fill-blackOlive",
                   "dark:stroke-silversand_shades-900 dark:fill-blackOlive",
                   "dark:group-hover:fill-silversand_shades-300"
                )}
@@ -389,13 +395,16 @@ export function MeIcon({ props }: IconProps) {
       >
          <path
             d="M17.3504 12.45C17.3504 16.3156 13.866 18.75 10.0004 18.75C6.13477 18.75 2.65039 16.3156 2.65039 12.45C2.65039 8.58438 6.13477 1.25 10.0004 1.25C13.866 1.25 17.3504 8.58438 17.3504 12.45Z"
-            className={clsx("dark:fill-silversand_shades-900")}
+            className={clsx(
+               "fill-silversand_shades-700",
+               "dark:fill-silversand_shades-900"
+            )}
          />
 
          <path
             d="M10.8964 7.22187C11.0129 7.10186 11.1523 7.00645 11.3063 6.9413C11.4604 6.87614 11.626 6.84257 11.7932 6.84257C11.9605 6.84257 12.1261 6.87614 12.2801 6.9413C12.4342 7.00645 12.5736 7.10186 12.6901 7.22187L14.8526 9.375C15.1515 9.67439 15.3193 10.0801 15.3193 10.5031C15.3193 10.9261 15.1515 11.3319 14.8526 11.6312L13.4901 12.9906C13.0417 13.4415 12.7901 14.0516 12.7901 14.6875C12.7901 15.3757 12.5169 16.0357 12.0306 16.5227C11.5443 17.0096 10.8846 17.2835 10.1964 17.2844H9.80262C9.11442 17.2835 8.4547 17.0096 7.96837 16.5227C7.48204 16.0357 7.20887 15.3757 7.20887 14.6875C7.20809 14.0527 6.95649 13.4439 6.50887 12.9937L5.14637 11.6344C4.84753 11.335 4.67969 10.9293 4.67969 10.5062C4.67969 10.0832 4.84753 9.67751 5.14637 9.37812L7.30887 7.21875C7.42538 7.09873 7.56479 7.00332 7.71885 6.93817C7.87291 6.87302 8.03847 6.83945 8.20574 6.83945C8.37301 6.83945 8.53858 6.87302 8.69263 6.93817C8.84669 7.00332 8.9861 7.09873 9.10262 7.21875C9.34052 7.45618 9.66274 7.58978 9.99885 7.59037C10.335 7.59095 10.6576 7.45847 10.8964 7.22187Z"
             className={clsx(
-               "group-hover:fill-silversand_shades-300 fill-silversand_tints-300",
+               "group-hover:fill-silversand_shades-500 fill-silversand_shades-300",
                "dark:group-hover:fill-silversand_shades-300 dark:fill-blackOlive"
             )}
          />
@@ -417,6 +426,32 @@ export function MeIcon({ props }: IconProps) {
                "dark:fill-silversand_shades-800 fill-silversand_shades-800"
             )}
          />
+      </svg>
+   );
+}
+
+export function KeyboardIcon({ props }: IconProps) {
+   return (
+      <svg
+         width="20"
+         height="20"
+         viewBox="0 0 20 20"
+         fill="currentColor"
+         xmlns="http://www.w3.org/2000/svg"
+         {...props}
+      >
+         <g clip-path="url(#clip0_1127_75)">
+            <path
+               opacity="0.3"
+               d="M3.33301 14.1663H16.6663V5.83301H3.33301V14.1663ZM14.1663 6.66634H15.833V8.33301H14.1663V6.66634ZM14.1663 9.16634H15.833V10.833H14.1663V9.16634ZM11.6663 6.66634H13.333V8.33301H11.6663V6.66634ZM11.6663 9.16634H13.333V10.833H11.6663V9.16634ZM9.16634 6.66634H10.833V8.33301H9.16634V6.66634ZM9.16634 9.16634H10.833V10.833H9.16634V9.16634ZM6.66634 6.66634H8.33301V8.33301H6.66634V6.66634ZM6.66634 9.16634H8.33301V10.833H6.66634V9.16634ZM6.66634 11.6663H13.333V13.333H6.66634V11.6663ZM4.16634 6.66634H5.83301V8.33301H4.16634V6.66634ZM4.16634 9.16634H5.83301V10.833H4.16634V9.16634Z"
+            />
+            <path d="M16.667 4.16699H3.33366C2.41699 4.16699 1.67533 4.91699 1.67533 5.83366L1.66699 14.167C1.66699 15.0837 2.41699 15.8337 3.33366 15.8337H16.667C17.5837 15.8337 18.3337 15.0837 18.3337 14.167V5.83366C18.3337 4.91699 17.5837 4.16699 16.667 4.16699ZM16.667 14.167H3.33366V5.83366H16.667V14.167ZM9.16699 6.66699H10.8337V8.33366H9.16699V6.66699ZM9.16699 9.16699H10.8337V10.8337H9.16699V9.16699ZM6.66699 6.66699H8.33366V8.33366H6.66699V6.66699ZM6.66699 9.16699H8.33366V10.8337H6.66699V9.16699ZM4.16699 9.16699H5.83366V10.8337H4.16699V9.16699ZM4.16699 6.66699H5.83366V8.33366H4.16699V6.66699ZM6.66699 11.667H13.3337V13.3337H6.66699V11.667ZM11.667 9.16699H13.3337V10.8337H11.667V9.16699ZM11.667 6.66699H13.3337V8.33366H11.667V6.66699ZM14.167 9.16699H15.8337V10.8337H14.167V9.16699ZM14.167 6.66699H15.8337V8.33366H14.167V6.66699Z" />
+         </g>
+         <defs>
+            <clipPath id="clip0_1127_75">
+               <rect width="20" height="20" fill="white" />
+            </clipPath>
+         </defs>
       </svg>
    );
 }

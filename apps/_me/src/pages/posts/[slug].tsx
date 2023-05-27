@@ -1,7 +1,5 @@
 import Code from "@/components/mdx/Code";
-import { CodeWithinTitle } from "@/components/mdx/CodeWithinTitle";
 import { H2, H3 } from "@/components/mdx/Heading";
-import { Highlight } from "@/components/mdx/Highlight";
 import { Mdx } from "@/components/mdx/Mdx";
 import { getLayout } from "@/layouts/BlogLayout";
 import { getPostData, getPosts } from "@/lib/post";

@@ -7,15 +7,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 
+type PostPreviewProps = {
+   posts: PostMeta[];
+   enableShowMore?: boolean;
+   limit?: number;
+};
+
 function PostPreview({
    posts,
    enableShowMore = false,
    limit = 999,
-}: {
-   posts: PostMeta[];
-   enableShowMore?: boolean;
-   limit?: number;
-}) {
+}: PostPreviewProps) {
    const ref = useRef(null);
    const isInView = useInView(ref, { once: true });
 

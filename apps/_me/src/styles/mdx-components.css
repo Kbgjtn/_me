@@ -306,7 +306,7 @@
 }
 
 .mdx-table {
-   @apply border-silversand_tints-700 mb-8 mt-6 w-full overflow-x-auto rounded-lg border text-sm;
+   @apply border-silversand_shades-700 mb-8 mt-6 w-full overflow-x-auto rounded-lg border text-sm;
    @apply dark:border-earie;
 
    table {
@@ -314,7 +314,7 @@
 
       thead {
          tr {
-            @apply border-silversand_tints-700 border-b;
+            @apply border-silversand_shades-700 border-b;
             @apply dark:border-earie;
 
             th {
@@ -335,6 +335,7 @@
       td {
          &:first-child {
             @apply sticky left-0 z-10 w-[120px] min-w-[120px] bg-white sm:w-[200px] sm:min-w-[200px];
+            @apply bg-silversand_shades-600;
             @apply dark:bg-chineseBlack;
          }
       }

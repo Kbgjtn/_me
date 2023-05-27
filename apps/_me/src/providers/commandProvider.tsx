@@ -16,6 +16,7 @@ import { useRouter } from "next/router";
 import clsx from "clsx";
 import {
    BrightIcon,
+   KeyboardIcon,
    MeIcon,
    MoonIcon,
    PostsIcon,
@@ -59,7 +60,7 @@ function CommandBar(props: PropsWithChildren) {
          shortcut: ["g", "h"],
          keywords: "go-uses",
          section: "Uses",
-         perform: () => router.push("/"),
+         perform: () => router.push("/posts/meuses/"),
          icon: <FileIcon className={"stroke-earie h-6 w-6 fill-[#EAF205]"} />,
       },
       {
@@ -114,18 +115,18 @@ function CommandBar(props: PropsWithChildren) {
             <KBarPositioner>
                <div
                   className={
-                     "bg-charcoal fixed top-0 z-[-1] block h-full w-full opacity-90 "
+                     "bg-earie fixed top-0 z-[-1] block h-full w-full opacity-90"
                   }
-               />
+               ></div>
+
+               <TipCommand />
                <KBarAnimator
                   className={clsx(
-                     "my-12 h-full max-h-full min-h-[400px] overflow-hidden backdrop-blur",
-                     "bg-transparent",
+                     "my-12 h-full max-h-full min-h-[400px] overflow-hidden backdrop-blur max-md:w-full",
                      "dark:bg-transparent",
                      "border-silversand_shades-800 rounded-xl border-2",
                      "dark:border-earie"
                   )}
-                  style={{ scrollbarColor: "none", scrollbarWidth: "none" }}
                >
                   <KBarSearch
                      placeholder={"search somethin here"}
@@ -140,9 +141,10 @@ function CommandBar(props: PropsWithChildren) {
                      )}
                      style={{
                         all: "unset",
+                        color: "white",
                         background: clsx([isDark ? "#111" : "none"]),
                         border: clsx([
-                           isDark ? "2px solid #272727" : "2px solid #757575",
+                           isDark ? "2px solid #272727" : "2px solid #212121",
                         ]),
                         fontWeight: "700",
                         width: "36vw",
@@ -158,6 +160,99 @@ function CommandBar(props: PropsWithChildren) {
          </KBarPortal>
          {props.children}
       </KBarProvider>
+   );
+}
+
+function TipCommand() {
+   return (
+      <>
+         <div className="text-silversand_tints-400 absolute bottom-0 left-0 mb-20 place-self-end">
+            {/* ICON & TITLE  */}
+            <div
+               className={clsx(
+                  "mx-12 flex max-w-md items-center justify-start gap-4"
+               )}
+            >
+               <span className={clsx("")}>
+                  <KeyboardIcon
+                     props={{
+                        className: clsx(
+                           "max-md:w-14 max-md:h-14 h-16 w-16 fill-silversand_shades-300"
+                        ),
+                     }}
+                  />
+               </span>
+               <h3 className={clsx("text-3xl font-semibold max-md:text-2xl")}>
+                  HINT: Shortcuts
+               </h3>
+            </div>
+            <div
+               className={clsx(
+                  "mx-12 flex max-w-md items-center justify-center gap-4 "
+               )}
+            >
+               <p className={clsx("relative font-semibold")}>
+                  Effortlessly navigate the site by utilizing keyboard
+                  shortcuts.
+               </p>
+            </div>
+            <div
+               className={clsx(
+                  "mx-12 mt-4 flex max-w-md flex-col items-center "
+               )}
+            >
+               <div
+                  className={clsx(
+                     "mx-12 flex w-full items-center justify-between gap-8 border-b px-4 py-2"
+                  )}
+               >
+                  <span className={clsx("text-lg font-semibold")}>
+                     Quick Access Open
+                  </span>
+                  <span
+                     className={clsx(
+                        "border-silversand_shades-500 rounded-md border-2 px-1.5"
+                     )}
+                  >
+                     ctrl + k
+                  </span>
+               </div>
+
+               <div
+                  className={clsx(
+                     "mx-12 flex w-full items-center justify-between gap-8 border-b px-4 py-2"
+                  )}
+               >
+                  <span className={clsx("text-lg font-semibold")}>
+                     Quick Access Close
+                  </span>
+                  <span
+                     className={clsx(
+                        "border-silversand_shades-500 rounded-md border-2 px-1.5"
+                     )}
+                  >
+                     Esc
+                  </span>
+               </div>
+               <div
+                  className={clsx(
+                     "mx-12 flex w-full items-center justify-between gap-8 border-b px-4 py-2"
+                  )}
+               >
+                  <span className={clsx("text-lg font-semibold")}>
+                     Arrow Key Search
+                  </span>
+                  <span
+                     className={clsx(
+                        "border-silversand_shades-500 rounded-md border-2 px-1.5"
+                     )}
+                  >
+                     ← ↑ →
+                  </span>
+               </div>
+            </div>
+         </div>
+      </>
    );
 }
 
@@ -318,38 +413,5 @@ const ResultItem = React.forwardRef(
       );
    }
 );
-
-/* const ResultItem = forwardRef(
-   ({ action, active }: { action: any; active: any; current: any }) => {
-      return (
-         <div
-            onMouseEnter={() => action.icon.props.lottieRef.current?.play()}
-            onMouseLeave={() => action.icon.props.lottieRef.current?.stop()}
-         >
-            <div className={clsx("flex items-center gap-2")}>
-               {action.icon && action.icon}
-               <div className={clsx("flex flex-col")}>
-                  <span>{action.name}</span>
-               </div>
-            </div>
-            {action.shortcut?.length ? (
-               <div
-                  className={clsx("grid-auto-cols grid items-center")}
-                  aria-hidden
-               >
-                  {action.shortcut.map((shortcut) => (
-                     <kbd
-                        className={clsx("gap-4 px-1 uppercase")}
-                        key={shortcut}
-                     >
-                        {shortcut}
-                     </kbd>
-                  ))}
-               </div>
-            ) : null}
-         </div>
-      );
-   }
-); */
 
 export default CommandBar;

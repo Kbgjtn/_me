@@ -1,10 +1,10 @@
 import clsx from "clsx";
 
-type props = {
+type GetInTouchPingProps = {
    isHover: boolean;
 };
 
-function GetInTouchPing({ isHover }: props) {
+function GetInTouchPing({ isHover }: GetInTouchPingProps) {
    return (
       <div
          className={clsx(

@@ -1,11 +1,11 @@
-import { MeIcon, PostsIcon } from '@/components/icons';
-import NavBar from '@/components/modules/navbar/navigation-bar';
-import Footer from '@/components/templates/footer/footer';
-import { getHost } from '@/helpers';
-import clsx from 'clsx';
-import type { ReactNode } from 'react';
+import { MeIcon, PostsIcon } from "@/components/icons";
+import NavBar from "@/components/modules/navbar/navigation-bar";
+import Footer from "@/components/templates/footer/footer";
+import { getHost } from "@/helpers";
+import clsx from "clsx";
+import type { ReactNode } from "react";
 
-import type { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from "react";
 
 function BlogLayout({ children }: PropsWithChildren) {
    return (
@@ -23,28 +23,26 @@ function BlogLayout({ children }: PropsWithChildren) {
 
 const navLinkItem = [
    {
-      title: 'home',
+      title: "home",
       href: getHost(),
       icon: (
          <MeIcon
             props={{
                className: clsx(`h-9 w-9 transition-all`),
             }}
-            anoth={{ isIconHover: false }}
             key="1"
          />
       ),
    },
    {
-      title: 'posts',
+      title: "posts",
       href: `${getHost()}/posts`,
       icon: (
          <PostsIcon
-            key="2"
             props={{
                className: clsx(`h-8 w-8 dark:fill-charcoal fill-[#AAAAAA]`),
             }}
-            anoth={{ isIconHover: false }}
+            key="2"
          />
       ),
    },
