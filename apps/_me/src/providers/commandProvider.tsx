@@ -117,12 +117,12 @@ function CommandBar(props: PropsWithChildren) {
                   className={
                      "bg-earie fixed top-0 z-[-1] block h-full w-full opacity-90"
                   }
-               ></div>
+               />
 
                <TipCommand />
                <KBarAnimator
                   className={clsx(
-                     "my-12 h-full max-h-full min-h-[400px] overflow-hidden backdrop-blur max-md:w-full",
+                     " my-12 h-full max-h-full min-h-[400px] overflow-hidden backdrop-blur max-md:w-full",
                      "dark:bg-transparent",
                      "border-silversand_shades-800 rounded-xl border-2",
                      "dark:border-earie"
@@ -133,7 +133,7 @@ function CommandBar(props: PropsWithChildren) {
                      aria-placeholder={"search somethin here..."}
                      title={"search somethin here"}
                      className={clsx(
-                        "text-white focus:text-white active:text-white dark:text-white",
+                        "items-center justify-center place-self-center self-center text-white focus:text-white active:text-white dark:text-white",
                         "placeholder:text-silversand_tints-500",
                         "dark:placeholder:text-silversand_tints-400",
                         "dark:bg-charcoal",
@@ -166,7 +166,7 @@ function CommandBar(props: PropsWithChildren) {
 function TipCommand() {
    return (
       <>
-         <div className="text-silversand_tints-400 absolute bottom-0 left-0 mb-20 place-self-end">
+         <div className="text-silversand_tints-400 absolute bottom-0 left-0 mb-20 place-self-end max-md:hidden">
             {/* ICON & TITLE  */}
             <div
                className={clsx(
