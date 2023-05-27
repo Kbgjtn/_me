@@ -4,16 +4,16 @@ import Me from "@/components/templates/home/me";
 import Book from "@/components/templates/book/book";
 import PostPreview from "@/components/postPreview";
 import { getHost } from "@/helpers";
-import { useTheme } from "next-themes";
 import { NextSeo } from "next-seo";
 import Head from "@/components/head";
+import UseCurrentTheme from "@/hooks/useCurrentTheme";
 
 function Main({ posts }: { posts: PostMeta[] }) {
+   const { theme } = UseCurrentTheme();
    const url = `${getHost()}/`;
    const title = "Daffa Requelme";
    const description =
       "hii, i'm a student at Binus University (Comp. Science), nice to meet you, budz!";
-   const { theme } = useTheme();
 
    return (
       <>
@@ -35,7 +35,6 @@ function Main({ posts }: { posts: PostMeta[] }) {
                title: title,
             }}
          />
-
          <section className="min-h-screen">
             <Me />
          </section>

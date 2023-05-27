@@ -1,8 +1,9 @@
 import clsx from "clsx";
 import type { ComponentProps } from "react";
+import type { ComponentType } from "@/types";
 
 type IconProps = {
-   props: ComponentProps<"svg">;
+   props: ComponentProps<ComponentType>;
    anoth?: any;
 };
 

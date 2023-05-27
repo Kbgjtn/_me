@@ -5,15 +5,13 @@ import PostPreview from "@/components/postPreview";
 import { getLayout } from "@/layouts/BlogLayout";
 import { NextSeo } from "next-seo";
 import { getHost } from "@/helpers";
-import { useTheme } from "next-themes";
-import { useRouter } from "next/router";
+import useCurrentTheme from "@/hooks/useCurrentTheme";
 
 function Posts({ posts }: { posts: PostMeta[] }) {
    const url = `${getHost()}/posts/`;
    const description = "hii, welcome to my posts blog";
-   const { theme } = useTheme();
-   const { pathname } = useRouter();
-   console.log({ pathname });
+   const { theme } = useCurrentTheme();
+
    return (
       <>
          <Head

@@ -1,7 +1,5 @@
 import clsx from "clsx";
 import Head from "next/head";
-import memoji from "../../public/images/memoji.png";
-import Image from "next/image";
 
 function Offline() {
    return (
