@@ -16,10 +16,14 @@ import { useRouter } from "next/router";
 import clsx from "clsx";
 import {
    BrightIcon,
+   EmailIcon,
+   GithubIcon,
    KeyboardIcon,
+   LinkedInIcon,
    MeIcon,
    MoonIcon,
    PostsIcon,
+   SocialMediaIcon,
    ThemesIcon,
 } from "@/components/icons";
 import { FileIcon } from "@/components/iconsFile";
@@ -68,7 +72,7 @@ function CommandBar(props: PropsWithChildren) {
          name: "Setup theme mode",
          shortcut: ["t"],
          keywords: "set theme mode",
-         section: "theme",
+         section: "Theme",
          icon: (
             <ThemesIcon
                props={{
@@ -106,6 +110,58 @@ function CommandBar(props: PropsWithChildren) {
          },
          icon: <BrightIcon props={{ className: "h-6 w-6" }} />,
          parent: "theme",
+      },
+
+      {
+         id: "socialmedia",
+         name: "Social Media",
+         shortcut: ["s"],
+         keywords: "Go to my social media",
+         section: "Social Media",
+         icon: (
+            <SocialMediaIcon
+               props={{
+                  className: "h-6 w-6 dark:fill-[#38E0F2]",
+               }}
+            />
+         ),
+      },
+      {
+         id: "github",
+         name: "Github Repository",
+         keywords: "My Repository & Project",
+         shortcut: [],
+         section: "Social Media",
+         perform: () => router.push("https://github.com/Kbgjtn"),
+         icon: (
+            <GithubIcon
+               props={{
+                  className: "h-6 w-6 fill-[#3C3B3D] dark:fill-[#B9B9B9]",
+               }}
+            />
+         ),
+         parent: "socialmedia",
+      },
+      {
+         id: "email",
+         name: "Email",
+         keywords: "My Email contact",
+         shortcut: [],
+         section: "Social Media",
+         perform: () => router.push("mailto:coocoobolo1@gmail.com"),
+         icon: <EmailIcon props={{ className: "h-8 w-8 fill-yellow1" }} />,
+         parent: "socialmedia",
+      },
+      {
+         id: "linkedIn",
+         name: "LinkedIn",
+         keywords: "My LinkedIn profile",
+         shortcut: [],
+         perform: () =>
+            router.push("https://www.linkedin.com/in/naufal-daffa-r-71927b222"),
+         section: "Social Media",
+         icon: <LinkedInIcon props={{ className: "h-8 w-8" }} />,
+         parent: "socialmedia",
       },
    ];
 
