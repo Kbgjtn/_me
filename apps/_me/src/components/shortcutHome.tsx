@@ -2,7 +2,11 @@ import { useState, useEffect } from "react";
 import { useKBar } from "kbar";
 import clsx from "clsx";
 
-export default function ShortcutHome() {
+interface Props {
+   mobileView: boolean;
+}
+
+export default function ShortcutHome({ mobileView = true }: Props) {
    const { query } = useKBar();
    const [mounted, setMounted] = useState(false);
 
@@ -14,18 +18,25 @@ export default function ShortcutHome() {
       const isMac = /(Mac)/i.test(navigator.userAgent);
       const isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent);
 
-      if (isMobile) {
+      if (isMobile && mobileView) {
          return (
             <button
                type="button"
                className={clsx(
-                  "rounded-md p-2",
-                  "hover:bg-silversand_shades-400",
-                  "dark:hover:bg-[#1a1a1a]"
+                  "group fixed top-0 rounded-md px-3 py-1.5",
+                  "translate-x-4"
                )}
                onClick={query.toggle}
             >
-               <kbd className="bg-silversand_shades-800 mx-1 rounded-md px-3 py-1 text-xl font-semibold text-white">
+               <kbd
+                  className={clsx(
+                     "mx-1 rounded-md px-4 py-1.5",
+                     "bg-silversand_shades-600",
+                     "dark:bg-silversand_shades-900",
+                     "text-md text-yellow1 font-semibold",
+                     "dark:group-hover:text-red1"
+                  )}
+               >
                   ⌘
                </kbd>
             </button>
@@ -35,18 +46,30 @@ export default function ShortcutHome() {
             <button
                type="button"
                className={clsx(
-                  "fixed right-12 top-12 -translate-y-1 p-2",
-                  "rounded-md",
-                  "hover:bg-earie",
-                  "dark:hover:bg-[#1a1a1a]"
+                  "group fixed top-0 rounded-md px-3 py-1.5",
+                  "translate-x-4"
                )}
                onClick={query.toggle}
             >
-               <kbd className="bg-charcoal text-md mx-1 rounded-md px-2 py-1 font-semibold text-white">
+               <kbd
+                  className={clsx(
+                     "mx-1 rounded-md px-4 py-1.5",
+                     "bg-silversand_shades-900",
+                     "text-md text-yellow1 font-semibold",
+                     "dark:group-hover:text-red1"
+                  )}
+               >
                   ⌘
                </kbd>
                <code>+</code>
-               <kbd className="bg-silversand_shades-800 text-md mx-1 rounded-md px-2 py-1 font-semibold text-white">
+               <kbd
+                  className={clsx(
+                     "mx-1 rounded-md px-2 py-1.5",
+                     "bg-silversand_shades-900",
+                     "text-md text-yellow1 font-semibold",
+                     "dark:group-hover:text-red1"
+                  )}
+               >
                   K
                </kbd>
             </button>
@@ -56,27 +79,38 @@ export default function ShortcutHome() {
             <button
                type="button"
                className={clsx(
-                  "group fixed right-12 top-12 -translate-y-1 rounded-md px-3 py-2",
-                  "dark:hover:bg-charcoal"
+                  "group fixed top-0 rounded-md px-3 py-1.5",
+                  "translate-x-4"
                )}
                onClick={query.toggle}
             >
                <kbd
                   className={clsx(
-                     "mx-1 rounded-md px-2 py-1 ",
-                     "bg-silversand_shades-900",
-                     "text-md text-yellow1 font-semibold",
+                     "mx-1 rounded-md px-2 py-1.5",
+                     "bg-silversand_shades-600",
+                     "dark:bg-silversand_shades-900",
+                     "text-md font-semibold",
+                     "group-hover:text-red1",
                      "dark:group-hover:text-red1"
                   )}
                >
                   ctrl
                </kbd>
-               <code className={clsx("text-silversand_shades-600")}>+</code>
+               <code
+                  className={clsx(
+                     "text-silversand_shades-900 dark:text-silversand_shades-600"
+                  )}
+               >
+                  +
+               </code>
                <kbd
                   className={clsx(
-                     "mx-1 rounded-md px-2 py-1 ",
-                     "bg-silversand_shades-900",
-                     "text-md text-yellow1 font-semibold"
+                     "mx-1 rounded-md px-2.5 py-1.5",
+                     "bg-silversand_shades-600",
+                     "dark:bg-silversand_shades-900",
+                     "text-md font-semibold",
+                     "group-hover:text-yellow1",
+                     "dark:group-hover:text-yellow1"
                   )}
                >
                   K

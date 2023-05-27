@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import { memo } from "react";
-import Image from "next/image";
+import Image from "@/components/mdx/Image";
 import { PostMeta } from "@/types/post";
 import clsx from "clsx";
 import { CalenderIcon, BookReaderIcon } from "../icons";
@@ -27,14 +27,11 @@ export const Mdx = memo<MdxProps>(({ fronmatter, children }: MdxProps) => {
                   "flex flex-col items-center justify-center gap-4"
                )}
             >
-               <div className="container">
+               <div className="container max-w-4xl overflow-hidden text-ellipsis">
                   <h1
                      className={clsx(
-                        "max-w-5xl rounded-lg text-center text-5xl font-extrabold",
-                        "lg:text-6xl",
-                        "xl:text-6xl",
-                        "2xl:text-7xl",
-                        "3xl:text-7xl"
+                        "rounded-lg text-center font-extrabold",
+                        "text-7xl max-md:text-4xl "
                      )}
                   >
                      {title}
@@ -64,29 +61,19 @@ export const Mdx = memo<MdxProps>(({ fronmatter, children }: MdxProps) => {
                </div>
                <div className="text-sm">by: {author}</div>
             </div>
-            <div
-               className={clsx(
-                  "container mx-auto mt-8 flex max-w-[1200px] content-center justify-center self-center rounded-xl bg-current shadow-md shadow-[#111111]",
-                  "sm:w-[480px]",
-                  "md:w-[520px]",
-                  "lg:w-[640px]",
-                  "xl:w-[720px]",
-                  "2xl:w-[860px]",
-                  "3xl:w-[860px]",
-                  "dark:shadow-[#202020] "
-               )}
-            >
+            <div className="container">
                <Image
                   className={clsx(
                      "relative h-full w-full rounded-xl object-cover object-center"
                   )}
-                  src={image ?? ""}
+                  src={image}
                   title={title}
                   draggable={false}
-                  alt="image-post"
+                  alt="unable to load image post"
                   loading="eager"
-                  width={800}
-                  height={800}
+                  width={1800}
+                  height={1800}
+                  onContextMenu={(e) => e.preventDefault()}
                />
             </div>
          </header>

@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { PropsWithChildren, useState } from "react";
+import { useRouter } from "next/router";
 import clsx from "clsx";
 import { z } from "zod";
-import ThemeToggle from "@/components/ui/themeToggle";
 
 import type { ReactElement } from "react";
 import { getHost } from "@/helpers";
@@ -16,26 +16,12 @@ export type NavigationLinkItemProps = {
    icon: ReactElement;
 };
 
-const urlSchema = z.string().url();
-
 function NavLink({ items }: { items: NavigationLinkItemProps[] }) {
    const [iconHover, setIconHover] = useState<string | null>(null);
 
+   const router = useRouter();
    function checkHoverNavLink({ a, b }: { a: string; b: string }) {
       a === b ? setIconHover(a) : null;
-   }
-
-   function handleClickScroll(id: string) {
-      if (urlSchema.safeParse(id).success) {
-         window.location.href = id;
-         return;
-      }
-
-      const element = document.querySelectorAll(id);
-
-      if (element) {
-         element[0].scrollIntoView({ behavior: "smooth" });
-      }
    }
 
    return (
@@ -46,7 +32,7 @@ function NavLink({ items }: { items: NavigationLinkItemProps[] }) {
          {items.map((item: NavigationLinkItemProps, index: number) => (
             <span
                className={clsx("group cursor-pointer")}
-               onClick={() => handleClickScroll(item.href)}
+               onClick={() => router.push(item.href)}
                onMouseEnter={() =>
                   checkHoverNavLink({ a: item.title, b: items[index].title })
                }
@@ -85,38 +71,45 @@ function NavLink({ items }: { items: NavigationLinkItemProps[] }) {
    );
 }
 
-function NavPreferences(props: PropsWithChildren) {
+function NavPreferences(_props: PropsWithChildren) {
    const { query } = useKBar();
 
    return (
       <ul>
-         <li
-            className={clsx("translate-x-16 max-md:translate-x-0 max-md:pl-6")}
-         >
+         <li className={clsx("translate-x-16 pl-12 max-md:translate-x-12")}>
             <hr
                className={clsx(
-                  "border-silversand_shades-900 inset-0 -translate-x-16 translate-y-4 rotate-90 border-[1px]"
+                  "border-silversand_shades-900 absolute inset-0 w-8 -translate-x-4 translate-y-4 rotate-90 border-[1px]"
                )}
             />
 
             <kbd
                className={clsx(
-                  "group mx-1  rounded-lg px-2.5 py-[0.5px] text-2xl font-semibold",
+                  "group mx-1 rounded-lg px-2.5 py-[0.5px] text-2xl font-semibold",
                   "cursor-pointer select-none",
+                  "bg-silversand_shades-600 hover:text-yellow1",
                   "dark:bg-silversand_shades-900 dark:hover:text-yellow1"
                )}
                draggable={false}
-               title={"Quick Access"}
+               title="Quick Access"
                onClick={query.toggle}
             >
                ⌘
             </kbd>
+            <span className={clsx("relative max-md:hidden")}>
+               <ShortcutHome mobileView={false} />
+            </span>
          </li>
       </ul>
    );
 }
 
-function NavBar(props: PropsWithChildren) {
+interface NavBarProps {
+   items?: NavigationLinkItemProps[];
+   props?: PropsWithChildren;
+}
+
+function NavBar({ items = navLinksItem, props = null }: NavBarProps) {
    return (
       <motion.nav
          className={clsx(
@@ -128,7 +121,7 @@ function NavBar(props: PropsWithChildren) {
          initial="hidden"
          animate="show"
       >
-         <NavLink items={navLinksItem} />
+         <NavLink items={items || navLinksItem} />
          <NavPreferences />
       </motion.nav>
    );
@@ -148,21 +141,19 @@ const navLinksItem = [
       icon: (
          <MeIcon
             props={{ className: clsx(`h-9 w-9 transition-all`) }}
-            anoth={{ isIconHover: false }}
             key="1"
          />
       ),
    },
    {
       title: "posts",
-      href: "#blogpost",
+      href: getHost() + "/posts",
       icon: (
          <PostsIcon
-            key="2"
             props={{
                className: clsx(`h-8 w-8 dark:fill-charcoal fill-[#AAAAAA]`),
             }}
-            anoth={{ isIconHover: false }}
+            key="2"
          />
       ),
    },
