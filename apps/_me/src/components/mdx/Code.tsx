@@ -98,7 +98,7 @@ function Code({
                   <div
                      className={clsx(
                         "text-earie absolute -top-1 -translate-x-24 text-center text-sm font-semibold",
-                        "rounded-md bg-[#f25f5c] px-2 py-1 dark:bg-[#00CCC0]",
+                        "rounded-md bg-[#f25f5c] px-2 py-1 dark:bg-[#a3b18a]",
                         [isCopied ? "visible" : "hidden"]
                      )}
                   >
