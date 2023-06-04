@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { PropsWithChildren, useRef, useState } from "react";
+import { PropsWithChildren, useEffect, useRef, useState } from "react";
 
 import { ClipboardIcon } from "@/components/icons";
 
@@ -15,7 +15,7 @@ function CodeFooter({
    selected = "",
 }: CodeFooterProps) {
    return (
-      <div className={clsx("")}>
+      <div className={clsx("bg-slate-200/4 flex font-mono")}>
          {selected && <div className={clsx("")}>Selected: {selected}</div>}
          {language && (
             <div className={clsx("mdx-code__footer-item")}>{language}</div>
@@ -38,7 +38,6 @@ export type CodeProps = CodeFooterProps & {
 
 function Code({
    lines = 0,
-   language = "",
    selected = "",
    withCopyButton = true,
    withFooter = false,
@@ -46,6 +45,22 @@ function Code({
 }: PropsWithChildren<CodeProps>) {
    const codeRef = useRef<HTMLPreElement>(null);
    const [isCopied, setCopied] = useState<boolean>(false);
+   const [lang, setLang] = useState<string>("");
+
+   const checkLanguage = (language: string) => {
+      // @ts-ignore
+      const l = children.props.className.split("-")[1].split(" ")[0];
+      if (l) {
+         setLang(l);
+      }
+   };
+
+   useEffect(() => {
+      if (lang === "") {
+         checkLanguage(lang);
+      }
+      return;
+   }, [lang]);
 
    const copyToClipboard = async () => {
       try {
@@ -96,16 +111,25 @@ function Code({
             )}
             <pre
                className={clsx(
-                  "overflow-x-auto font-mono text-lg font-bold text-[#f3f3f3]"
+                  "overflow-x-auto font-mono text-lg font-semibold text-[#f3f3f3]"
                )}
                ref={codeRef}
             >
+               {lang === "bash" && (
+                  <span
+                     className={clsx(
+                        "relative top-[1.4px] select-none pr-2 text-center text-green-400",
+                        "before:content-['$']"
+                     )}
+                  />
+               )}
+
                {children}
             </pre>
          </div>
 
          {withFooter && (
-            <CodeFooter lines={lines} selected={selected} language={language} />
+            <CodeFooter lines={lines} selected={selected} language={lang} />
          )}
       </div>
    );
