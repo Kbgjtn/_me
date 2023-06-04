@@ -4,19 +4,21 @@ import { Mdx } from "@/components/mdx/Mdx";
 import { getLayout } from "@/layouts/BlogLayout";
 import { getPostData, getPosts } from "@/lib/post";
 import { MDXRemote } from "next-mdx-remote";
+import { MDXProvider } from "@mdx-js/react";
 import { serialize } from "next-mdx-remote/serialize";
 import { NextSeo } from "next-seo";
 import Head from "@/components/head";
 import Image from "@/components/mdx/Image";
 import remarkGfm from "remark-gfm";
 import rehypePlugins from "rehype-plugins";
-import { useEffect } from "react";
+import { PropsWithChildren, useEffect } from "react";
 import { PostMeta } from "@/types/post";
 import { useTheme } from "next-themes";
 import { getHost } from "@/helpers";
 import { Link } from "@/components/mdx/Link";
 import { Hr } from "@/components/mdx/Hr";
 import { Table } from "@/components/mdx/Table";
+import remarkCodeTitles from "../../lib/remark-code-title";
 import Labels from "@/components/mdx/Labels";
 
 function Post({ content, meta }: { content: any; meta: PostMeta }) {
@@ -61,24 +63,24 @@ function Post({ content, meta }: { content: any; meta: PostMeta }) {
             }}
          />
          <main>
-            <Mdx fronmatter={meta}>
-               <MDXRemote
-                  {...content}
-                  lazy
-                  components={{
-                     pre: Code,
-                     h1: H2,
-                     h2: H2,
-                     h3: H3,
-                     link: Link,
-                     a: Link,
-                     hr: Hr,
-                     table: Table,
-                     Image,
-                     label: Labels,
-                  }}
-               />
-            </Mdx>
+            <MDXProvider
+               components={{
+                  pre: Code,
+                  h1: H2,
+                  h2: H2,
+                  h3: H3,
+                  a: Link,
+                  hr: Hr,
+                  table: Table,
+                  Image,
+                  label: Labels,
+                  Code,
+               }}
+            >
+               <Mdx fronmatter={meta}>
+                  <MDXRemote {...content} lazy />
+               </Mdx>
+            </MDXProvider>
          </main>
       </>
    );
@@ -101,8 +103,9 @@ export const getStaticProps = async ({ params }: { params: any }) => {
    const { content, meta } = getPostData(params.slug);
    const mdxSource = await serialize(content, {
       mdxOptions: {
+         // @ts-ignore
          rehypePlugins: [rehypePlugins],
-         remarkPlugins: [remarkGfm],
+         remarkPlugins: [remarkGfm, remarkCodeTitles],
       },
    });
 
