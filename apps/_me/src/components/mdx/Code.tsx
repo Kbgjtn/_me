@@ -111,7 +111,7 @@ function Code({
             )}
             <pre
                className={clsx(
-                  "overflow-x-auto font-mono text-lg font-semibold text-[#f3f3f3]"
+                  "overflow-x-auto font-mono text-lg font-medium text-[#f3f3f3]"
                )}
                ref={codeRef}
             >

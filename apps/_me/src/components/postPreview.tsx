@@ -84,7 +84,7 @@ function PostPreview({
                            </div>
                            <div
                               className={clsx(
-                                 "relative h-full max-h-16 overflow-y-hidden font-semibold",
+                                 "relative mt-4 h-full max-h-16 overflow-y-hidden font-semibold",
                                  "text-ellipsis text-xl"
                               )}
                            >

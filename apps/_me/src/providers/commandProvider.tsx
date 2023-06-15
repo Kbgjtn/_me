@@ -61,10 +61,10 @@ function CommandBar(props: PropsWithChildren) {
       {
          id: "uses",
          name: "Uses stack",
-         shortcut: ["g", "h"],
+         shortcut: ["g", "u"],
          keywords: "go-uses",
          section: "Uses",
-         perform: () => router.push("/posts/meuses/"),
+         perform: () => router.push("/posts/my-uses/"),
          icon: <FileIcon className={"stroke-earie h-6 w-6 fill-[#EAF205]"} />,
       },
       {
@@ -115,7 +115,7 @@ function CommandBar(props: PropsWithChildren) {
       {
          id: "socialmedia",
          name: "Social Media",
-         shortcut: ["s"],
+         shortcut: ["g", "s"],
          keywords: "Go to my social media",
          section: "Social Media",
          icon: (

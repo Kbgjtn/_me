@@ -79,7 +79,10 @@ function NavPreferences(_props: PropsWithChildren) {
          <li className={clsx("translate-x-16 pl-12 max-md:translate-x-12")}>
             <hr
                className={clsx(
-                  "border-silversand_shades-900 absolute inset-0 w-8 -translate-x-4 translate-y-4 rotate-90 border-[1px]"
+                  "absolute",
+                  "border-silversand_shades-800 inset-0 w-8  border-[1px]",
+                  "-translate-x-4 translate-y-4 rotate-90",
+                  "dark:border-silversand_shades-900"
                )}
             />
 
@@ -96,7 +99,7 @@ function NavPreferences(_props: PropsWithChildren) {
             >
                ⌘
             </kbd>
-            <span className={clsx("relative max-md:hidden")}>
+            <span className={clsx("group relative max-md:hidden")}>
                <ShortcutHome mobileView={false} />
             </span>
          </li>
