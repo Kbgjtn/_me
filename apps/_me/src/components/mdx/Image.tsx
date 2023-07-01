@@ -19,7 +19,7 @@ export default function Image({
    return (
       <div
          className={clsx(
-            "mdx-image relative items-center justify-center self-center justify-self-center"
+            "mdx-image relative items-center justify-center self-center justify-self-center xl:px-12"
          )}
       >
          {immersive && image ? (

@@ -34,7 +34,7 @@ function PostPreview({
                "text-center text-6xl font-semibold sm:p-5 sm:text-6xl md:p-6 md:text-7xl lg:text-8xl xl:text-8xl 2xl:text-8xl"
             )}
          >
-            Blog
+            Posts
          </h1>
 
          {isInView ? (
