@@ -7,6 +7,7 @@ export interface PostMeta {
    image: string;
    author: string;
    timeToRead: number | string;
+   published: boolean;
 }
 
 export interface TimeToReadArgs {

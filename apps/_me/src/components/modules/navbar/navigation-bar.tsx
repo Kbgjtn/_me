@@ -1,14 +1,13 @@
-import { motion } from "framer-motion";
-import { PropsWithChildren, useState } from "react";
-import { useRouter } from "next/router";
 import clsx from "clsx";
-import { z } from "zod";
+import { useKBar } from "kbar";
+import { getHost } from "@/helpers";
+import { motion } from "framer-motion";
+import { useRouter } from "next/router";
+import { PropsWithChildren, useState } from "react";
+import ShortcutHome from "@/components/shortcutHome";
+import { BookIcon, MeIcon, PostsIcon } from "@/components/icons";
 
 import type { ReactElement } from "react";
-import { getHost } from "@/helpers";
-import { BookIcon, MeIcon, PostsIcon, WidgetIcon } from "@/components/icons";
-import { useKBar } from "kbar";
-import ShortcutHome from "@/components/shortcutHome";
 
 export type NavigationLinkItemProps = {
    title: string;
@@ -82,7 +81,6 @@ function NavPreferences(_props: PropsWithChildren) {
                   "border-silversand_shades-900 absolute inset-0 w-8 -translate-x-4 translate-y-4 rotate-90 border-[1px]"
                )}
             />
-
             <kbd
                className={clsx(
                   "group mx-1 rounded-lg px-2.5 py-[0.5px] text-2xl font-semibold",
@@ -109,7 +107,7 @@ interface NavBarProps {
    props?: PropsWithChildren;
 }
 
-function NavBar({ items = navLinksItem, props = null }: NavBarProps) {
+function NavBar({ items = navLinksItem, props }: NavBarProps) {
    return (
       <motion.nav
          className={clsx(
