@@ -32,8 +32,8 @@ export default function ShortcutHome({ mobileView = true }: Props) {
                   className={clsx(
                      "mx-1 rounded-md px-4 py-1.5",
                      "bg-silversand_shades-600",
+                     "text-md font-semibold text-black",
                      "dark:bg-silversand_shades-900",
-                     "text-md text-yellow1 font-semibold",
                      "dark:group-hover:text-red1"
                   )}
                >
@@ -54,8 +54,10 @@ export default function ShortcutHome({ mobileView = true }: Props) {
                <kbd
                   className={clsx(
                      "mx-1 rounded-md px-4 py-1.5",
-                     "bg-silversand_shades-900",
-                     "text-md text-yellow1 font-semibold",
+                     "bg-silversand_shades-600",
+                     "group-hover:text-yellow1 text-md font-semibold text-black",
+                     "dark:bg-silversand_shades-900",
+                     "dark:text-yellow1",
                      "dark:group-hover:text-red1"
                   )}
                >
@@ -65,8 +67,11 @@ export default function ShortcutHome({ mobileView = true }: Props) {
                <kbd
                   className={clsx(
                      "mx-1 rounded-md px-2 py-1.5",
-                     "bg-silversand_shades-900",
-                     "text-md text-yellow1 font-semibold",
+                     "bg-silversand_shades-600",
+                     "text-md font-semibold",
+                     "group-hover:text-yellow1 text-black",
+                     "dark:bg-silversand_shades-900",
+                     "dark:text-yellow1",
                      "dark:group-hover:text-red1"
                   )}
                >
