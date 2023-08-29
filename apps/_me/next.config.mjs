@@ -8,8 +8,8 @@ import remarkPlugins from "remark-plugins";
 const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self';
-  child-src coocobolo.com;
-  style-src 'self' coocobolo.com;
+  child-src https://coocobolo.vercel.app/;
+  style-src 'self' https://coocobolo.vercel.app;
   font-src 'self';  
 `;
 
@@ -20,14 +20,14 @@ const securityHeaders = [
    },
    {
       key: "Access-Control-Allow-Origin",
-      value: "https://www.coocobolo.com",
+      value: "https://coocobolo.vercel.app",
    },
    {
       key: "Permissions-Policy",
       value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
    },
    {
-      key: "Server",
+      key: "server",
       value: "coocobolo",
    },
    {
