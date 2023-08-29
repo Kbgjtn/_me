@@ -5,11 +5,13 @@ import remarkPlugins from "remark-plugins";
 
 /** @type {import('next').NextConfig} */
 
+const domain = "https://coocobolo.com";
+
 const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self';
-  child-src https://coocobolo.vercel.app/;
-  style-src 'self' https://coocobolo.vercel.app;
+  child-src ${domain};
+  style-src 'self' ${domain};
   font-src 'self';  
 `;
 
@@ -20,7 +22,7 @@ const securityHeaders = [
    },
    {
       key: "Access-Control-Allow-Origin",
-      value: "https://coocobolo.vercel.app",
+      value: domain,
    },
    {
       key: "Permissions-Policy",
@@ -50,10 +52,6 @@ const securityHeaders = [
       key: "Referrer-Policy",
       value: "no-referrer",
    },
-   // {
-   // 	key: "Content-Security-Policy",
-   // 	value: ContentSecurityPolicy.replace(/\s{2,}/g, " ").trim(),
-   // },
 ];
 
 const nextConfig = {
