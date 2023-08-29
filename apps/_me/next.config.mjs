@@ -5,11 +5,13 @@ import remarkPlugins from "remark-plugins";
 
 /** @type {import('next').NextConfig} */
 
+const domain = "https://coocobolo.com";
+
 const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self';
-  child-src coocobolo.com;
-  style-src 'self' coocobolo.com;
+  child-src ${domain};
+  style-src 'self' ${domain};
   font-src 'self';  
 `;
 
@@ -20,14 +22,14 @@ const securityHeaders = [
    },
    {
       key: "Access-Control-Allow-Origin",
-      value: "https://www.coocobolo.com",
+      value: domain,
    },
    {
       key: "Permissions-Policy",
       value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
    },
    {
-      key: "Server",
+      key: "server",
       value: "coocobolo",
    },
    {
@@ -50,10 +52,6 @@ const securityHeaders = [
       key: "Referrer-Policy",
       value: "no-referrer",
    },
-   // {
-   // 	key: "Content-Security-Policy",
-   // 	value: ContentSecurityPolicy.replace(/\s{2,}/g, " ").trim(),
-   // },
 ];
 
 const nextConfig = {
