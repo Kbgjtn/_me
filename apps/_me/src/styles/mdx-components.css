@@ -2,7 +2,7 @@
    @apply flex items-center gap-4 font-extrabold;
 
    svg {
-      @apply h-4 w-4 text-[#1c1c1c];
+      @apply text-silversand_shades-800 h-4 w-4;
       @apply dark:text-current;
    }
 
@@ -21,8 +21,10 @@
    &__anchor {
       @apply border-charcoal bg-silversand_shades-500 hidden cursor-pointer items-center justify-center rounded-lg border opacity-0;
       @apply lg:flex;
-      @apply dark:border-earie dark:bg-slate-200/5;
       @apply lg:focus:opacity-100;
+      @apply lg:hover:text-yellow1;
+      @apply dark:border-earie dark:bg-slate-200/5;
+      @apply lg:dark:hover:text-yellow1;
    }
 
    &--h2 {

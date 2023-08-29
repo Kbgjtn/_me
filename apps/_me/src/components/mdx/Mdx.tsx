@@ -61,10 +61,15 @@ export const Mdx = memo<MdxProps>(({ fronmatter, children }: MdxProps) => {
                </div>
                <div className="text-sm">by: {author}</div>
             </div>
-            <div className="container">
+            <div
+               className={clsx(
+                  "container flex content-center items-center justify-center",
+                  "max-w-4xl"
+               )}
+            >
                <Image
                   className={clsx(
-                     "relative h-full w-full rounded-xl object-cover object-center"
+                     "relative h-auto w-full rounded-xl object-cover object-center "
                   )}
                   src={image}
                   title={title}

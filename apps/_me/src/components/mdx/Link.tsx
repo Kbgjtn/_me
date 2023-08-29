@@ -12,7 +12,7 @@ type Props = DetailedHTMLProps<
    HTMLAnchorElement
 >;
 
-export function Link({ children, href }: Props) {
+export function Link({ children, href, title }: Props) {
    if (!href) {
       return <span>{children}</span>;
    }
@@ -25,6 +25,7 @@ export function Link({ children, href }: Props) {
             <a
                href={href}
                target="_blank"
+               title={title ? title : ""}
                rel="noreferrer nofollow"
                className={clsx("link")}
             >
@@ -34,20 +35,24 @@ export function Link({ children, href }: Props) {
          );
       case "mail":
          return (
-            <a href={href} className={clsx("link")}>
+            <a href={href} title={title ? title : ""} className={clsx("link")}>
                <MailIcon />
                {children}
             </a>
          );
       case "hash":
          return (
-            <a href={href} className={clsx("link")}>
+            <a href={href} title={title ? title : ""} className={clsx("link")}>
                {children}
             </a>
          );
       default:
          return (
-            <NextLink href={href} className={clsx("link")}>
+            <NextLink
+               href={href}
+               title={title ? title : ""}
+               className={clsx("link")}
+            >
                {children}
             </NextLink>
          );

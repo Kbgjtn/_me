@@ -30,10 +30,14 @@ export default function Image({
                   "hidden", // disable immersive on light mode
                   "dark:block"
                )}
+               draggable={false}
             />
          ) : null}
          <NextImage
             src={src}
+            draggable={false}
+            quality={100}
+            loading="lazy"
             className={clsx("rounded-lg", className)}
             {...props}
             onLoadingComplete={(img) => {
